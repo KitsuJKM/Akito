@@ -319,7 +319,6 @@ export const COUNTRY_SUGGESTIONS: string[] = [
 ];
 
 export const BUDGET_RANGES: string[] = [
-  'Menos de $50 USD',
   '$50 – $100 USD',
   '$100 – $200 USD',
   'Más de $200 USD',
