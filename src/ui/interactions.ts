@@ -1,11 +1,12 @@
 import {
   AUDIENCE_STORIES,
   BUDGET_RANGES,
-  COUNTRY_SUGGESTIONS,
+  DESTINATION_COUNTRIES,
   FAQ_ITEMS,
   FRICTION_PAIRS,
   GIFT_CATEGORIES,
   HERO_ROUTES,
+  ORIGIN_COUNTRIES,
   PROCESS_STEPS,
   QUICK_GIFT_CHIPS,
   QUICK_WHATSAPP_MESSAGE,
@@ -97,6 +98,7 @@ function renderFrictions(): void {
     const top = createEl('div', 'friction-card__top');
     top.append(
       createEl('span', 'friction-card__num tabular-num', item.stepIndex),
+      createEl('span', 'friction-role friction-role--problem', 'El problema'),
       createEl('h3', 'friction-problem__title', item.problemTitle),
     );
 
@@ -110,6 +112,7 @@ function renderFrictions(): void {
 
     const solution = createEl('div');
     solution.append(
+      createEl('span', 'friction-role friction-role--solution', 'Cómo lo solucionamos'),
       createEl('h4', 'friction-solution__title', item.solutionTitle),
       createEl('p', 'friction-solution__text', item.solutionText),
     );
@@ -334,16 +337,21 @@ function renderGiftChips(): void {
   });
 }
 
-function renderCountrySuggestions(): void {
-  const datalist = document.getElementById('country-suggestions');
+function fillDatalist(id: string, countries: string[]): void {
+  const datalist = document.getElementById(id);
   if (!datalist) return;
 
   datalist.replaceChildren();
-  COUNTRY_SUGGESTIONS.forEach((country) => {
+  countries.forEach((country) => {
     const option = document.createElement('option');
     option.value = country;
     datalist.appendChild(option);
   });
+}
+
+function renderCountrySuggestions(): void {
+  fillDatalist('origin-country-suggestions', ORIGIN_COUNTRIES);
+  fillDatalist('destination-country-suggestions', DESTINATION_COUNTRIES);
 }
 
 export function initInteractions(
@@ -813,7 +821,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
       if (!chip || !chip.dataset.chipValue) return;
 
       const value = chip.dataset.chipValue;
-      if (whatToSendEl.value.trim().toLowerCase() === value.toLowerCase()) {
+      const isToggleOff = whatToSendEl.value.trim().toLowerCase() === value.toLowerCase();
+      if (isToggleOff) {
         whatToSendEl.value = '';
       } else {
         whatToSendEl.value = value;
@@ -821,6 +830,11 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
 
       setFieldError(whatToSendEl, 'err-whatToSend', '');
       updatePreviewAndProgress();
+
+      if (!isToggleOff && value === 'Tengo otra idea') {
+        whatToSendEl.focus({ preventScroll: true });
+        whatToSendEl.select();
+      }
     });
   }
 

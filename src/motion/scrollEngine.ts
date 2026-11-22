@@ -38,7 +38,7 @@ function setFrictionTrackerState(
     node.classList.toggle('is-active', idx + 1 <= activeFriction);
   });
   if (trackerText) {
-    trackerText.textContent = `${activeFriction} de ${cards.length}`;
+    trackerText.textContent = `${activeFriction} de ${cards.length} problemas resueltos`;
   }
 }
 

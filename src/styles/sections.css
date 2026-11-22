@@ -574,10 +574,11 @@
 
 .friction-card__top {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.65rem;
-  margin-bottom: 0.65rem;
-  padding-bottom: 0.6rem;
+  gap: 0.45rem 0.65rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.65rem;
   border-bottom: 1px solid rgba(250, 247, 242, 0.08);
 }
 
@@ -589,11 +590,29 @@
   flex-shrink: 0;
 }
 
+.friction-role--problem {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(250, 247, 242, 0.58);
+  padding: 0.12rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(250, 247, 242, 0.07);
+  flex-shrink: 0;
+}
+
+.friction-role--solution {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-coral);
+  margin-bottom: 0.15rem;
+}
+
 .friction-problem__title {
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 500;
-  color: rgba(250, 247, 242, 0.72);
+  color: rgba(250, 247, 242, 0.8);
 }
 
 .friction-card__solution-row {
@@ -855,7 +874,7 @@
 
 /* Mantiene el objetivo del puntero estable; el interior lleva la elevación */
 .gift-card {
-  grid-column: span 4;
+  grid-column: span 6;
   display: flex;
 }
 
@@ -2108,7 +2127,7 @@
 
   .audience-tabs__layer {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .audience-tab {

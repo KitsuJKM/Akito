@@ -6,7 +6,7 @@
     <title>Akito · Regalos a distancia — Conectando historias sin importar los kilómetros</title>
     <meta
       name="description"
-      content="Akito gestiona regalos entre países con tiendas y artesanos locales en destino. Una sola conversación, cotización clara y seguimiento hasta la entrega."
+      content="Akito gestiona regalos entre países con tiendas locales en destino. Una sola conversación, cotización clara y seguimiento hasta la entrega."
     />
     <meta property="og:title" content="Akito · Regalos a distancia" />
     <meta
@@ -120,7 +120,7 @@
               </li>
               <li class="hero-footnote-item">
                 <i data-lucide="map-pin" aria-hidden="true"></i>
-                <span>Artesanos y tiendas en destino</span>
+                <span>Tiendas locales y detalles hechos a mano</span>
               </li>
               <li class="hero-footnote-item">
                 <i data-lucide="shield-check" aria-hidden="true"></i>
@@ -195,7 +195,7 @@
               <div class="hero-route-card" id="hero-route-card">
                 <p class="hero-route-card__label">Idea gestionada en destino</p>
                 <p class="hero-route-card__idea" id="hero-route-idea">
-                  Ramo artesanal de peonías y nota escrita a mano
+                  Ramo de flores y nota escrita a mano
                 </p>
                 <p class="hero-route-card__status">
                   <span class="hero-route-card__status-dot" aria-hidden="true"></span>
@@ -244,7 +244,7 @@
                 <span class="friction-tracker__node" data-tracker-node="4">4</span>
               </div>
               <span class="friction-tracker__label tabular-num" id="friction-tracker-text">
-                1 de 4
+                1 de 4 problemas resueltos
               </span>
             </div>
           </div>
@@ -317,7 +317,7 @@
       <section class="section-gifts" id="que-enviar" aria-labelledby="gifts-title">
         <div class="container">
           <h2 class="section-title" id="gifts-title">
-            La idea manda. Lo armamos según lo que exista en su ciudad.
+            Gestionamos tu idea según la disponibilidad de las tiendas locales en la ciudad de destino.
           </h2>
           <p class="section-lead">
             Explora el tipo de detalle que imaginas o tócalo para llevarlo directo a tu cotización.
@@ -328,19 +328,19 @@
           <div class="gifts-ribbon-track" id="gifts-scroll-ribbon">
             <span>Flores frescas</span>
             <span class="gifts-ribbon__dot">•</span>
-            <em>Artesanías locales</em>
+            <em>Tortas</em>
             <span class="gifts-ribbon__dot">•</span>
             <span>Desayunos en destino</span>
             <span class="gifts-ribbon__dot">•</span>
-            <em>Joyería de autor</em>
+            <em>Joyería</em>
             <span class="gifts-ribbon__dot">•</span>
-            <span>Cajas a medida</span>
+            <span>Cajas personalizadas</span>
             <span class="gifts-ribbon__dot">•</span>
-            <em>Experiencias</em>
+            <em>Peluches y flores</em>
             <span class="gifts-ribbon__dot">•</span>
-            <span>Dedicatorias a mano</span>
+            <span>Flores eternas</span>
             <span class="gifts-ribbon__dot">•</span>
-            <em>Tortas artesanales</em>
+            <em>Amigurumis</em>
           </div>
         </div>
 
@@ -351,9 +351,9 @@
 
           <div class="gifts-reassurance">
             <p>
-              <strong>¿Imaginaste algo distinto?</strong> Si la tienda local no puede hacer exactamente
-              lo que pensaste, buscamos otra opción en esa ciudad o te proponemos una alternativa
-              equivalente antes de cotizar.
+              <strong>¿Tienes otra idea en mente?</strong> Cuéntanos qué te gustaría regalar,
+              incluso si es algo muy personalizado. Te ayudamos a darle forma y buscamos opciones
+              disponibles en la ciudad de destino antes de preparar tu cotización.
             </p>
             <a href="#cotizar" class="btn btn--secondary btn--sm" data-scroll-to="#cotizar">
               Cuéntanos tu idea
@@ -370,7 +370,7 @@
         <div class="container">
           <div class="audience-block">
             <h2 class="section-title" id="story-title">
-              Cada distancia tiene una historia que merece llegar intacta.
+              Porque estar lejos no significa estar ausente.
             </h2>
 
             <div class="audience-tabs" id="audience-tabs" role="tablist" aria-label="Historias según quién envía">
@@ -559,7 +559,7 @@
                     name="originCountry"
                     type="text"
                     class="field-control"
-                    list="country-suggestions"
+                    list="origin-country-suggestions"
                     placeholder="Ej. Colombia, Estados Unidos..."
                   />
                 </div>
@@ -573,7 +573,7 @@
                     name="destinationCountry"
                     type="text"
                     class="field-control"
-                    list="country-suggestions"
+                    list="destination-country-suggestions"
                     placeholder="Ej. España, México, Argentina..."
                     required
                     aria-describedby="err-destinationCountry"
@@ -680,7 +680,10 @@
                 </div>
               </div>
 
-              <datalist id="country-suggestions">
+              <datalist id="origin-country-suggestions">
+                <!-- Hidratado desde src/config/akito.ts -->
+              </datalist>
+              <datalist id="destination-country-suggestions">
                 <!-- Hidratado desde src/config/akito.ts -->
               </datalist>
 
