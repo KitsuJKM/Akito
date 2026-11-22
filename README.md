@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="brand/logos/logo-positivo.png" alt="Akito" width="380" />
+<img src="brand/logo-akito.png" alt="Akito" width="380" />
 
 # Akito · Regalos a distancia
 
@@ -10,41 +10,68 @@
 
 ---
 
-## La idea
+## Qué hacemos
 
-Hay personas que viven lejos pero siguen estando en todo lo que piensas. Akito existe para que ese cariño no se quede en un mensaje: se convierta en un regalo que llega, se abre y se siente.
+Akito gestiona regalos entre países.
 
-No somos una paquetería ni un catálogo infinito. Somos una marca de **regalos personalizados para parejas y amigos a distancia**. Curamos el detalle, escribimos la dedicatoria contigo y coordinamos la entrega con la persona y la ciudad correctas.
+Una persona nos escribe desde su país porque quiere enviarle algo a alguien que vive en otro. Nosotros escuchamos la idea, la aterrizamos, preparamos una cotización y buscamos una **tienda local en el país de destino**. Le compartimos la idea a la tienda, coordinamos la elaboración y el empaque, y gestionamos la entrega hasta que el regalo llega bien.
 
-**La promesa:** no enviamos solo una caja; llevamos lo que quieres decirle.
+No vendemos un producto único ni un catálogo rígido: **gestionamos una idea y una entrega entre dos países**.
 
-## El nombre
+## El problema
 
-**Akito** nace de *Akai* (rojo) e *Ito* (hilo). El nombre recoge la idea del **hilo rojo del destino** y la filosofía del *Musubi*: los vínculos que se entrelazan aunque la distancia sea larga.
+Enviar un regalo al exterior suele terminar en una de estas situaciones:
 
-De ahí sale el lenguaje visual de la marca: un trazo carmesí continuo, dos extremos, una caja y una postal. El vacío entre los dos extremos representa los kilómetros.
+- No conoces proveedores confiables en el país de destino.
+- No sabes cuánto cuesta realmente el producto, la gestión y la entrega.
+- No puedes confirmar que el regalo llegue bien ni que se vea como lo imaginaste.
+- La idea se pierde entre traducciones, envíos y intermediarios.
 
-## Para quién
-
-- Parejas que viven en ciudades o países distintos.
-- Amigos que se mudaron y dejaron una rutina compartida.
-- Familias que quieren enviar un detalle con intención, no un regalo genérico.
-- Personas de 20 a 40 años, en Colombia y Latinoamérica, que valoran lo artesanal y lo emocional por encima de lo masivo.
+Akito existe para quitar esa fricción: una sola conversación, una cotización clara y una tienda local que arma el regalo en destino.
 
 ## Cómo funciona
 
-1. **Elige una intención.** «Te extraño», «Gracias» o «Celebremos». También puedes escribir tus propias palabras.
-2. **Escribe tu dedicatoria.** La postal se prepara con tu mensaje y el nombre de quien lo recibe.
-3. **Consulta por WhatsApp.** Akito revisa contigo el detalle, el valor y la fecha de entrega. Sin sorpresas.
-4. **Akito prepara y envía.** El regalo llega a la ciudad acordada y la conversación sigue abierta hasta la entrega.
+1. **Nos escribes.** Cuéntanos desde qué país escribes, a qué país va el regalo, para quién es, qué idea tienes y para qué fecha lo necesitas.
+2. **Entendemos la idea.** Afinamos el detalle, el tono y lo que quieres transmitir. Si no tienes una idea cerrada, la construimos contigo.
+3. **Te damos una cotización.** Producto, gestión local, empaque y entrega. Todo claro antes de confirmar.
+4. **Buscamos una tienda local en destino.** Validamos que pueda elaborar la idea, los tiempos y la calidad.
+5. **Coordinamos con la tienda.** Le compartimos la idea, el nombre de quien recibe, la dedicatoria y los detalles. Revisamos cómo queda.
+6. **Confirmas y gestionamos la entrega.** Acordamos valor, fecha y dirección; la tienda arma el regalo y nosotros coordinamos la entrega.
+7. **Hacemos seguimiento.** Te contamos cómo avanza y confirmamos la recepción.
 
-## Diferenciales
+## Qué se puede enviar
 
-- **Curaduría, no volumen:** pocas opciones, bien elegidas.
-- **Dedicatoria primero:** el regalo empieza por lo que quieres decir.
-- **Conversación real:** WhatsApp en lugar de un checkout frío.
-- **Claridad antes de confirmar:** detalle, valor y fecha se acuerdan contigo.
-- **Narrativa de marca:** el hilo rojo conecta la identidad, el empaque y la experiencia.
+La idea manda. Según lo que exista en la ciudad de destino, podemos gestionar:
+
+- Detalles personalizados y artesanías.
+- Flores, tortas, cestas y desayunos.
+- Joyería, accesorios y objetos de diseño.
+- Cajas de regalo curadas con productos locales.
+- Experiencias y planes para dos o para un grupo.
+- Ediciones especiales para fechas concretas.
+
+Si la tienda local no puede hacer exactamente lo que imaginaste, buscamos otra opción o te proponemos una alternativa antes de cotizar.
+
+## Cobertura y confianza
+
+- Trabajamos con **tiendas y artesanos locales en el país de destino**.
+- La disponibilidad se confirma en la cotización, según la ciudad y la fecha.
+- No prometemos un pedido hasta que el detalle, el valor y la entrega estén acordados.
+- Cuidamos los datos de quien envía y de quien recibe; solo se usan para gestionar el regalo.
+- El seguimiento es parte del servicio, no un extra.
+
+## Para quién
+
+- Parejas que viven en países distintos.
+- Amigos que se mudaron y quieren seguir presentes.
+- Familias separadas por la distancia.
+- Equipos o marcas que quieren enviar un detalle a alguien en otro país.
+
+## El nombre
+
+**Akito** nace de *Akai* (rojo) e *Ito* (hilo). Recoge la idea del **hilo rojo del destino** y la filosofía del *Musubi*: los vínculos que se entrelazan aunque la distancia sea larga.
+
+Ese hilo es la metáfora del servicio: una persona en un país, otra en otro, y Akito sosteniendo el trazo entre ambas.
 
 ## Identidad
 
@@ -66,13 +93,17 @@ De ahí sale el lenguaje visual de la marca: un trazo carmesí continuo, dos ext
 
 ### Voz
 
-Íntima, cálida, artesanal y poética, sin clichés empalagosos. Habla de tú. Usa metáforas de hilos, lazos, encuentros, cielos compartidos y detalles hechos a medida. No promete un pedido confirmado hasta que Akito lo confirma.
+Íntima, cálida, artesanal y poética, sin clichés empalagosos. Habla de tú. Usa metáforas de hilos, lazos, encuentros y cielos compartidos. No promete un pedido confirmado hasta que Akito lo confirma.
 
 ### Logotipo
 
-- **Versión positiva:** isotipo carmesí + tipografía azul sobre marfil.
-- **Versión negativa:** isotipo carmesí + tipografía marfil sobre azul.
-- **Isotipo aislado:** para tamaños menores a 40 px, favicons y sellos.
+<p>
+  <img src="brand/logo-akito.png" alt="Logo Akito" width="300" />
+  <img src="brand/logo-perfil.png" alt="Logo de perfil Akito" width="120" />
+</p>
+
+- **Logo principal:** `brand/logo-akito.png`, para fondos claros y presentaciones de marca.
+- **Logo de perfil:** `brand/logo-perfil.png`, para redes sociales y avatares.
 - **Área de protección:** un margen libre equivalente a la altura de la «o» de Akito.
 - No deformar, recolorear ni alterar la proporción del trazo.
 
@@ -80,29 +111,20 @@ De ahí sale el lenguaje visual de la marca: un trazo carmesí continuo, dos ext
 
 | Archivo | Uso |
 |---|---|
-| [`brand/logos/logo-positivo.png`](brand/logos/logo-positivo.png) | Fondo claro |
-| [`brand/logos/logo-negativo.png`](brand/logos/logo-negativo.png) | Fondo oscuro |
-| [`brand/logos/isotipo.png`](brand/logos/isotipo.png) | Marca corta y sellos |
-| [`brand/logos/avatar-akito-512.png`](brand/logos/avatar-akito-512.png) | Perfil de redes |
-| [`brand/logos/favicon-512.png`](brand/logos/favicon-512.png) | Favicon |
-| [`brand/imagery/banner-akito.jpg`](brand/imagery/banner-akito.jpg) | Banner principal |
-| [`brand/imagery/hero-left-792.webp`](brand/imagery/hero-left-792.webp) | Manos con la caja, cielo azul |
-| [`brand/imagery/hero-right-634.webp`](brand/imagery/hero-right-634.webp) | Manos bajo la luz coral |
-| [`brand/manual_de_identidad_de_marca_akito.md`](brand/manual_de_identidad_de_marca_akito.md) | Manual completo de marca |
-
-Los JPG originales están en [`brand/originales/`](brand/originales/).
+| [`brand/logo-akito.png`](brand/logo-akito.png) | Logo principal |
+| [`brand/logo-perfil.png`](brand/logo-perfil.png) | Logo de perfil y redes |
 
 ## Estado
 
-- [x] Concepto, nombre y tono de voz.
-- [x] Identidad visual y activos base.
-- [ ] Sitio web público.
-- [ ] Catálogo de detalles y precios.
-- [ ] Fotografía de producto y empaque.
-- [ ] Casos reales y testimonios.
+- [x] Modelo de servicio definido: regalos entre países con tienda local en destino.
+- [x] Identidad base y logos.
+- [ ] Red de tiendas y artesanos por país.
+- [ ] Protocolo de cotización, tiempos y cobertura.
+- [ ] Seguimiento y confirmación de entrega.
+- [ ] Sitio web y canal de atención.
 
 ## Derechos
 
 © 2026 Akito. Todos los derechos reservados.
 
-La identidad, los logos, las imágenes y el manual no pueden reutilizarse, modificarse ni distribuirse sin autorización escrita de Akito.
+La identidad y los logos no pueden reutilizarse, modificarse ni distribuirse sin autorización escrita de Akito.
