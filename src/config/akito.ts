@@ -4,7 +4,7 @@
  * o reemplaza el valor por defecto aquí (ej: "573101234567").
  */
 export const WHATSAPP_NUMBER = (
-  import.meta.env.VITE_WHATSAPP_NUMBER || '573000000000'
+  import.meta.env.VITE_WHATSAPP_NUMBER || '573157317129'
 ).trim();
 
 export const QUICK_WHATSAPP_MESSAGE =
@@ -15,6 +15,12 @@ export const BRAND = {
   tag: 'REGALOS A DISTANCIA',
   tagline: 'Conectando historias sin importar los kilómetros.',
   copyright: '© 2026 Akito · Regalos a distancia. Todos los derechos reservados.',
+} as const;
+
+export const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/somos.akito/',
+  tiktok: 'https://www.tiktok.com/@somos.akito',
+  handle: '@somos.akito',
 } as const;
 
 export interface RouteShowcase {

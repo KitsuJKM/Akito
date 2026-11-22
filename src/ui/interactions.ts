@@ -9,6 +9,7 @@ import {
   PROCESS_STEPS,
   QUICK_GIFT_CHIPS,
   QUICK_WHATSAPP_MESSAGE,
+  SOCIAL_LINKS,
   TRUST_COMMITMENTS,
   type RouteShowcase,
 } from '../config/akito';
@@ -353,6 +354,7 @@ export function initInteractions(
   initAudienceTabBar();
   initFaqAccordion();
   initFloatingWhatsApp();
+  initSocialLinks();
   initQuoteFormAndBridge(getScrollTo);
   initMotionToggle(onMotionModeChange);
 }
@@ -391,6 +393,23 @@ function initFloatingWhatsApp(): void {
   btn.href = buildWhatsAppUrl(QUICK_WHATSAPP_MESSAGE);
   btn.addEventListener('click', () => {
     trackEvent('floating_whatsapp_click');
+  });
+}
+
+function initSocialLinks(): void {
+  document.querySelectorAll<HTMLAnchorElement>('[data-social]').forEach((link) => {
+    const network = link.dataset.social;
+    if (network === 'instagram') {
+      link.href = SOCIAL_LINKS.instagram;
+    } else if (network === 'tiktok') {
+      link.href = SOCIAL_LINKS.tiktok;
+    }
+
+    link.addEventListener('click', () => {
+      if (network) {
+        trackEvent('social_click', { network });
+      }
+    });
   });
 }
 
