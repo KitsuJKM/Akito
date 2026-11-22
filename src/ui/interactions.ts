@@ -465,7 +465,15 @@ function initHeroRouteSwitcher(): void {
   const routeStatus = document.getElementById('hero-route-status');
   const routeCard = document.getElementById('hero-route-card');
   const threadPath = document.getElementById('hero-thread-path') as SVGPathElement | null;
+  const threadGuide = document.getElementById('hero-thread-guide') as SVGPathElement | null;
+  const threadGlow = document.getElementById('hero-thread-glow') as SVGPathElement | null;
   const threadBead = document.getElementById('hero-thread-bead') as SVGCircleElement | null;
+  const originPin = document.getElementById('hero-origin-pin') as SVGCircleElement | null;
+  const originPulse = document.getElementById('hero-origin-pulse') as SVGCircleElement | null;
+  const destPin = document.getElementById('hero-dest-pin') as SVGCircleElement | null;
+  const destPulse = document.getElementById('hero-dest-pulse') as SVGCircleElement | null;
+  const mapOriginLabel = document.getElementById('hero-map-origin-label') as SVGTextElement | null;
+  const mapDestLabel = document.getElementById('hero-map-dest-label') as SVGTextElement | null;
 
   if (
     !switcher ||
@@ -527,12 +535,50 @@ function initHeroRouteSwitcher(): void {
     rafId = requestAnimationFrame(tick);
   };
 
+  const updateMapRoute = (route: RouteShowcase) => {
+    if (threadPath) threadPath.setAttribute('d', route.curvePath);
+    if (threadGuide) threadGuide.setAttribute('d', route.curvePath);
+    if (threadGlow) threadGlow.setAttribute('d', route.curvePath);
+
+    if (originPin) {
+      originPin.setAttribute('cx', String(route.originPos.x));
+      originPin.setAttribute('cy', String(route.originPos.y));
+    }
+    if (originPulse) {
+      originPulse.setAttribute('cx', String(route.originPos.x));
+      originPulse.setAttribute('cy', String(route.originPos.y));
+    }
+    if (destPin) {
+      destPin.setAttribute('cx', String(route.destPos.x));
+      destPin.setAttribute('cy', String(route.destPos.y));
+    }
+    if (destPulse) {
+      destPulse.setAttribute('cx', String(route.destPos.x));
+      destPulse.setAttribute('cy', String(route.destPos.y));
+    }
+
+    if (mapOriginLabel) {
+      mapOriginLabel.textContent = route.originCity;
+      mapOriginLabel.setAttribute('x', String(route.originPos.x + route.originPos.labelDx));
+      mapOriginLabel.setAttribute('y', String(route.originPos.y + route.originPos.labelDy));
+      mapOriginLabel.setAttribute('text-anchor', route.originPos.labelAnchor);
+    }
+    if (mapDestLabel) {
+      mapDestLabel.textContent = route.destinationCity;
+      mapDestLabel.setAttribute('x', String(route.destPos.x + route.destPos.labelDx));
+      mapDestLabel.setAttribute('y', String(route.destPos.y + route.destPos.labelDy));
+      mapDestLabel.setAttribute('text-anchor', route.destPos.labelAnchor);
+    }
+  };
+
   const selectRoute = (route: RouteShowcase) => {
     switcher.querySelectorAll<HTMLButtonElement>('.route-pill').forEach((pill) => {
       const isMatch = pill.dataset.routeId === route.id;
       pill.classList.toggle('is-active', isMatch);
       pill.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
     });
+
+    updateMapRoute(route);
 
     routeCard.classList.add('is-switching');
     window.setTimeout(() => {

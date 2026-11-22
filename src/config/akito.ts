@@ -23,6 +23,14 @@ export const SOCIAL_LINKS = {
   handle: '@somos.akito',
 } as const;
 
+export interface MapPoint {
+  x: number;
+  y: number;
+  labelDx: number;
+  labelDy: number;
+  labelAnchor: 'start' | 'end';
+}
+
 export interface RouteShowcase {
   id: string;
   originCity: string;
@@ -31,6 +39,9 @@ export interface RouteShowcase {
   destinationCountry: string;
   giftIdea: string;
   statusNote: string;
+  originPos: MapPoint;
+  destPos: MapPoint;
+  curvePath: string;
 }
 
 export const HERO_ROUTES: RouteShowcase[] = [
@@ -42,6 +53,9 @@ export const HERO_ROUTES: RouteShowcase[] = [
     destinationCountry: 'España',
     giftIdea: 'Ramo de flores y nota escrita a mano',
     statusNote: 'Tienda local coordinada en Salamanca, Madrid',
+    originPos: { x: 129, y: 87, labelDx: -10, labelDy: 14, labelAnchor: 'end' },
+    destPos: { x: 351, y: 31, labelDx: 10, labelDy: -8, labelAnchor: 'start' },
+    curvePath: 'M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31',
   },
   {
     id: 'cdmx-bue',
@@ -51,6 +65,9 @@ export const HERO_ROUTES: RouteShowcase[] = [
     destinationCountry: 'Argentina',
     giftIdea: 'Caja personalizada',
     statusNote: 'Empaque kraft con hilo carmesí listo en Palermo',
+    originPos: { x: 50, y: 64, labelDx: 8, labelDy: -10, labelAnchor: 'start' },
+    destPos: { x: 179, y: 148, labelDx: 10, labelDy: 4, labelAnchor: 'start' },
+    curvePath: 'M 50 64 C 88 102, 128 74, 150 112 C 162 134, 169 144, 179 148',
   },
   {
     id: 'mia-mde',
@@ -60,6 +77,9 @@ export const HERO_ROUTES: RouteShowcase[] = [
     destinationCountry: 'Colombia',
     giftIdea: 'Desayuno sorpresa',
     statusNote: 'Entrega confirmada en Laureles, Medellín',
+    originPos: { x: 110, y: 54, labelDx: -10, labelDy: -6, labelAnchor: 'end' },
+    destPos: { x: 124, y: 85, labelDx: -10, labelDy: 13, labelAnchor: 'end' },
+    curvePath: 'M 110 54 C 154 44, 166 78, 124 85',
   },
   {
     id: 'scl-lim',
@@ -69,6 +89,9 @@ export const HERO_ROUTES: RouteShowcase[] = [
     destinationCountry: 'Perú',
     giftIdea: 'Torta de cumpleaños',
     statusNote: 'Pastelería local validada en Miraflores, Lima',
+    originPos: { x: 140, y: 146, labelDx: 10, labelDy: 5, labelAnchor: 'start' },
+    destPos: { x: 120, y: 113, labelDx: -10, labelDy: -6, labelAnchor: 'end' },
+    curvePath: 'M 140 146 C 92 142, 86 122, 120 113',
   },
 ];
 
@@ -335,7 +358,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'cotizacion',
     question: '¿Qué incluye la cotización que me envían?',
     answer:
-      'Incluye el regalo, la gestión local, el empaque cuidado con la dedicatoria y la entrega en destino. Te mostramos todo claro en una sola conversación antes de que confirmes nada.',
+      'Incluye el regalo, la gestión local, el empaque cuidado con la dedicatoria y la entrega en destino. Te mostramos todo claro en una sola conversación antes de que confirmes tu pedido.',
   },
   {
     id: 'pago',

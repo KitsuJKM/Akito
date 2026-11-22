@@ -171,24 +171,79 @@
               </div>
 
               <div class="hero-thread-svg-wrap" aria-hidden="true">
-                <svg class="hero-thread-svg" viewBox="0 0 420 82" fill="none">
+                <svg class="hero-map-svg" viewBox="0 0 420 196" fill="none">
+                  <rect width="420" height="196" rx="14" fill="#F6F1E8" />
+                  <g stroke="rgba(26, 34, 56, 0.055)" stroke-width="1">
+                    <line x1="0" y1="49" x2="420" y2="49" />
+                    <line x1="0" y1="98" x2="420" y2="98" />
+                    <line x1="0" y1="147" x2="420" y2="147" />
+                    <line x1="105" y1="0" x2="105" y2="196" />
+                    <line x1="210" y1="0" x2="210" y2="196" />
+                    <line x1="315" y1="0" x2="315" y2="196" />
+                  </g>
+                  <g fill="#E9DFCF" stroke="#D1C2AA" stroke-width="1" stroke-linejoin="round">
+                    <!-- Norteamérica y Centroamérica -->
+                    <path d="M 0 0 L 189 0 L 189 13 L 173 21 L 151 24 L 126 38 L 111 52 L 110 55 L 103 52 L 101 49 L 79 49 L 57 54 L 57 60 L 88 61 L 85 72 L 98 80 L 112 81 L 117 82 L 106 81 L 92 78 L 76 72 L 48 68 L 19 58 L 0 41 Z" />
+                    <!-- Caribe -->
+                    <path d="M 98 59 Q 114 58 128 63 Q 112 65 98 59 Z" />
+                    <path d="M 133 64 Q 145 63 155 66 Q 143 68 133 64 Z" />
+                    <!-- Sudamérica -->
+                    <path d="M 117 82 L 125 77 L 151 78 L 180 83 L 205 93 L 252 104 L 241 114 L 227 130 L 218 132 L 196 147 L 181 150 L 158 161 L 148 178 L 136 180 L 129 175 L 129 160 L 136 146 L 140 123 L 119 113 L 107 101 L 110 97 L 117 88 Z" />
+                    <!-- España, Portugal y Europa occidental -->
+                    <path d="M 370 0 L 420 0 L 420 22 L 395 26 L 372 28 L 369 30 L 361 33 L 345 38 L 334 37 L 333 34 L 333 27 L 353 27 L 358 27 L 350 19 L 362 12 Z" />
+                    <path d="M 344 10 Q 355 6 366 15 Q 354 18 344 10 Z" />
+                    <!-- Costa noroeste de África -->
+                    <path d="M 344 38 L 362 37 L 385 39 L 420 35 L 420 92 L 369 85 L 321 82 L 307 71 L 309 61 L 338 42 Z" />
+                  </g>
+
+                  <!-- Trazo del hilo rojo sobre el mapa -->
                   <path
-                    d="M 16 18 C 110 78, 175 10, 210 42 C 245 74, 310 6, 404 20"
-                    stroke="rgba(26, 34, 56, 0.12)"
-                    stroke-width="2"
-                    stroke-dasharray="4 5"
+                    id="hero-thread-glow"
+                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
+                    stroke="rgba(200, 30, 43, 0.18)"
+                    stroke-width="9"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    id="hero-thread-guide"
+                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
+                    stroke="rgba(26, 34, 56, 0.16)"
+                    stroke-width="1.5"
+                    stroke-dasharray="4 4"
                   />
                   <path
                     id="hero-thread-path"
-                    d="M 16 18 C 110 78, 175 10, 210 42 C 245 74, 310 6, 404 20"
+                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
                     stroke="#C81E2B"
-                    stroke-width="3"
+                    stroke-width="2.8"
                     stroke-linecap="round"
                   />
-                  <circle cx="16" cy="18" r="5" fill="#C81E2B" />
-                  <circle cx="404" cy="20" r="5" fill="#C81E2B" />
-                  <circle cx="210" cy="42" r="7" fill="#FAF7F2" stroke="#C81E2B" stroke-width="2.5" />
-                  <circle id="hero-thread-bead" cx="404" cy="20" r="6" fill="#C81E2B" opacity="0.92" />
+
+                  <!-- Pines y etiquetas dinámicas de origen y destino -->
+                  <circle id="hero-origin-pulse" cx="129" cy="87" r="9" fill="rgba(200, 30, 43, 0.16)" />
+                  <circle id="hero-origin-pin" cx="129" cy="87" r="4.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
+                  <circle id="hero-dest-pulse" cx="351" cy="31" r="9" fill="rgba(200, 30, 43, 0.16)" />
+                  <circle id="hero-dest-pin" cx="351" cy="31" r="4.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
+                  <circle id="hero-thread-bead" cx="351" cy="31" r="5.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
+
+                  <text
+                    id="hero-map-origin-label"
+                    class="hero-map-label"
+                    x="119"
+                    y="101"
+                    text-anchor="end"
+                  >
+                    Bogotá
+                  </text>
+                  <text
+                    id="hero-map-dest-label"
+                    class="hero-map-label"
+                    x="361"
+                    y="23"
+                    text-anchor="start"
+                  >
+                    Madrid
+                  </text>
                 </svg>
               </div>
 
@@ -278,35 +333,69 @@
           </div>
 
           <div class="timeline-wrap" id="timeline-wrap">
-            <div class="timeline-track-rail" aria-hidden="true">
+            <div class="thread-anchor thread-anchor--start" aria-hidden="true">
+              <span class="thread-anchor__knot"></span>
+              <span>Quien envía · Tu país</span>
+            </div>
+
+            <div class="timeline-stage" id="timeline-stage">
               <svg
-                class="timeline-thread-svg"
-                id="timeline-thread-svg"
-                viewBox="0 0 24 1000"
+                id="timeline-thread-svg-desktop"
+                class="timeline-thread-canvas timeline-thread-canvas--desktop"
+                viewBox="0 0 1000 1400"
                 preserveAspectRatio="none"
+                aria-hidden="true"
               >
                 <path
+                  class="timeline-thread-aura"
+                  d="M 500 0 C 670 110, 670 190, 500 260 C 330 330, 330 430, 500 500 C 670 570, 670 670, 500 740 C 330 810, 330 910, 500 980 C 670 1050, 670 1150, 500 1220 C 370 1280, 420 1350, 500 1400"
+                />
+                <path
                   class="timeline-thread-base"
-                  d="M 12 0 C 20 160, 4 320, 12 500 C 20 680, 4 840, 12 1000"
+                  d="M 500 0 C 670 110, 670 190, 500 260 C 330 330, 330 430, 500 500 C 670 570, 670 670, 500 740 C 330 810, 330 910, 500 980 C 670 1050, 670 1150, 500 1220 C 370 1280, 420 1350, 500 1400"
                 />
                 <path
                   id="timeline-thread-active"
                   class="timeline-thread-active"
-                  d="M 12 0 C 20 160, 4 320, 12 500 C 20 680, 4 840, 12 1000"
-                />
-                <circle
-                  id="timeline-travel-dot"
-                  class="timeline-travel-dot"
-                  cx="12"
-                  cy="0"
-                  r="6"
+                  d="M 500 0 C 670 110, 670 190, 500 260 C 330 330, 330 430, 500 500 C 670 570, 670 670, 500 740 C 330 810, 330 910, 500 980 C 670 1050, 670 1150, 500 1220 C 370 1280, 420 1350, 500 1400"
                 />
               </svg>
+
+              <div class="timeline-mobile-rail" id="timeline-mobile-rail" aria-hidden="true">
+                <svg
+                  id="timeline-thread-svg-mobile"
+                  class="timeline-thread-canvas timeline-thread-canvas--mobile"
+                  viewBox="0 0 64 1400"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    class="timeline-thread-aura"
+                    d="M 32 0 C 58 95, 6 195, 32 285 C 58 380, 6 480, 32 575 C 58 670, 6 770, 32 865 C 58 960, 6 1060, 32 1155 C 58 1245, 10 1330, 32 1400"
+                  />
+                  <path
+                    class="timeline-thread-base"
+                    d="M 32 0 C 58 95, 6 195, 32 285 C 58 380, 6 480, 32 575 C 58 670, 6 770, 32 865 C 58 960, 6 1060, 32 1155 C 58 1245, 10 1330, 32 1400"
+                  />
+                  <path
+                    id="timeline-thread-active-mobile"
+                    class="timeline-thread-active"
+                    d="M 32 0 C 58 95, 6 195, 32 285 C 58 380, 6 480, 32 575 C 58 670, 6 770, 32 865 C 58 960, 6 1060, 32 1155 C 58 1245, 10 1330, 32 1400"
+                  />
+                </svg>
+                <span class="timeline-travel-orb timeline-travel-orb--mobile" id="timeline-travel-orb-mobile"></span>
+              </div>
+
+              <span class="timeline-travel-orb timeline-travel-orb--desktop" id="timeline-travel-orb" aria-hidden="true"></span>
+
+              <ol class="timeline-steps" id="timeline-steps">
+                <!-- Hidratado desde src/config/akito.ts -->
+              </ol>
             </div>
 
-            <ol class="timeline-steps" id="timeline-steps">
-              <!-- Hidratado desde src/config/akito.ts -->
-            </ol>
+            <div class="thread-anchor thread-anchor--end" aria-hidden="true">
+              <span class="thread-anchor__knot thread-anchor__knot--ring"></span>
+              <span>Quien recibe · País de destino</span>
+            </div>
           </div>
         </div>
       </section>

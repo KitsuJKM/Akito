@@ -62,6 +62,72 @@ function syncFloatingWhatsAppButton(
   floatingBtn.classList.toggle('is-visible', passedHero && beforeQuote);
 }
 
+type NormalizedCubicSegment = readonly [
+  cx1: number,
+  cy1: number,
+  cx2: number,
+  cy2: number,
+  x: number,
+  y: number,
+];
+
+interface ThreadCurveSpec {
+  start: readonly [x: number, y: number];
+  segments: readonly NormalizedCubicSegment[];
+}
+
+const DESKTOP_THREAD_SPEC: ThreadCurveSpec = {
+  start: [0.5, 0],
+  segments: [
+    [0.67, 110 / 1400, 0.67, 190 / 1400, 0.5, 260 / 1400],
+    [0.33, 330 / 1400, 0.33, 430 / 1400, 0.5, 500 / 1400],
+    [0.67, 570 / 1400, 0.67, 670 / 1400, 0.5, 740 / 1400],
+    [0.33, 810 / 1400, 0.33, 910 / 1400, 0.5, 980 / 1400],
+    [0.67, 1050 / 1400, 0.67, 1150 / 1400, 0.5, 1220 / 1400],
+    [0.37, 1280 / 1400, 0.42, 1350 / 1400, 0.5, 1],
+  ],
+};
+
+const MOBILE_THREAD_SPEC: ThreadCurveSpec = {
+  start: [0.5, 0],
+  segments: [
+    [58 / 64, 95 / 1400, 6 / 64, 195 / 1400, 0.5, 285 / 1400],
+    [58 / 64, 380 / 1400, 6 / 64, 480 / 1400, 0.5, 575 / 1400],
+    [58 / 64, 670 / 1400, 6 / 64, 770 / 1400, 0.5, 865 / 1400],
+    [58 / 64, 960 / 1400, 6 / 64, 1060 / 1400, 0.5, 1155 / 1400],
+    [58 / 64, 1245 / 1400, 10 / 64, 1330 / 1400, 0.5, 1],
+  ],
+};
+
+/**
+ * Scales normalized serpentine path points into the SVG's 1:1 CSS pixel viewBox
+ * so `getTotalLength()`, `getPointAtLength()`, and CSS `stroke-dashoffset` match identically.
+ */
+function syncSvgThreadGeometry(svgEl: SVGSVGElement | null, spec: ThreadCurveSpec): boolean {
+  if (!svgEl) return false;
+  const rect = svgEl.getBoundingClientRect();
+  if (rect.width < 2 || rect.height < 2) return false;
+
+  const w = rect.width;
+  const h = rect.height;
+  const fx = (nx: number) => (nx * w).toFixed(2);
+  const fy = (ny: number) => (ny * h).toFixed(2);
+
+  const d = [
+    `M ${fx(spec.start[0])} ${fy(spec.start[1])}`,
+    ...spec.segments.map(
+      ([cx1, cy1, cx2, cy2, x, y]) =>
+        `C ${fx(cx1)} ${fy(cy1)}, ${fx(cx2)} ${fy(cy2)}, ${fx(x)} ${fy(y)}`,
+    ),
+  ].join(' ');
+
+  svgEl.setAttribute('viewBox', `0 0 ${w.toFixed(2)} ${h.toFixed(2)}`);
+  svgEl.querySelectorAll('path').forEach((path) => {
+    path.setAttribute('d', d);
+  });
+  return true;
+}
+
 function attachScrollLinks(scrollTo: ScrollToCallback): () => void {
   const onClick = (event: MouseEvent) => {
     const trigger = (event.target as HTMLElement).closest<HTMLElement>('[data-scroll-to]');
@@ -88,16 +154,26 @@ function createReducedMotionEngine(): ScrollEngineHandle {
   const heroSection = document.getElementById('inicio');
   const quoteSection = document.getElementById('cotizar');
   const floatingWaBtn = document.getElementById('floating-wa-btn');
-  const threadActive = document.getElementById('timeline-thread-active') as SVGPathElement | null;
-  const travelDot = document.getElementById('timeline-travel-dot') as SVGCircleElement | null;
+  const threadDesktop = document.getElementById('timeline-thread-active') as SVGPathElement | null;
+  const threadMobile = document.getElementById(
+    'timeline-thread-active-mobile',
+  ) as SVGPathElement | null;
+  const orbDesktop = document.getElementById('timeline-travel-orb');
+  const orbMobile = document.getElementById('timeline-travel-orb-mobile');
 
-  if (threadActive) {
-    threadActive.style.strokeDasharray = 'none';
-    threadActive.style.strokeDashoffset = '0';
-  }
-  if (travelDot) {
-    travelDot.style.opacity = '0';
-  }
+  const syncReducedThreads = () => {
+    syncSvgThreadGeometry(threadDesktop?.ownerSVGElement ?? null, DESKTOP_THREAD_SPEC);
+    syncSvgThreadGeometry(threadMobile?.ownerSVGElement ?? null, MOBILE_THREAD_SPEC);
+  };
+
+  syncReducedThreads();
+  [threadDesktop, threadMobile].forEach((pathEl) => {
+    if (!pathEl) return;
+    pathEl.style.strokeDasharray = 'none';
+    pathEl.style.strokeDashoffset = '0';
+  });
+  if (orbDesktop) orbDesktop.style.opacity = '0';
+  if (orbMobile) orbMobile.style.opacity = '0';
 
   const syncOnScroll = () => {
     const scrollY = window.scrollY;
@@ -136,9 +212,14 @@ function createReducedMotionEngine(): ScrollEngineHandle {
     }
   };
 
+  const handleResize = () => {
+    syncReducedThreads();
+    syncOnScroll();
+  };
+
   syncOnScroll();
   window.addEventListener('scroll', syncOnScroll, { passive: true });
-  window.addEventListener('resize', syncOnScroll, { passive: true });
+  window.addEventListener('resize', handleResize, { passive: true });
 
   const scrollTo: ScrollToCallback = (target) => {
     const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : target;
@@ -153,9 +234,10 @@ function createReducedMotionEngine(): ScrollEngineHandle {
     scrollTo,
     destroy: () => {
       window.removeEventListener('scroll', syncOnScroll);
-      window.removeEventListener('resize', syncOnScroll);
+      window.removeEventListener('resize', handleResize);
       detachLinks();
-      if (travelDot) travelDot.style.opacity = '1';
+      if (orbDesktop) orbDesktop.style.opacity = '1';
+      if (orbMobile) orbMobile.style.opacity = '1';
     },
   };
 }
@@ -382,57 +464,159 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
       );
     });
 
-    // 3. SECCIÓN 3 · Hilo rojo continuo + nudo viajero + 7 pasos cinéticos
-    const threadActive = document.getElementById('timeline-thread-active') as SVGPathElement | null;
-    const travelDot = document.getElementById('timeline-travel-dot') as SVGCircleElement | null;
-    const timelineWrap = document.getElementById('timeline-wrap');
+    // 3. SECCIÓN 3 · Hilo rojo ondulado continuo + nudo viajero + 7 pasos cinéticos
+    const timelineStage = document.getElementById('timeline-stage');
+    const threadDesktop = document.getElementById('timeline-thread-active') as SVGPathElement | null;
+    const orbDesktop = document.getElementById('timeline-travel-orb');
+    const threadMobile = document.getElementById(
+      'timeline-thread-active-mobile',
+    ) as SVGPathElement | null;
+    const orbMobile = document.getElementById('timeline-travel-orb-mobile');
 
-    if (threadActive && timelineWrap) {
-      const pathLen = threadActive.getTotalLength();
-      gsap.set(threadActive, {
-        strokeDasharray: pathLen,
-        strokeDashoffset: pathLen,
-      });
+    const bindTimelineThread = (
+      pathEl: SVGPathElement | null,
+      orbEl: HTMLElement | null,
+      spec: ThreadCurveSpec,
+    ): (() => void) | undefined => {
+      if (!pathEl || !timelineStage) return undefined;
+      const svgEl = pathEl.ownerSVGElement;
+      if (!svgEl) return undefined;
 
-      gsap.to(threadActive, {
-        strokeDashoffset: 0,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: timelineWrap,
-          start: 'top 64%',
-          end: 'bottom 64%',
-          scrub: true,
-          onUpdate: (self) => {
-            if (!travelDot) return;
-            const pt = threadActive.getPointAtLength(self.progress * pathLen);
-            travelDot.setAttribute('cx', pt.x.toFixed(1));
-            travelDot.setAttribute('cy', pt.y.toFixed(1));
-          },
+      let pathLen = 0;
+      let offsetX = 0;
+      let offsetY = 0;
+      let lastWidth = 0;
+      let lastHeight = 0;
+
+      const syncGeometry = (): void => {
+        if (!syncSvgThreadGeometry(svgEl, spec)) return;
+        const svgRect = svgEl.getBoundingClientRect();
+        lastWidth = svgRect.width;
+        lastHeight = svgRect.height;
+        pathLen = pathEl.getTotalLength();
+
+        const parentRect = (orbEl?.offsetParent as HTMLElement | null)?.getBoundingClientRect();
+        offsetX = parentRect ? svgRect.left - parentRect.left : 0;
+        offsetY = parentRect ? svgRect.top - parentRect.top : 0;
+      };
+
+      const applyProgress = (progress: number): void => {
+        if (pathLen <= 0) return;
+        const clamped = Math.min(1, Math.max(0, progress));
+        pathEl.style.strokeDasharray = `${pathLen}`;
+        pathEl.style.strokeDashoffset = `${pathLen * (1 - clamped)}`;
+
+        if (orbEl) {
+          const pt = pathEl.getPointAtLength(clamped * pathLen);
+          orbEl.style.left = `${(offsetX + pt.x).toFixed(2)}px`;
+          orbEl.style.top = `${(offsetY + pt.y).toFixed(2)}px`;
+        }
+      };
+
+      syncGeometry();
+      applyProgress(0);
+
+      const st = ScrollTrigger.create({
+        trigger: timelineStage,
+        start: 'top 64%',
+        end: 'bottom 64%',
+        onRefresh: (self) => {
+          syncGeometry();
+          applyProgress(self.progress);
         },
+        onUpdate: (self) => applyProgress(self.progress),
       });
-    }
 
-    stepRows.forEach((row, idx) => {
-      const stepCard = row.querySelector('.step-card');
-      if (stepCard) {
-        gsap.fromTo(
-          stepCard,
-          { x: 22, opacity: 0.35, scale: 0.98 },
-          {
-            x: 0,
-            opacity: 1,
-            scale: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: row,
-              start: 'top 90%',
-              end: 'top 58%',
-              scrub: true,
-            },
-          },
-        );
+      let ro: ResizeObserver | null = null;
+      let pendingRaf = 0;
+      if (typeof ResizeObserver !== 'undefined') {
+        ro = new ResizeObserver(() => {
+          const rect = svgEl.getBoundingClientRect();
+          if (Math.abs(rect.width - lastWidth) < 1 && Math.abs(rect.height - lastHeight) < 1) {
+            return;
+          }
+          syncGeometry();
+          applyProgress(st.progress);
+          if (!pendingRaf) {
+            pendingRaf = window.requestAnimationFrame(() => {
+              pendingRaf = 0;
+              ScrollTrigger.refresh();
+            });
+          }
+        });
+        ro.observe(svgEl);
       }
 
+      return () => {
+        ro?.disconnect();
+        if (pendingRaf) window.cancelAnimationFrame(pendingRaf);
+        pathEl.style.strokeDasharray = '';
+        pathEl.style.strokeDashoffset = '';
+        if (orbEl) {
+          orbEl.style.left = '';
+          orbEl.style.top = '';
+        }
+      };
+    };
+
+    mm.add('(min-width: 860px)', () => {
+      const cleanupThread = bindTimelineThread(threadDesktop, orbDesktop, DESKTOP_THREAD_SPEC);
+
+      stepRows.forEach((row, idx) => {
+        const stepCard = row.querySelector('.step-card');
+        const fromX = idx % 2 === 0 ? -18 : 18;
+        if (stepCard) {
+          gsap.fromTo(
+            stepCard,
+            { x: fromX, opacity: 0.35, scale: 0.98 },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 90%',
+                end: 'top 58%',
+                scrub: true,
+              },
+            },
+          );
+        }
+      });
+
+      return cleanupThread;
+    });
+
+    mm.add('(max-width: 859px)', () => {
+      const cleanupThread = bindTimelineThread(threadMobile, orbMobile, MOBILE_THREAD_SPEC);
+
+      stepRows.forEach((row) => {
+        const stepCard = row.querySelector('.step-card');
+        if (stepCard) {
+          gsap.fromTo(
+            stepCard,
+            { x: 16, opacity: 0.35, scale: 0.98 },
+            {
+              x: 0,
+              opacity: 1,
+              scale: 1,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: row,
+                start: 'top 90%',
+                end: 'top 58%',
+                scrub: true,
+              },
+            },
+          );
+        }
+      });
+
+      return cleanupThread;
+    });
+
+    stepRows.forEach((row, idx) => {
       ScrollTrigger.create({
         trigger: row,
         start: 'top 64%',
