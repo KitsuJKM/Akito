@@ -1,0 +1,55 @@
+:root {
+  /* Paleta oficial Akito */
+  --color-ivory: #FAF7F2;
+  --color-ivory-warm: #F3EDE3;
+  --color-ivory-deep: #EAE1D3;
+  --color-twilight: #1A2238;
+  --color-twilight-soft: #26314F;
+  --color-crimson: #C81E2B;
+  --color-crimson-deep: #B81D24;
+  --color-coral: #E88D67;
+
+  /* Tintas y superficies derivadas */
+  --color-ink: #1A2238;
+  --color-ink-muted: #525B72;
+  --color-on-dark: #FAF7F2;
+  --color-on-dark-muted: rgba(250, 247, 242, 0.8);
+  --color-border: rgba(26, 34, 56, 0.12);
+  --color-border-strong: rgba(26, 34, 56, 0.22);
+  --color-border-dark: rgba(250, 247, 242, 0.15);
+  --color-crimson-tint: rgba(200, 30, 43, 0.08);
+  --color-coral-glow: rgba(232, 141, 103, 0.2);
+
+  /* Tipografía */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Curvas y tiempos (Emil Kowalski + Impeccable) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-arrival: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --duration-fast: 160ms;
+  --duration-base: 260ms;
+  --duration-slow: 520ms;
+
+  /* Sombras editoriales */
+  --shadow-paper:
+    0 2px 6px rgba(26, 34, 56, 0.05),
+    0 16px 36px -14px rgba(26, 34, 56, 0.12);
+  --shadow-card-hover:
+    0 6px 14px rgba(26, 34, 56, 0.06),
+    0 24px 46px -16px rgba(26, 34, 56, 0.16);
+  --shadow-crimson:
+    0 10px 26px -10px rgba(200, 30, 43, 0.44);
+
+  /* Geometría y espaciado */
+  --container-max: 1180px;
+  --container-gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-pad-y: clamp(4.75rem, 9vw, 7.75rem);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+}

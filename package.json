@@ -1,0 +1,21 @@
+{
+  "name": "akito-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Akito · Regalos a distancia — Conectando historias sin importar los kilómetros.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "lucide": "^0.468.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3"
+  }
+}

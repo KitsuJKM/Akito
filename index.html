@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akito · Regalos a distancia — Conectando historias sin importar los kilómetros</title>
+    <meta
+      name="description"
+      content="Akito gestiona regalos entre países con tiendas y artesanos locales en destino. Una sola conversación, cotización clara y seguimiento hasta la entrega."
+    />
+    <meta property="og:title" content="Akito · Regalos a distancia" />
+    <meta
+      property="og:description"
+      content="Conectando historias sin importar los kilómetros. Gestionamos tu idea con tiendas locales en el país de destino."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:image" content="/brand/og-akito.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Akito · Regalos a distancia — Conectando historias sin importar los kilómetros."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Akito · Regalos a distancia" />
+    <meta
+      name="twitter:description"
+      content="Regalos entre países preparados con tiendas locales en destino. Una sola conversación y seguimiento hasta la entrega."
+    />
+    <meta name="twitter:image" content="/brand/og-akito.png" />
+    <meta name="theme-color" content="#FAF7F2" />
+    <link rel="icon" type="image/png" href="/brand/logo-perfil.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ================================================================
+         HEADER FLOTANTE ADAPTATIVO + HILO DE PROGRESO GLOBAL
+         ================================================================ -->
+    <header class="site-header" id="site-header">
+      <div class="container header-inner">
+        <a
+          href="#inicio"
+          class="header-logo-link"
+          data-scroll-to="#inicio"
+          aria-label="Ir al inicio de Akito"
+        >
+          <img
+            src="/brand/logo-akito.png"
+            alt="Akito · Regalos a distancia"
+            class="header-logo-img"
+            width="160"
+            height="56"
+          />
+        </a>
+
+        <nav class="header-nav" aria-label="Navegación principal">
+          <a href="#que-hacemos" class="header-nav__link" data-scroll-to="#que-hacemos">Qué hacemos</a>
+          <a href="#como-funciona" class="header-nav__link" data-scroll-to="#como-funciona">Cómo funciona</a>
+          <a href="#que-enviar" class="header-nav__link" data-scroll-to="#que-enviar">Qué enviar</a>
+          <a href="#nosotros" class="header-nav__link" data-scroll-to="#nosotros">El hilo rojo</a>
+          <a href="#preguntas" class="header-nav__link" data-scroll-to="#preguntas">Preguntas</a>
+        </nav>
+
+        <a href="#cotizar" class="btn btn--primary btn--sm" data-scroll-to="#cotizar">
+          Cotizar regalo
+          <i data-lucide="arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="global-scroll-progress" id="global-scroll-progress" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <!-- ==============================================================
+           SECCIÓN 1 · HERO NARRATIVO + POSTAL INTERACTIVA DEL HILO ROJO
+           ============================================================== -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-content" id="hero-content">
+            <div class="hero-tag-wrap" data-hero-anim="tag">
+              <span class="brand-tag">
+                <span class="brand-tag__dot" aria-hidden="true"></span>
+                REGALOS A DISTANCIA
+              </span>
+            </div>
+
+            <h1 class="hero-title" id="hero-title">
+              <span class="hero-title-line" data-hero-anim="line">Conectando historias</span>
+              <span class="hero-title-line" data-hero-anim="line">
+                sin importar <em class="hero-title-em">los kilómetros.</em>
+              </span>
+            </h1>
+
+            <p class="hero-subtitle" data-hero-anim="copy">
+              No vendemos un catálogo rígido ni enviamos cajas impersonales por correo internacional:
+              escuchamos tu idea, la cotizamos con claridad y la hacemos realidad con una
+              <strong>tienda local en el país de destino</strong>.
+            </p>
+
+            <div class="hero-actions" data-hero-anim="cta">
+              <a href="#cotizar" class="btn btn--primary" data-scroll-to="#cotizar">
+                Cotizar mi regalo
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="#como-funciona" class="btn btn--secondary" data-scroll-to="#como-funciona">
+                Cómo funciona
+              </a>
+            </div>
+
+            <ul class="hero-footnotes" data-hero-anim="meta">
+              <li class="hero-footnote-item">
+                <i data-lucide="message-circle" aria-hidden="true"></i>
+                <span>Una sola conversación contigo</span>
+              </li>
+              <li class="hero-footnote-item">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                <span>Artesanos y tiendas en destino</span>
+              </li>
+              <li class="hero-footnote-item">
+                <i data-lucide="shield-check" aria-hidden="true"></i>
+                <span>Seguimiento hasta la entrega</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-postcard-wrap" id="hero-postcard-wrap">
+          <aside
+            class="hero-postcard"
+            id="hero-postcard"
+            data-hero-anim="card"
+            aria-label="Ejemplo interactivo de conexión entre países"
+          >
+            <div class="hero-postcard__top">
+              <div class="hero-postcard__seal">
+                <img
+                  src="/brand/logo-perfil.png"
+                  alt="Sello circular Akito"
+                  width="38"
+                  height="38"
+                />
+                <div class="hero-postcard__seal-text">
+                  <span class="hero-postcard__seal-title">Postal del hilo rojo</span>
+                  <span class="hero-postcard__seal-sub">Gestión entre dos países</span>
+                </div>
+              </div>
+              <span class="hero-postcard__stamp">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                <span>A medida</span>
+              </span>
+            </div>
+
+            <div class="hero-route-stage">
+              <div class="hero-route-cities">
+                <div class="hero-city-node">
+                  <span class="hero-city-role">Quien envía</span>
+                  <span class="hero-city-name" id="hero-origin-city">Bogotá</span>
+                  <span class="hero-city-country" id="hero-origin-country">Colombia</span>
+                </div>
+
+                <div class="hero-city-node hero-city-node--end">
+                  <span class="hero-city-role">Quien recibe</span>
+                  <span class="hero-city-name" id="hero-dest-city">Madrid</span>
+                  <span class="hero-city-country" id="hero-dest-country">España</span>
+                </div>
+              </div>
+
+              <div class="hero-thread-svg-wrap" aria-hidden="true">
+                <svg class="hero-thread-svg" viewBox="0 0 420 82" fill="none">
+                  <path
+                    d="M 16 18 C 110 78, 175 10, 210 42 C 245 74, 310 6, 404 20"
+                    stroke="rgba(26, 34, 56, 0.12)"
+                    stroke-width="2"
+                    stroke-dasharray="4 5"
+                  />
+                  <path
+                    id="hero-thread-path"
+                    d="M 16 18 C 110 78, 175 10, 210 42 C 245 74, 310 6, 404 20"
+                    stroke="#C81E2B"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <circle cx="16" cy="18" r="5" fill="#C81E2B" />
+                  <circle cx="404" cy="20" r="5" fill="#C81E2B" />
+                  <circle cx="210" cy="42" r="7" fill="#FAF7F2" stroke="#C81E2B" stroke-width="2.5" />
+                  <circle id="hero-thread-bead" cx="404" cy="20" r="6" fill="#C81E2B" opacity="0.92" />
+                </svg>
+              </div>
+
+              <div class="hero-route-card" id="hero-route-card">
+                <p class="hero-route-card__label">Idea gestionada en destino</p>
+                <p class="hero-route-card__idea" id="hero-route-idea">
+                  Ramo artesanal de peonías y nota escrita a mano
+                </p>
+                <p class="hero-route-card__status">
+                  <span class="hero-route-card__status-dot" aria-hidden="true"></span>
+                  <span id="hero-route-status">Tienda local coordinada en Salamanca, Madrid</span>
+                </p>
+              </div>
+
+              <div class="hero-route-switcher" id="hero-route-switcher" role="group" aria-label="Explorar rutas de ejemplo">
+                <!-- Hidratado desde src/config/akito.ts -->
+              </div>
+            </div>
+          </aside>
+          </div>
+        </div>
+
+        <div class="container hero-scroll-cue-wrap">
+          <a href="#que-hacemos" class="hero-scroll-cue" id="hero-scroll-cue" data-scroll-to="#que-hacemos">
+            <span class="hero-scroll-cue__line" aria-hidden="true"></span>
+            <span>Desliza para seguir el hilo</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (AZUL CREPUSCULAR)
+           ============================================================== -->
+      <section class="section-twilight" id="que-hacemos" aria-labelledby="twilight-title">
+        <div class="container twilight-grid">
+          <div class="twilight-sticky" id="twilight-pin-col">
+            <h2 class="section-title section-title--on-dark" id="twilight-title">
+              Regalar a otro país no debería ser un salto al vacío.
+            </h2>
+
+            <div class="manifesto-box" id="manifesto-box">
+              <p>
+                No vendemos un catálogo rígido:
+                <strong>gestionamos tu idea con una tienda local en destino, de principio a fin.</strong>
+              </p>
+            </div>
+
+            <div class="friction-tracker" id="friction-tracker" aria-live="polite">
+              <div class="friction-tracker__nodes" aria-hidden="true">
+                <span class="friction-tracker__node is-active" data-tracker-node="1">1</span>
+                <span class="friction-tracker__node" data-tracker-node="2">2</span>
+                <span class="friction-tracker__node" data-tracker-node="3">3</span>
+                <span class="friction-tracker__node" data-tracker-node="4">4</span>
+              </div>
+              <span class="friction-tracker__label tabular-num" id="friction-tracker-text">
+                1 de 4
+              </span>
+            </div>
+          </div>
+
+          <div class="friction-list" id="friction-list">
+            <!-- Hidratado desde src/config/akito.ts -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 3 · CÓMO FUNCIONA (7 PASOS CON HILO ROJO EN SCROLL)
+           ============================================================== -->
+      <section class="section-process" id="como-funciona" aria-labelledby="process-title">
+        <div class="container">
+          <div class="process-header">
+            <div>
+              <h2 class="section-title" id="process-title">
+                Así tejemos cada regalo, de tu idea hasta sus manos.
+              </h2>
+              <p class="section-lead">
+                Siete momentos claros para que sepas exactamente qué pasa en cada etapa antes,
+                durante y después de la entrega.
+              </p>
+            </div>
+
+            <div class="process-progress-pill" id="step-progress-badge" aria-live="polite">
+              <span class="process-progress-pill__dot" aria-hidden="true"></span>
+              <span class="tabular-num" id="step-progress-text">Paso 1 de 7</span>
+            </div>
+          </div>
+
+          <div class="timeline-wrap" id="timeline-wrap">
+            <div class="timeline-track-rail" aria-hidden="true">
+              <svg
+                class="timeline-thread-svg"
+                id="timeline-thread-svg"
+                viewBox="0 0 24 1000"
+                preserveAspectRatio="none"
+              >
+                <path
+                  class="timeline-thread-base"
+                  d="M 12 0 C 20 160, 4 320, 12 500 C 20 680, 4 840, 12 1000"
+                />
+                <path
+                  id="timeline-thread-active"
+                  class="timeline-thread-active"
+                  d="M 12 0 C 20 160, 4 320, 12 500 C 20 680, 4 840, 12 1000"
+                />
+                <circle
+                  id="timeline-travel-dot"
+                  class="timeline-travel-dot"
+                  cx="12"
+                  cy="0"
+                  r="6"
+                />
+              </svg>
+            </div>
+
+            <ol class="timeline-steps" id="timeline-steps">
+              <!-- Hidratado desde src/config/akito.ts -->
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 4 · QUÉ SE PUEDE ENVIAR (CINTA DE SCROLL + BENTO)
+           ============================================================== -->
+      <section class="section-gifts" id="que-enviar" aria-labelledby="gifts-title">
+        <div class="container">
+          <h2 class="section-title" id="gifts-title">
+            La idea manda. Lo armamos según lo que exista en su ciudad.
+          </h2>
+          <p class="section-lead">
+            Explora el tipo de detalle que imaginas o tócalo para llevarlo directo a tu cotización.
+          </p>
+        </div>
+
+        <div class="gifts-ribbon" aria-hidden="true">
+          <div class="gifts-ribbon-track" id="gifts-scroll-ribbon">
+            <span>Flores frescas</span>
+            <span class="gifts-ribbon__dot">•</span>
+            <em>Artesanías locales</em>
+            <span class="gifts-ribbon__dot">•</span>
+            <span>Desayunos en destino</span>
+            <span class="gifts-ribbon__dot">•</span>
+            <em>Joyería de autor</em>
+            <span class="gifts-ribbon__dot">•</span>
+            <span>Cajas a medida</span>
+            <span class="gifts-ribbon__dot">•</span>
+            <em>Experiencias</em>
+            <span class="gifts-ribbon__dot">•</span>
+            <span>Dedicatorias a mano</span>
+            <span class="gifts-ribbon__dot">•</span>
+            <em>Tortas artesanales</em>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="gift-grid" id="gift-grid">
+            <!-- Hidratado desde src/config/akito.ts -->
+          </div>
+
+          <div class="gifts-reassurance">
+            <p>
+              <strong>¿Imaginaste algo distinto?</strong> Si la tienda local no puede hacer exactamente
+              lo que pensaste, buscamos otra opción en esa ciudad o te proponemos una alternativa
+              equivalente antes de cotizar.
+            </p>
+            <a href="#cotizar" class="btn btn--secondary btn--sm" data-scroll-to="#cotizar">
+              Cuéntanos tu idea
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 5 · PARA QUIÉN, EL HILO ROJO Y CONFIANZA
+           ============================================================== -->
+      <section class="section-story" id="nosotros" aria-labelledby="story-title">
+        <div class="container">
+          <div class="audience-block">
+            <h2 class="section-title" id="story-title">
+              Cada distancia tiene una historia que merece llegar intacta.
+            </h2>
+
+            <div class="audience-tabs" id="audience-tabs" role="tablist" aria-label="Historias según quién envía">
+              <div class="audience-tabs__layer audience-tabs__base" id="audience-tabs-base"></div>
+              <div class="audience-tabs__layer audience-tabs__active" id="audience-tabs-active" aria-hidden="true"></div>
+            </div>
+
+            <div class="audience-panel" id="audience-panel" role="tabpanel" aria-live="polite">
+              <div>
+                <h3 class="audience-panel__headline" id="audience-headline"></h3>
+                <p class="audience-panel__copy" id="audience-copy"></p>
+              </div>
+              <div class="audience-panel__example">
+                <span class="audience-panel__route" id="audience-route"></span>
+                <p class="audience-panel__detail" id="audience-detail"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="origin-trust-grid">
+            <div class="origin-card">
+              <div class="origin-seal-wrap">
+                <img
+                  src="/brand/logo-perfil.png"
+                  alt="Emblema circular Akito con hilo carmesí"
+                  class="origin-seal-img"
+                  id="origin-seal-img"
+                  width="108"
+                  height="108"
+                />
+                <div class="origin-seal-caption">
+                  Akai (rojo) + Ito (hilo)
+                  <span>Filosofía del Musubi · Vínculos entrelazados</span>
+                </div>
+              </div>
+
+              <svg
+                class="origin-thread-svg"
+                id="origin-thread-svg"
+                viewBox="0 0 360 22"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M 2 11 C 90 2, 140 20, 220 11 C 280 4, 320 16, 358 10"
+                  stroke="rgba(26, 34, 56, 0.12)"
+                  stroke-width="1.5"
+                />
+                <path
+                  id="origin-thread-line"
+                  d="M 2 11 C 90 2, 140 20, 220 11 C 280 4, 320 16, 358 10"
+                  stroke="#C81E2B"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <p class="origin-copy">
+                <strong>Akito</strong> recoge la imagen del <strong>hilo rojo del destino</strong> y
+                del <em>Musubi</em>: los lazos que siguen unidos aunque haya océanos, fronteras y
+                husos horarios de por medio.
+              </p>
+
+              <p class="origin-copy">
+                Ese hilo es la metáfora viva del servicio: una persona en un país, otra en otro, y
+                Akito sosteniendo el trazo entre ambas para que el gesto llegue a buen puerto.
+              </p>
+            </div>
+
+            <aside class="trust-card" aria-labelledby="trust-title">
+              <h3 class="trust-card__title" id="trust-title">Cobertura y compromisos claros</h3>
+              <ul class="trust-list" id="trust-list">
+                <!-- Hidratado desde src/config/akito.ts -->
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 6 · PREGUNTAS FRECUENTES
+           ============================================================== -->
+      <section class="section-faq" id="preguntas" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div class="faq-intro">
+            <h2 class="section-title" id="faq-title">
+              Preguntas frecuentes antes de escribirnos.
+            </h2>
+            <p class="section-lead">
+              Lo esencial sobre tiempos, cobertura, pagos y seguimiento en destino.
+            </p>
+          </div>
+
+          <div class="faq-list" id="faq-list">
+            <!-- Hidratado desde src/config/akito.ts -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================================
+           SECCIÓN 7 · FORMULARIO DE COTIZACIÓN DIRECTO A WHATSAPP
+           ============================================================== -->
+      <section class="section-quote" id="cotizar" aria-labelledby="quote-title">
+        <div class="container">
+          <div class="quote-intro">
+            <h2 class="section-title" id="quote-title">
+              Cuéntanos qué quieres enviar y seguimos directo en WhatsApp.
+            </h2>
+            <p class="section-lead">
+              Completa los datos básicos de tu regalo. Armaremos el mensaje listo para que continúes
+              la cotización con Akito sin tener que repetir la historia.
+            </p>
+          </div>
+
+          <div class="quote-shell">
+            <form class="quote-form-card" id="quote-form" novalidate>
+              <div class="quote-progress">
+                <div class="quote-progress__head">
+                  <span>Progreso de tu solicitud</span>
+                  <span class="quote-progress__count tabular-num" id="quote-progress-text">0 de 5 datos clave listos</span>
+                </div>
+                <div class="quote-progress__bar" aria-hidden="true">
+                  <div class="quote-progress__fill" id="quote-progress-fill"></div>
+                </div>
+                <div class="draft-status-row" id="draft-status" hidden>
+                  <span class="draft-status__text">Borrador guardado automáticamente en este navegador</span>
+                  <button type="button" class="draft-clear-btn" id="clear-draft-btn">
+                    <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+                    <span>Limpiar</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <span class="chips-label">Inspiración rápida (opcional):</span>
+                <div class="gift-chips" id="gift-chips" role="group" aria-label="Sugerencias de regalo">
+                  <!-- Hidratado desde src/config/akito.ts -->
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="field field--full">
+                  <label for="whatToSend" class="field-label">
+                    <span>¿Qué quieres enviar? *</span>
+                  </label>
+                  <input
+                    id="whatToSend"
+                    name="whatToSend"
+                    type="text"
+                    class="field-control"
+                    placeholder="Ej. Ramo de girasoles con nota escrita, desayuno sorpresa, caja de café..."
+                    required
+                    aria-describedby="err-whatToSend"
+                  />
+                  <span class="field-error" id="err-whatToSend" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="originCountry" class="field-label">
+                    <span>¿Desde qué país nos escribes?</span>
+                    <span class="field-optional">Opcional</span>
+                  </label>
+                  <input
+                    id="originCountry"
+                    name="originCountry"
+                    type="text"
+                    class="field-control"
+                    list="country-suggestions"
+                    placeholder="Ej. Colombia, Estados Unidos..."
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="destinationCountry" class="field-label">
+                    <span>País de destino *</span>
+                  </label>
+                  <input
+                    id="destinationCountry"
+                    name="destinationCountry"
+                    type="text"
+                    class="field-control"
+                    list="country-suggestions"
+                    placeholder="Ej. España, México, Argentina..."
+                    required
+                    aria-describedby="err-destinationCountry"
+                  />
+                  <span class="field-error" id="err-destinationCountry" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="city" class="field-label">
+                    <span>Ciudad de destino *</span>
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    type="text"
+                    class="field-control"
+                    placeholder="Ej. Madrid, Medellín, Buenos Aires..."
+                    required
+                    aria-describedby="err-city"
+                  />
+                  <span class="field-error" id="err-city" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="when" class="field-label">
+                    <span>¿Para cuándo? *</span>
+                  </label>
+                  <input
+                    id="when"
+                    name="when"
+                    type="date"
+                    class="field-control"
+                    required
+                    aria-describedby="err-when"
+                  />
+                  <label class="field-check">
+                    <input type="checkbox" id="isFlexibleDate" name="isFlexibleDate" />
+                    <span>Fecha flexible o por definir</span>
+                  </label>
+                  <span class="field-error" id="err-when" role="alert"></span>
+                </div>
+
+                <div class="field field--full">
+                  <label for="deliveryAddress" class="field-label">
+                    <span>Dirección de entrega *</span>
+                  </label>
+                  <input
+                    id="deliveryAddress"
+                    name="deliveryAddress"
+                    type="text"
+                    class="field-control"
+                    placeholder="Calle, número, apartamento/oficina, barrio y referencias"
+                    required
+                    aria-describedby="err-deliveryAddress"
+                  />
+                  <span class="field-error" id="err-deliveryAddress" role="alert"></span>
+                </div>
+
+                <div class="field field--full">
+                  <label for="mapsUrl" class="field-label">
+                    <span>Ubicación en Google Maps</span>
+                    <span class="field-optional">Opcional</span>
+                  </label>
+                  <input
+                    id="mapsUrl"
+                    name="mapsUrl"
+                    type="url"
+                    class="field-control"
+                    placeholder="https://maps.app.goo.gl/..."
+                    aria-describedby="hint-mapsUrl err-mapsUrl"
+                  />
+                  <span class="field-hint" id="hint-mapsUrl">
+                    Si tienes el pin exacto de Google Maps, pégalo aquí para ubicar mejor la zona.
+                  </span>
+                  <span class="field-error" id="err-mapsUrl" role="alert"></span>
+                </div>
+
+                <div class="field field--full">
+                  <span class="field-label">
+                    <span>Presupuesto aproximado</span>
+                    <span class="field-optional">Opcional</span>
+                  </span>
+                  <div
+                    class="budget-chips"
+                    id="budget-chips"
+                    role="group"
+                    aria-label="Rango de presupuesto aproximado"
+                  >
+                    <!-- Hidratado desde src/config/akito.ts -->
+                  </div>
+                </div>
+
+                <div class="field field--full">
+                  <label for="moreDetails" class="field-label">
+                    <span>Cuéntanos más</span>
+                    <span class="field-optional">Opcional</span>
+                  </label>
+                  <textarea
+                    id="moreDetails"
+                    name="moreDetails"
+                    class="field-control field-textarea"
+                    placeholder="Para quién es, ocasión, dedicatoria que te gustaría incluir, gustos o colores..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <datalist id="country-suggestions">
+                <!-- Hidratado desde src/config/akito.ts -->
+              </datalist>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn--primary form-submit-btn" id="submit-wa-btn">
+                  <i data-lucide="send" aria-hidden="true"></i>
+                  Continuar cotización en WhatsApp
+                </button>
+                <p class="form-honest-note">
+                  Se abrirá WhatsApp con tu mensaje redactado. La disponibilidad y el valor final
+                  se confirman contigo durante la conversación.
+                </p>
+              </div>
+            </form>
+
+            <aside class="preview-card" id="preview-card" aria-label="Vista previa del mensaje de WhatsApp">
+              <div class="preview-card__head">
+                <h3 class="preview-card__title">
+                  <i data-lucide="message-circle" aria-hidden="true"></i>
+                  Tu mensaje para WhatsApp
+                </h3>
+                <span class="preview-card__live">
+                  <span class="preview-card__live-dot" aria-hidden="true"></span>
+                  En vivo
+                </span>
+              </div>
+
+              <pre class="preview-bubble" id="wa-preview-text"></pre>
+
+              <div class="preview-actions">
+                <span class="preview-caption">Puedes copiarlo o enviarlo directo.</span>
+                <button type="button" class="btn btn--ghost-light btn--sm" id="copy-message-btn">
+                  <i data-lucide="copy" aria-hidden="true"></i>
+                  <span>Copiar texto</span>
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================================================================
+         FOOTER
+         ================================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-seal">
+              <img
+                src="/brand/logo-perfil.png"
+                alt="Akito · Regalos a distancia"
+                width="64"
+                height="64"
+              />
+            </div>
+            <div>
+              <p class="footer-brand__name">Akito · Regalos a distancia</p>
+              <p class="footer-brand__tagline">Conectando historias sin importar los kilómetros.</p>
+            </div>
+          </div>
+
+          <div class="footer-actions-group">
+            <nav class="footer-links" aria-label="Enlaces del pie de página">
+              <a href="#que-hacemos" data-scroll-to="#que-hacemos">Qué hacemos</a>
+              <a href="#como-funciona" data-scroll-to="#como-funciona">Cómo funciona</a>
+              <a href="#que-enviar" data-scroll-to="#que-enviar">Qué enviar</a>
+              <a href="#nosotros" data-scroll-to="#nosotros">El hilo rojo</a>
+              <a href="#preguntas" data-scroll-to="#preguntas">Preguntas</a>
+              <a href="#cotizar" data-scroll-to="#cotizar">Cotizar</a>
+            </nav>
+
+            <button
+              type="button"
+              class="motion-toggle-btn"
+              id="motion-toggle-btn"
+              aria-pressed="false"
+            >
+              <span class="motion-toggle-btn__dot" aria-hidden="true"></span>
+              <span id="motion-toggle-label">Animaciones: Completas</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© 2026 Akito. Todos los derechos reservados.</span>
+          <span>Cuidamos los datos de quien envía y de quien recibe; solo se usan para gestionar el regalo.</span>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/573000000000"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="floating-wa-btn"
+      id="floating-wa-btn"
+      aria-label="Escribir consulta rápida por WhatsApp"
+    >
+      <span class="floating-wa-btn__dot" aria-hidden="true"></span>
+      <i data-lucide="message-circle" aria-hidden="true"></i>
+      <span class="floating-wa-btn__label">¿Duda rápida? WhatsApp</span>
+    </a>
+
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
