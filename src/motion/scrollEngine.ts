@@ -628,21 +628,7 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
       });
     });
 
-    // 4. SECCIÓN 4 · Cinta tipográfica en scroll + ola no uniforme + paralaje por columna
-    gsap.fromTo(
-      '#gifts-scroll-ribbon',
-      { xPercent: 4 },
-      {
-        xPercent: -14,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#que-enviar',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      },
-    );
+    // 4. SECCIÓN 4 · Ola no uniforme + paralaje por columna (la cinta se desplaza vía CSS marquee)
 
     const giftCards = gsap.utils.toArray<HTMLElement>('[data-animate="gift-card"]');
     const giftDelays = [0, 0.06, 0.11, 0.15, 0.18, 0.21];

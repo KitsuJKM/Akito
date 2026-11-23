@@ -979,18 +979,47 @@
   border-bottom: 1px solid var(--color-border);
   background-color: rgba(250, 247, 242, 0.65);
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 
 .gifts-ribbon-track {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
   width: max-content;
   white-space: nowrap;
-  padding-inline: 2rem;
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   color: var(--color-twilight);
+  will-change: transform;
+  animation: giftsRibbonMarquee 42s linear infinite;
+}
+
+.gifts-ribbon__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+@keyframes giftsRibbonMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (hover: hover) {
+  .gifts-ribbon:hover .gifts-ribbon-track {
+    animation-play-state: paused;
+  }
+}
+
+html[data-motion='reduced'] .gifts-ribbon-track {
+  animation: none;
 }
 
 .gifts-ribbon-track em {
