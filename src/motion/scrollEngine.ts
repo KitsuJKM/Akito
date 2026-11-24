@@ -157,6 +157,37 @@ function attachScrollLinks(scrollTo: ScrollToCallback): () => void {
   return () => document.removeEventListener('click', onClick);
 }
 
+function positionSleighAlongPath(
+  pathEl: SVGPathElement,
+  sleighEl: HTMLElement,
+  progress: number,
+  pathLen: number,
+  offsetX: number,
+  offsetY: number,
+  lastFacing: number,
+): number {
+  if (pathLen <= 0) return lastFacing;
+
+  const clamped = Math.min(1, Math.max(0, progress));
+  const dist = clamped * pathLen;
+  const pt = pathEl.getPointAtLength(dist);
+  sleighEl.style.left = `${(offsetX + pt.x).toFixed(2)}px`;
+  sleighEl.style.top = `${(offsetY + pt.y).toFixed(2)}px`;
+
+  const ptPrev = pathEl.getPointAtLength(Math.max(0, dist - 5));
+  const ptNext = pathEl.getPointAtLength(Math.min(pathLen, dist + 5));
+  const dx = ptNext.x - ptPrev.x;
+  const dy = ptNext.y - ptPrev.y;
+
+  const facing = Math.abs(dx) > 0.2 ? (dx < 0 ? -1 : 1) : lastFacing;
+  const rawSlopeDeg = Math.atan2(Math.max(0, dy), Math.abs(dx) + 0.001) * (180 / Math.PI);
+  const tiltDeg = Math.min(34, Math.max(8, rawSlopeDeg * 0.38));
+
+  const bodyEl = sleighEl.querySelector<HTMLElement>('.timeline-travel-sleigh__body') ?? sleighEl;
+  bodyEl.style.transform = `scaleX(${facing}) rotate(${tiltDeg.toFixed(1)}deg)`;
+  return facing;
+}
+
 function createReducedMotionEngine(): ScrollEngineHandle {
   const header = document.getElementById('site-header');
   const progressBar = document.getElementById('global-scroll-progress');
@@ -172,13 +203,29 @@ function createReducedMotionEngine(): ScrollEngineHandle {
   const threadMobile = document.getElementById(
     'timeline-thread-active-mobile',
   ) as SVGPathElement | null;
-  const orbDesktop = document.getElementById('timeline-travel-orb');
-  const orbMobile = document.getElementById('timeline-travel-orb-mobile');
+  const sleighDesktop = document.getElementById('timeline-travel-orb');
+  const sleighMobile = document.getElementById('timeline-travel-orb-mobile');
   const snow = createFestiveSnow('reduced');
+
+  const parkReducedSleigh = (pathEl: SVGPathElement | null, sleighEl: HTMLElement | null) => {
+    if (!pathEl || !sleighEl) return;
+    const svgEl = pathEl.ownerSVGElement;
+    if (!svgEl) return;
+    const svgRect = svgEl.getBoundingClientRect();
+    if (svgRect.width < 2 || svgRect.height < 2) return;
+    const pathLen = pathEl.getTotalLength();
+    const parentRect = (sleighEl.offsetParent as HTMLElement | null)?.getBoundingClientRect();
+    const offsetX = parentRect ? svgRect.left - parentRect.left : 0;
+    const offsetY = parentRect ? svgRect.top - parentRect.top : 0;
+    sleighEl.style.opacity = '1';
+    positionSleighAlongPath(pathEl, sleighEl, 0.03, pathLen, offsetX, offsetY, 1);
+  };
 
   const syncReducedThreads = () => {
     syncSvgThreadGeometry(threadDesktop?.ownerSVGElement ?? null, DESKTOP_THREAD_SPEC);
     syncSvgThreadGeometry(threadMobile?.ownerSVGElement ?? null, MOBILE_THREAD_SPEC);
+    parkReducedSleigh(threadDesktop, sleighDesktop);
+    parkReducedSleigh(threadMobile, sleighMobile);
   };
 
   syncReducedThreads();
@@ -187,8 +234,6 @@ function createReducedMotionEngine(): ScrollEngineHandle {
     pathEl.style.strokeDasharray = 'none';
     pathEl.style.strokeDashoffset = '0';
   });
-  if (orbDesktop) orbDesktop.style.opacity = '0';
-  if (orbMobile) orbMobile.style.opacity = '0';
 
   const syncOnScroll = () => {
     const scrollY = window.scrollY;
@@ -248,8 +293,14 @@ function createReducedMotionEngine(): ScrollEngineHandle {
       window.removeEventListener('scroll', syncOnScroll);
       window.removeEventListener('resize', handleResize);
       detachLinks();
-      if (orbDesktop) orbDesktop.style.opacity = '1';
-      if (orbMobile) orbMobile.style.opacity = '1';
+      [sleighDesktop, sleighMobile].forEach((sleighEl) => {
+        if (!sleighEl) return;
+        sleighEl.style.opacity = '';
+        sleighEl.style.left = '';
+        sleighEl.style.top = '';
+        const bodyEl = sleighEl.querySelector<HTMLElement>('.timeline-travel-sleigh__body');
+        if (bodyEl) bodyEl.style.transform = '';
+      });
     },
   };
 }
@@ -486,6 +537,7 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
       let offsetY = 0;
       let lastWidth = 0;
       let lastHeight = 0;
+      let lastFacing = 1;
 
       const syncGeometry = (): void => {
         if (!syncSvgThreadGeometry(svgEl, spec)) return;
@@ -506,9 +558,15 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
         pathEl.style.strokeDashoffset = `${pathLen * (1 - clamped)}`;
 
         if (orbEl) {
-          const pt = pathEl.getPointAtLength(clamped * pathLen);
-          orbEl.style.left = `${(offsetX + pt.x).toFixed(2)}px`;
-          orbEl.style.top = `${(offsetY + pt.y).toFixed(2)}px`;
+          lastFacing = positionSleighAlongPath(
+            pathEl,
+            orbEl,
+            clamped,
+            pathLen,
+            offsetX,
+            offsetY,
+            lastFacing,
+          );
         }
       };
 
@@ -554,6 +612,8 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
         if (orbEl) {
           orbEl.style.left = '';
           orbEl.style.top = '';
+          const bodyEl = orbEl.querySelector<HTMLElement>('.timeline-travel-sleigh__body');
+          if (bodyEl) bodyEl.style.transform = '';
         }
       };
     };

@@ -8,15 +8,15 @@
   right: 0;
   z-index: 60;
   padding-block: 0.85rem;
-  background-color: rgba(250, 247, 242, 0.9);
+  background-color: rgba(250, 247, 242, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(26, 34, 56, 0.08);
   transition:
-    background-color var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    color var(--duration-base) var(--ease-out);
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 }
 
 .site-header.is-scrolled {
@@ -24,7 +24,7 @@
 }
 
 .site-header.is-dark {
-  background-color: rgba(17, 36, 30, 0.9);
+  background-color: rgba(17, 36, 30, 0.94);
   border-bottom-color: rgba(242, 207, 141, 0.16);
   color: var(--color-ivory);
 }
@@ -567,12 +567,104 @@
 }
 
 /* ==========================================================================
+   DECORACIONES NAVIDEÑAS COMPARTIDAS EN SECCIONES CLARAS
+   ========================================================================== */
+.section-twilight > .container,
+.section-process > .container,
+.section-story > .container,
+.section-faq > .container,
+.section-quote > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hanging-ornaments {
+  position: absolute;
+  top: 0;
+  right: clamp(0.5rem, 3vw, 2.5rem);
+  width: clamp(120px, 14vw, 185px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.78;
+}
+
+.hanging-ornaments svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hanging-ornament-group {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: ornamentSway 6.5s ease-in-out infinite;
+}
+
+.hanging-ornament-group--delay {
+  animation-delay: 1.6s;
+}
+
+.hanging-ornament-group--slow {
+  animation-duration: 7.8s;
+  animation-delay: 0.8s;
+}
+
+@keyframes ornamentSway {
+  0%,
+  100% {
+    transform: rotate(-1.5deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+.festive-corner {
+  position: absolute;
+  width: clamp(140px, 16vw, 220px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.52;
+}
+
+.festive-corner--bl {
+  bottom: 0;
+  left: 0;
+}
+
+.festive-corner svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.twilight-festive-art {
+  margin: 0.4rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(
+    circle at 50% 45%,
+    rgba(216, 168, 91, 0.12),
+    rgba(255, 255, 255, 0.65) 70%
+  );
+  border: 1px solid rgba(216, 168, 91, 0.28);
+  max-width: 390px;
+}
+
+.twilight-festive-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
    SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (MARFIL CÁLIDO EDITORIAL)
    ========================================================================== */
 .section-twilight {
   position: relative;
   padding-block: clamp(4rem, 7vw, 6.25rem);
   background:
+    var(--pattern-winter-ivory),
     radial-gradient(circle at 14% 20%, rgba(216, 168, 91, 0.14), transparent 46%),
     radial-gradient(circle at 88% 80%, rgba(200, 30, 43, 0.06), transparent 42%),
     var(--color-ivory);
@@ -604,9 +696,12 @@
 
 .manifesto-box {
   margin-top: 0.25rem;
-  padding: 1.2rem 1.4rem;
+  padding: 1.35rem 1.4rem 1.2rem;
   border: 1px solid rgba(216, 168, 91, 0.42);
-  background-color: #FFFFFF;
+  background:
+    linear-gradient(90deg, var(--color-crimson), var(--color-gold), var(--color-pine))
+    top left / 100% 3px no-repeat,
+    #FFFFFF;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-paper);
 }
@@ -695,6 +790,17 @@
   border-color: rgba(200, 30, 43, 0.34);
   background-color: #FFFFFF;
   box-shadow: var(--shadow-paper);
+}
+
+.friction-card.is-in-focus::after {
+  content: '✦';
+  position: absolute;
+  top: 0.9rem;
+  right: 1.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--color-gold);
+  pointer-events: none;
 }
 
 .friction-card__top {
@@ -790,7 +896,10 @@
 .section-process {
   position: relative;
   padding-block: var(--section-pad-y);
-  background-color: #F5EFE4;
+  background:
+    var(--pattern-winter-ivory),
+    #F5EFE4;
+  overflow: clip;
 }
 
 .process-header {
@@ -916,21 +1025,40 @@
   fill: none;
 }
 
-.timeline-travel-orb {
+.timeline-travel-sleigh {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: var(--color-crimson);
-  border: 2.5px solid var(--color-gold-light);
-  box-shadow: 0 0 0 5px rgba(200, 30, 43, 0.22);
+  width: 56px;
+  height: 40px;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
+  will-change: left, top;
+  filter:
+    drop-shadow(0 6px 12px rgba(200, 30, 43, 0.26))
+    drop-shadow(0 0 10px rgba(216, 168, 91, 0.45));
 }
 
-.timeline-travel-orb--desktop {
+.timeline-travel-sleigh--desktop {
   display: none;
+}
+
+.timeline-travel-sleigh--mobile {
+  width: 40px;
+  height: 29px;
+}
+
+.timeline-travel-sleigh__body {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: transform 160ms var(--ease-out);
+}
+
+.timeline-travel-sleigh svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
 .timeline-steps {
@@ -1023,7 +1151,7 @@
     z-index: 1;
   }
 
-  .timeline-travel-orb--desktop {
+  .timeline-travel-sleigh--desktop {
     display: block;
   }
 
@@ -1340,8 +1468,12 @@ html[data-motion='reduced'] .gifts-ribbon-track {
    SECCIÓN 5 · PARA QUIÉN (CLIP-PATH TABS) + EL HILO ROJO + CONFIANZA
    ========================================================================== */
 .section-story {
+  position: relative;
   padding-block: var(--section-pad-y);
-  background-color: var(--color-ivory);
+  background:
+    var(--pattern-winter-ivory),
+    var(--color-ivory);
+  overflow: clip;
 }
 
 .audience-block {
@@ -1480,6 +1612,25 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 1.25rem;
 }
 
+.origin-seal-frame {
+  position: relative;
+  width: 134px;
+  height: 134px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.origin-seal-wreath {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .origin-seal-img {
   width: 108px;
   height: 108px;
@@ -1594,9 +1745,32 @@ html[data-motion='reduced'] .gifts-ribbon-track {
    SECCIÓN 6 · PREGUNTAS FRECUENTES (ACORDEÓN EDITORIAL)
    ========================================================================== */
 .section-faq {
+  position: relative;
   padding-block: clamp(4rem, 7.5vw, 6.25rem);
-  background-color: var(--color-ivory-warm);
+  background:
+    var(--pattern-winter-ivory),
+    var(--color-ivory-warm);
   border-top: 1px solid var(--color-border);
+  overflow: clip;
+}
+
+.faq-festive-art {
+  margin: 1.75rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(216, 168, 91, 0.14),
+    rgba(250, 247, 242, 0.72) 72%
+  );
+  border: 1px solid rgba(216, 168, 91, 0.28);
+  max-width: 320px;
+}
+
+.faq-festive-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .faq-layout {
@@ -1707,11 +1881,14 @@ html[data-motion='reduced'] .gifts-ribbon-track {
    SECCIÓN 7 · COTIZADOR POSTAL DIRECTO A WHATSAPP
    ========================================================================== */
 .section-quote {
+  position: relative;
   padding-block: var(--section-pad-y);
   background:
+    var(--pattern-winter-ivory),
     radial-gradient(circle at 80% 10%, rgba(216, 168, 91, 0.2), transparent 46%),
     linear-gradient(180deg, var(--color-ivory) 0%, var(--color-ivory-warm) 100%);
   border-top: 1px solid var(--color-border);
+  overflow: clip;
 }
 
 .quote-intro {
@@ -1728,10 +1905,20 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .quote-form-card {
   position: relative;
-  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  padding: calc(clamp(1.5rem, 3.5vw, 2.5rem) + 4px) clamp(1.5rem, 3.5vw, 2.5rem)
+    clamp(1.5rem, 3.5vw, 2.5rem);
   border-radius: var(--radius-lg);
-  background-color: #FFFFFF;
-  border: 1px solid rgba(216, 168, 91, 0.28);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--color-crimson) 0 12px,
+      #FFFDF9 12px 20px,
+      var(--color-pine) 20px 32px,
+      #FFFDF9 32px 40px
+    )
+    top left / 100% 5px no-repeat,
+    #FFFFFF;
+  border: 1px solid rgba(216, 168, 91, 0.36);
   box-shadow: var(--shadow-paper);
 }
 
@@ -2440,6 +2627,22 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   .header-nav {
     display: none;
   }
+
+  .twilight-festive-art,
+  .faq-festive-art {
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .hanging-ornaments {
+    opacity: 0.5;
+    width: 112px;
+  }
+
+  .festive-corner {
+    opacity: 0.38;
+    width: 132px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -2480,6 +2683,26 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
   .hero-garland svg {
     height: 52px;
+  }
+
+  .hanging-ornaments {
+    opacity: 0.42;
+    width: 92px;
+  }
+
+  .festive-corner {
+    opacity: 0.32;
+    width: 108px;
+  }
+
+  .origin-seal-frame {
+    width: 118px;
+    height: 118px;
+  }
+
+  .origin-seal-img {
+    width: 96px;
+    height: 96px;
   }
 
   .timeline-mobile-rail {

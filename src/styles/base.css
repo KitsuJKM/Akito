@@ -272,6 +272,7 @@ html[data-motion='reduced'] .origin-seal-img {
   transform: none !important;
 }
 
-html[data-motion='reduced'] .hero-map-star {
+html[data-motion='reduced'] .hero-map-star,
+html[data-motion='reduced'] .hanging-ornament-group {
   animation: none !important;
 }
