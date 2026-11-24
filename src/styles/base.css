@@ -273,6 +273,9 @@ html[data-motion='reduced'] .origin-seal-img {
 }
 
 html[data-motion='reduced'] .hero-map-star,
-html[data-motion='reduced'] .hanging-ornament-group {
+html[data-motion='reduced'] .hanging-ornament-group,
+html[data-motion='reduced'] .fairy-bulb,
+html[data-motion='reduced'] .fairy-bulb--alt,
+html[data-motion='reduced'] .sleigh-sparkle {
   animation: none !important;
 }

@@ -55,9 +55,17 @@
           <img
             src="/brand/logo-akito.png"
             alt="Akito · Regalos a distancia"
-            class="header-logo-img"
-            width="160"
-            height="56"
+            class="header-logo-img header-logo-img--dark"
+            width="136"
+            height="110"
+          />
+          <img
+            src="/brand/logo-akito-light.png"
+            alt=""
+            class="header-logo-img header-logo-img--light"
+            width="136"
+            height="110"
+            aria-hidden="true"
           />
         </a>
 
@@ -84,41 +92,79 @@
       <section class="hero" id="inicio" data-header-theme="dark" aria-labelledby="hero-title">
         <canvas class="hero-snow-canvas" id="hero-snow-canvas" aria-hidden="true"></canvas>
 
-        <!-- Guirnalda botánica navideña superior -->
+        <!-- Guirnalda botánica navideña superior con luces cálidas -->
         <div class="hero-garland" aria-hidden="true">
-          <svg viewBox="0 0 1440 74" preserveAspectRatio="none" fill="none">
-            <path
-              d="M -20 12 Q 360 44 720 14 T 1460 14"
-              stroke="rgba(242, 207, 141, 0.34)"
-              stroke-width="1.4"
-            />
-            <path
-              d="M -20 18 Q 360 8 720 26 T 1460 18"
-              stroke="rgba(226, 59, 72, 0.45)"
-              stroke-width="1.2"
-              stroke-dasharray="4 6"
-            />
-            <g stroke="rgba(242, 207, 141, 0.48)" stroke-width="1.35" stroke-linecap="round">
-              <path d="M 110 21 l -10 10 M 110 21 l 0 13 M 110 21 l 10 9" />
-              <path d="M 320 29 l -9 10 M 320 29 l 0 12 M 320 29 l 9 9" />
-              <path d="M 540 23 l -8 9 M 540 23 l 0 11 M 540 23 l 8 8" />
-              <path d="M 880 12 l -8 9 M 880 12 l 0 12 M 880 12 l 9 8" />
-              <path d="M 1120 18 l -9 10 M 1120 18 l 0 12 M 1120 18 l 9 9" />
-              <path d="M 1320 20 l -10 10 M 1320 20 l 0 13 M 1320 20 l 10 9" />
+          <svg viewBox="0 0 1440 96" preserveAspectRatio="none" fill="none">
+            <!-- Ramas de pino en capas -->
+            <path d="M -20 14 Q 180 54 360 18 T 720 20 T 1080 18 T 1460 16" stroke="#183F32" stroke-width="11" stroke-linecap="round" opacity="0.85" />
+            <path d="M -20 12 Q 180 50 360 16 T 720 18 T 1080 16 T 1460 14" stroke="#245B47" stroke-width="6" stroke-linecap="round" opacity="0.9" />
+            <path d="M -20 16 Q 180 56 360 22 T 720 24 T 1080 22 T 1460 20" stroke="rgba(242, 207, 141, 0.6)" stroke-width="1.5" />
+            <path d="M -20 24 Q 180 68 360 28 T 720 30 T 1080 28 T 1460 26" stroke="rgba(226, 59, 72, 0.72)" stroke-width="1.6" stroke-dasharray="5 5" />
+            <!-- Ramitas colgantes -->
+            <g stroke="#29644E" stroke-width="2" stroke-linecap="round">
+              <path d="M 95 28 l -11 16 M 95 28 l 0 18 M 95 28 l 12 15" />
+              <path d="M 270 36 l -10 15 M 270 36 l 0 17 M 270 36 l 11 14" />
+              <path d="M 465 24 l -10 14 M 465 24 l 0 16 M 465 24 l 10 14" />
+              <path d="M 655 24 l -11 15 M 655 24 l 0 17 M 655 24 l 11 14" />
+              <path d="M 885 21 l -10 15 M 885 21 l 0 17 M 885 21 l 10 14" />
+              <path d="M 1090 19 l -10 15 M 1090 19 l 0 17 M 1090 19 l 11 14" />
+              <path d="M 1315 26 l -11 15 M 1315 26 l 0 18 M 1315 26 l 12 14" />
             </g>
+            <!-- Moños carmesí en puntos clave -->
             <g fill="#E23B48">
-              <circle cx="110" cy="21" r="2.8" />
-              <circle cx="320" cy="29" r="2.8" />
-              <circle cx="540" cy="23" r="2.6" />
-              <circle cx="880" cy="12" r="2.6" />
-              <circle cx="1120" cy="18" r="2.8" />
-              <circle cx="1320" cy="20" r="2.8" />
+              <path d="M 180 42 C 166 32, 160 44, 180 44 C 200 44, 194 32, 180 42 Z" />
+              <path d="M 540 24 C 526 14, 520 26, 540 26 C 560 26, 554 14, 540 24 Z" />
+              <path d="M 990 22 C 976 12, 970 24, 990 24 C 1010 24, 1004 12, 990 22 Z" />
+              <path d="M 1265 34 C 1251 24, 1245 36, 1265 36 C 1285 36, 1279 24, 1265 34 Z" />
             </g>
+            <!-- Bayas rojas -->
+            <g fill="#E23B48">
+              <circle cx="95" cy="30" r="3.4" />
+              <circle cx="270" cy="38" r="3.4" />
+              <circle cx="465" cy="26" r="3.2" />
+              <circle cx="655" cy="26" r="3.4" />
+              <circle cx="885" cy="23" r="3.2" />
+              <circle cx="1090" cy="21" r="3.4" />
+              <circle cx="1315" cy="28" r="3.4" />
+            </g>
+            <!-- Luces navideñas parpadeantes -->
+            <g class="fairy-bulb">
+              <circle cx="52" cy="28" r="8" fill="rgba(242, 207, 141, 0.25)" />
+              <circle cx="52" cy="28" r="3.6" fill="#F2CF8D" />
+              <circle cx="220" cy="52" r="8" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="220" cy="52" r="3.6" fill="#FF6B78" />
+              <circle cx="395" cy="28" r="8" fill="rgba(242, 207, 141, 0.26)" />
+              <circle cx="395" cy="28" r="3.6" fill="#F2CF8D" />
+              <circle cx="600" cy="36" r="8" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="600" cy="36" r="3.6" fill="#FF6B78" />
+              <circle cx="790" cy="32" r="8" fill="rgba(242, 207, 141, 0.26)" />
+              <circle cx="790" cy="32" r="3.6" fill="#F2CF8D" />
+              <circle cx="1030" cy="30" r="8" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="1030" cy="30" r="3.6" fill="#FF6B78" />
+              <circle cx="1210" cy="40" r="8" fill="rgba(242, 207, 141, 0.26)" />
+              <circle cx="1210" cy="40" r="3.6" fill="#F2CF8D" />
+            </g>
+            <g class="fairy-bulb--alt">
+              <circle cx="140" cy="46" r="8" fill="rgba(242, 207, 141, 0.25)" />
+              <circle cx="140" cy="46" r="3.4" fill="#FAF7F2" />
+              <circle cx="330" cy="44" r="8" fill="rgba(242, 207, 141, 0.25)" />
+              <circle cx="330" cy="44" r="3.6" fill="#F2CF8D" />
+              <circle cx="505" cy="34" r="8" fill="rgba(250, 247, 242, 0.24)" />
+              <circle cx="505" cy="34" r="3.4" fill="#FAF7F2" />
+              <circle cx="720" cy="30" r="9" fill="rgba(242, 207, 141, 0.3)" />
+              <circle cx="720" cy="30" r="4" fill="#F2CF8D" />
+              <circle cx="940" cy="34" r="8" fill="rgba(250, 247, 242, 0.24)" />
+              <circle cx="940" cy="34" r="3.4" fill="#FAF7F2" />
+              <circle cx="1155" cy="36" r="8" fill="rgba(226, 59, 72, 0.26)" />
+              <circle cx="1155" cy="36" r="3.6" fill="#FF6B78" />
+              <circle cx="1385" cy="30" r="8" fill="rgba(242, 207, 141, 0.26)" />
+              <circle cx="1385" cy="30" r="3.6" fill="#F2CF8D" />
+            </g>
+            <!-- Estrellas doradas colgantes -->
             <g fill="#F2CF8D">
-              <path d="M 215 16 l 1.6 4.4 l 4.4 1.6 l -4.4 1.6 l -1.6 4.4 l -1.6 -4.4 l -4.4 -1.6 l 4.4 -1.6 z" />
-              <path d="M 720 15 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
-              <path d="M 1005 11 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" />
-              <path d="M 1225 14 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
+              <path d="M 180 56 l 2.2 6 l 6 2.2 l -6 2.2 l -2.2 6 l -2.2 -6 l -6 -2.2 l 6 -2.2 z" />
+              <path d="M 720 42 l 2.4 6.4 l 6.4 2.4 l -6.4 2.4 l -2.4 6.4 l -2.4 -6.4 l -6.4 -2.4 l 6.4 -2.4 z" />
+              <path d="M 1265 48 l 2.2 6 l 6 2.2 l -6 2.2 l -2.2 6 l -2.2 -6 l -6 -2.2 l 6 -2.2 z" />
             </g>
           </svg>
         </div>
@@ -181,9 +227,9 @@
               <div class="hero-postcard__top">
                 <div class="hero-postcard__seal">
                   <img
-                    src="/brand/logo-perfil.png"
-                    alt="Sello circular Akito"
-                    width="38"
+                    src="/brand/logo-akito.png"
+                    alt="Sello Akito"
+                    width="46"
                     height="38"
                   />
                   <div class="hero-postcard__seal-text">
@@ -334,45 +380,92 @@
            SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (MARFIL CÁLIDO)
            ============================================================== -->
       <section class="section-twilight" id="que-hacemos" aria-labelledby="twilight-title">
-        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
-          <svg viewBox="0 0 180 120" fill="none">
+        <div class="hanging-ornaments hanging-ornaments--left" aria-hidden="true">
+          <svg viewBox="0 0 180 135" fill="none">
             <g class="hanging-ornament-group">
-              <line x1="42" y1="0" x2="42" y2="42" stroke="rgba(184, 138, 62, 0.55)" stroke-width="1.2" />
-              <path d="M 42 42 l 2.2 6.2 l 6.2 2.2 l -6.2 2.2 l -2.2 6.2 l -2.2 -6.2 l -6.2 -2.2 l 6.2 -2.2 z" fill="#D8A85B" />
-            </g>
-            <g class="hanging-ornament-group hanging-ornament-group--delay">
-              <line x1="96" y1="0" x2="96" y2="62" stroke="rgba(184, 138, 62, 0.55)" stroke-width="1.2" />
-              <circle cx="96" cy="65" r="2.6" stroke="#D8A85B" stroke-width="1.2" />
-              <rect x="92" y="67" width="8" height="3.5" rx="1" fill="#D8A85B" />
-              <circle cx="96" cy="80" r="10.5" fill="#C81E2B" />
-              <path d="M 91 76 a 6 6 0 0 1 5 -2.5" stroke="rgba(250, 247, 242, 0.55)" stroke-width="1.4" stroke-linecap="round" />
+              <line x1="48" y1="0" x2="48" y2="54" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.35" />
+              <rect x="43.5" y="54" width="9" height="4" rx="1.2" fill="#D8A85B" />
+              <circle cx="48" cy="70" r="12.5" fill="#C81E2B" />
+              <path d="M 38 69 Q 48 75 58 69" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M 42 63 a 6.5 6.5 0 0 1 6 -3" stroke="rgba(250, 247, 242, 0.65)" stroke-width="1.5" stroke-linecap="round" />
             </g>
             <g class="hanging-ornament-group hanging-ornament-group--slow">
-              <line x1="146" y1="0" x2="146" y2="48" stroke="rgba(184, 138, 62, 0.5)" stroke-width="1.2" />
-              <circle cx="146" cy="59" r="9.5" stroke="#D8A85B" stroke-width="1.3" fill="rgba(250, 247, 242, 0.5)" />
-              <path d="M 146 53.5 l 1.5 4 l 4 1.5 l -4 1.5 l -1.5 4 l -1.5 -4 l -4 -1.5 l 4 -1.5 z" fill="#D8A85B" />
+              <line x1="114" y1="0" x2="114" y2="38" stroke="rgba(184, 138, 62, 0.68)" stroke-width="1.3" />
+              <path d="M 114 38 l 2.5 7 l 7 2.5 l -7 2.5 l -2.5 7 l -2.5 -7 l -7 -2.5 l 7 -2.5 z" fill="#D8A85B" />
+              <circle cx="114" cy="47.5" r="2.4" fill="#FAF7F2" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
+          <svg viewBox="0 0 210 145" fill="none">
+            <g class="hanging-ornament-group">
+              <line x1="42" y1="0" x2="42" y2="48" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <path d="M 42 48 l 2.6 7.4 l 7.4 2.6 l -7.4 2.6 l -2.6 7.4 l -2.6 -7.4 l -7.4 -2.6 l 7.4 -2.6 z" fill="#D8A85B" />
+              <circle cx="42" cy="58" r="2.2" fill="#FAF7F2" />
+            </g>
+            <g class="hanging-ornament-group hanging-ornament-group--delay">
+              <line x1="104" y1="0" x2="104" y2="68" stroke="rgba(184, 138, 62, 0.75)" stroke-width="1.4" />
+              <circle cx="104" cy="71" r="3" stroke="#D8A85B" stroke-width="1.3" />
+              <rect x="99" y="74" width="10" height="4.2" rx="1.2" fill="#D8A85B" />
+              <circle cx="104" cy="91" r="13.5" fill="#C81E2B" />
+              <path d="M 92 89 Q 104 96 116 89" stroke="#F2CF8D" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M 97 83 a 7.5 7.5 0 0 1 7 -3.2" stroke="rgba(250, 247, 242, 0.65)" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <g class="hanging-ornament-group hanging-ornament-group--slow">
+              <line x1="164" y1="0" x2="164" y2="54" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="160" y="54" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="164" cy="69" r="11.5" stroke="#D8A85B" stroke-width="1.6" fill="rgba(255, 253, 249, 0.86)" />
+              <path d="M 164 62 l 1.9 5.2 l 5.2 1.9 l -5.2 1.9 l -1.9 5.2 l -1.9 -5.2 l -5.2 -1.9 l 5.2 -1.9 z" fill="#C81E2B" />
             </g>
           </svg>
         </div>
 
         <div class="festive-corner festive-corner--bl" aria-hidden="true">
-          <svg viewBox="0 0 210 150" fill="none">
-            <path d="M -8 152 Q 46 112 122 122" stroke="#183B30" stroke-width="1.8" stroke-linecap="round" />
-            <path d="M 8 156 Q 24 88 58 34" stroke="#183B30" stroke-width="1.6" stroke-linecap="round" />
-            <g stroke="#183B30" stroke-width="1.35" stroke-linecap="round">
-              <path d="M 32 130 l 12 -14 M 32 130 l 18 4 M 64 122 l 12 -13 M 64 122 l 16 7 M 96 120 l 11 -11 M 96 120 l 15 6" />
-              <path d="M 24 106 l -12 -11 M 24 106 l 14 -7 M 36 74 l -11 -11 M 36 74 l 14 -6 M 49 48 l -9 -10 M 49 48 l 12 -4" />
+          <svg viewBox="0 0 240 165" fill="none">
+            <path d="M -8 168 Q 52 120 144 134" stroke="#183B30" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M 10 172 Q 30 96 68 34" stroke="#183B30" stroke-width="2" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.65" stroke-linecap="round">
+              <path d="M 30 144 l 14 -16 M 30 144 l 21 5 M 64 134 l 15 -15 M 64 134 l 19 8 M 102 130 l 14 -13 M 102 130 l 18 7 M 132 132 l 12 -11" />
+              <path d="M 26 116 l -14 -13 M 26 116 l 16 -8 M 40 82 l -13 -13 M 40 82 l 16 -7 M 56 50 l -11 -12 M 56 50 l 14 -5" />
             </g>
             <g fill="#C81E2B">
-              <circle cx="48" cy="116" r="3" />
-              <circle cx="54" cy="121" r="2.6" />
-              <circle cx="47" cy="123" r="2.4" />
-              <circle cx="32" cy="84" r="2.8" />
-              <circle cx="38" cy="88" r="2.4" />
+              <circle cx="48" cy="128" r="3.8" />
+              <circle cx="56" cy="134" r="3.2" />
+              <circle cx="48" cy="136" r="3" />
+              <circle cx="34" cy="92" r="3.6" />
+              <circle cx="42" cy="97" r="3" />
+              <circle cx="92" cy="122" r="3.4" />
+              <circle cx="99" cy="127" r="2.8" />
+            </g>
+            <!-- Mini cajita navideña -->
+            <rect x="114" y="136" width="24" height="20" rx="3.5" fill="#FFFDF9" stroke="#D8A85B" stroke-width="1.4" />
+            <rect x="124" y="136" width="4" height="20" fill="#C81E2B" />
+            <path d="M 126 136 C 120 130, 116 134, 126 136 C 136 134, 132 130, 126 136 Z" fill="#C81E2B" />
+            <g fill="#D8A85B">
+              <path d="M 156 108 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" />
+              <path d="M 88 52 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--br" aria-hidden="true">
+          <svg viewBox="0 0 240 165" fill="none">
+            <path d="M 248 168 Q 184 124 98 136" stroke="#183B30" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M 228 170 Q 208 98 172 44" stroke="#183B30" stroke-width="2" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.65" stroke-linecap="round">
+              <path d="M 208 144 l -14 -16 M 208 144 l -20 5 M 174 134 l -14 -14 M 174 134 l -18 8 M 136 132 l -12 -12 M 136 132 l -16 7" />
+              <path d="M 212 116 l 14 -12 M 212 116 l -15 -8 M 196 82 l 12 -12 M 196 82 l -15 -7 M 182 56 l 10 -11 M 182 56 l -13 -5" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="192" cy="128" r="3.8" />
+              <circle cx="184" cy="134" r="3.2" />
+              <circle cx="204" cy="92" r="3.5" />
+              <circle cx="197" cy="97" r="2.9" />
             </g>
             <g fill="#D8A85B">
-              <path d="M 134 102 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
-              <path d="M 78 52 l 1.2 3.2 l 3.2 1.2 l -3.2 1.2 l -1.2 3.2 l -1.2 -3.2 l -3.2 -1.2 l 3.2 -1.2 z" />
+              <path d="M 102 108 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" />
+              <circle cx="152" cy="72" r="2.2" />
             </g>
           </svg>
         </div>
@@ -402,54 +495,71 @@
               </span>
             </div>
 
-            <!-- Composición editorial navideña (corona de pino, hilo carmesí y caja de regalo) -->
+            <!-- Composición editorial navideña enriquecida (corona de pino, hilo carmesí y trío de regalos) -->
             <figure class="twilight-festive-art" aria-hidden="true">
-              <svg viewBox="0 0 360 195" fill="none">
-                <circle cx="118" cy="96" r="64" fill="rgba(216, 168, 91, 0.08)" />
-                <circle cx="118" cy="96" r="52" stroke="#183B30" stroke-width="2" />
-                <circle cx="118" cy="96" r="46" stroke="rgba(216, 168, 91, 0.55)" stroke-width="1.2" stroke-dasharray="3 4" />
-                <g stroke="#183B30" stroke-width="1.6" stroke-linecap="round">
-                  <path d="M118 44 l-8 -9 M118 44 l8 -9" />
-                  <path d="M144 51 l-2 -11 M144 51 l11 -4" />
-                  <path d="M163 70 l4 -11 M163 70 l11 3" />
-                  <path d="M170 96 l9 -7 M170 96 l9 7" />
-                  <path d="M163 122 l11 -3 M163 122 l4 11" />
-                  <path d="M144 141 l11 4 M144 141 l-2 11" />
-                  <path d="M118 148 l8 9 M118 148 l-8 9" />
-                  <path d="M92 141 l2 11 M92 141 l-11 4" />
-                  <path d="M73 122 l-4 11 M73 122 l-11 -3" />
-                  <path d="M66 96 l-9 7 M66 96 l-9 -7" />
-                  <path d="M73 70 l-11 3 M73 70 l-4 -11" />
-                  <path d="M92 51 l-11 -4 M92 51 l2 -11" />
+              <svg viewBox="0 0 380 215" fill="none">
+                <circle cx="114" cy="104" r="74" fill="rgba(216, 168, 91, 0.12)" />
+                <circle cx="114" cy="104" r="60" stroke="#183B30" stroke-width="5.5" />
+                <circle cx="114" cy="104" r="52" stroke="#285E4B" stroke-width="2.5" />
+                <circle cx="114" cy="104" r="46" stroke="rgba(216, 168, 91, 0.72)" stroke-width="1.4" stroke-dasharray="4 4" />
+                <g stroke="#1E4B3B" stroke-width="1.9" stroke-linecap="round">
+                  <path d="M114 44 l-9 -11 M114 44 l9 -11" />
+                  <path d="M144 52 l-2 -13 M144 52 l13 -4" />
+                  <path d="M166 74 l5 -13 M166 74 l13 4" />
+                  <path d="M174 104 l11 -8 M174 104 l11 8" />
+                  <path d="M166 134 l13 -4 M166 134 l5 13" />
+                  <path d="M144 156 l13 4 M144 156 l-2 13" />
+                  <path d="M114 164 l9 11 M114 164 l-9 11" />
+                  <path d="M84 156 l2 13 M84 156 l-13 4" />
+                  <path d="M62 134 l-5 13 M62 134 l-13 -4" />
+                  <path d="M54 104 l-11 8 M54 104 l-11 -8" />
+                  <path d="M62 74 l-13 4 M62 74 l-5 -13" />
+                  <path d="M84 52 l-13 -4 M84 52 l2 -13" />
                 </g>
                 <g fill="#C81E2B">
-                  <circle cx="84" cy="59" r="3.4" />
-                  <circle cx="90" cy="54" r="2.8" />
-                  <circle cx="154" cy="60" r="3.4" />
-                  <circle cx="159" cy="66" r="2.8" />
-                  <circle cx="72" cy="112" r="3.2" />
-                  <circle cx="76" cy="119" r="2.7" />
+                  <circle cx="76" cy="62" r="4.2" />
+                  <circle cx="84" cy="56" r="3.4" />
+                  <circle cx="152" cy="64" r="4.2" />
+                  <circle cx="158" cy="72" r="3.4" />
+                  <circle cx="64" cy="122" r="4" />
+                  <circle cx="69" cy="130" r="3.2" />
+                </g>
+                <g fill="#F2CF8D">
+                  <circle cx="114" cy="46" r="3.2" />
+                  <circle cx="168" cy="104" r="3.2" />
+                  <circle cx="60" cy="96" r="3" />
                 </g>
                 <g fill="#D8A85B">
-                  <path d="M 118 30 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
-                  <path d="M 224 44 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
-                  <path d="M 294 56 l 1.3 3.4 l 3.4 1.3 l -3.4 1.3 l -1.3 3.4 l -1.3 -3.4 l -3.4 -1.3 l 3.4 -1.3 z" />
-                  <circle cx="194" cy="64" r="1.6" />
-                  <circle cx="258" cy="36" r="1.5" />
-                  <circle cx="322" cy="78" r="1.8" />
-                  <circle cx="42" cy="58" r="1.6" />
+                  <path d="M 114 22 l 2.4 6.4 l 6.4 2.4 l -6.4 2.4 l -2.4 6.4 l -2.4 -6.4 l -6.4 -2.4 l 6.4 -2.4 z" />
+                  <path d="M 226 36 l 2.2 5.8 l 5.8 2.2 l -5.8 2.2 l -2.2 5.8 l -2.2 -5.8 l -5.8 -2.2 l 5.8 -2.2 z" />
+                  <path d="M 326 48 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
+                  <circle cx="192" cy="58" r="2.2" />
+                  <circle cx="272" cy="30" r="2" />
+                  <circle cx="350" cy="84" r="2.2" />
+                  <circle cx="34" cy="58" r="2.2" />
                 </g>
-                <!-- Lazo carmesí en la base de la corona + hilo rojo fluido hacia el regalo -->
-                <path d="M 118 148 C 102 138, 94 152, 118 152 C 142 152, 134 138, 118 148 Z" fill="#C81E2B" />
-                <path d="M 118 151 L 106 168 M 118 151 L 130 168" stroke="#C81E2B" stroke-width="2.4" stroke-linecap="round" />
-                <path d="M 136 144 C 176 164, 198 110, 236 124" stroke="#C81E2B" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1 0" />
-                <circle cx="192" cy="138" r="3" fill="#D8A85B" stroke="#FAF7F2" stroke-width="1" />
-                <!-- Caja de regalo artesanal -->
-                <rect x="238" y="102" width="70" height="54" rx="7" fill="#FFFDF9" stroke="#D8A85B" stroke-width="1.6" />
-                <rect x="234" y="92" width="78" height="14" rx="5" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.6" />
-                <rect x="268" y="92" width="10" height="64" fill="#C81E2B" />
-                <path d="M 273 92 C 258 76, 246 88, 273 92 C 300 88, 288 76, 273 92 Z" fill="#C81E2B" />
-                <circle cx="273" cy="92" r="3.4" fill="#F2CF8D" />
+                <!-- Moño carmesí + hilo rojo fluido hacia el trío de regalos -->
+                <path d="M 114 162 C 94 148, 84 166, 114 166 C 144 166, 134 148, 114 162 Z" fill="#C81E2B" />
+                <path d="M 114 166 L 98 186 M 114 166 L 130 186" stroke="#C81E2B" stroke-width="2.8" stroke-linecap="round" />
+                <path d="M 134 154 C 174 176, 194 114, 232 130" stroke="#C81E2B" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="188" cy="146" r="3.6" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.2" />
+                <!-- Sombra suave de base -->
+                <ellipse cx="288" cy="172" rx="76" ry="10" fill="rgba(216, 168, 91, 0.18)" />
+                <!-- Regalo grande marfil + lazo carmesí -->
+                <rect x="228" y="106" width="70" height="60" rx="7" fill="#FFFDF9" stroke="#D8A85B" stroke-width="1.8" />
+                <rect x="223" y="95" width="80" height="15" rx="5" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.8" />
+                <rect x="257" y="95" width="12" height="71" fill="#C81E2B" />
+                <path d="M 263 95 C 245 77, 232 91, 263 95 C 294 91, 281 77, 263 95 Z" fill="#C81E2B" />
+                <circle cx="263" cy="95" r="3.8" fill="#F2CF8D" />
+                <!-- Regalo pino nocturnal + cinta oro -->
+                <rect x="292" y="124" width="48" height="44" rx="6" fill="#18382E" stroke="#F2CF8D" stroke-width="1.5" />
+                <rect x="289" y="117" width="54" height="11" rx="4" fill="#1F473A" stroke="#F2CF8D" stroke-width="1.4" />
+                <rect x="312" y="117" width="8" height="51" fill="#D8A85B" />
+                <path d="M 316 117 C 304 104, 294 114, 316 117 C 338 114, 328 104, 316 117 Z" fill="#D8A85B" />
+                <!-- Mini cajita carmesí frontal -->
+                <rect x="206" y="138" width="32" height="30" rx="5" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.4" />
+                <rect x="219" y="138" width="6" height="30" fill="#F2CF8D" />
+                <path d="M 222 138 C 214 130, 207 136, 222 138 C 237 136, 230 130, 222 138 Z" fill="#F2CF8D" />
               </svg>
             </figure>
           </div>
@@ -464,33 +574,65 @@
            SECCIÓN 3 · CÓMO FUNCIONA (7 PASOS CON HILO ROJO + TRINEO EN SCROLL)
            ============================================================== -->
       <section class="section-process" id="como-funciona" aria-labelledby="process-title">
-        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
-          <svg viewBox="0 0 180 120" fill="none">
-            <g class="hanging-ornament-group hanging-ornament-group--delay">
-              <line x1="56" y1="0" x2="56" y2="54" stroke="rgba(184, 138, 62, 0.5)" stroke-width="1.2" />
-              <circle cx="56" cy="64" r="9" stroke="#D8A85B" stroke-width="1.3" fill="rgba(250, 247, 242, 0.5)" />
-              <path d="M 56 58.5 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" fill="#D8A85B" />
+        <div class="hanging-ornaments hanging-ornaments--left" aria-hidden="true">
+          <svg viewBox="0 0 180 135" fill="none">
+            <g class="hanging-ornament-group hanging-ornament-group--slow">
+              <line x1="56" y1="0" x2="56" y2="48" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="52" y="48" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="56" cy="63" r="11" fill="#C81E2B" />
+              <path d="M 47 62 Q 56 68 65 62" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
             </g>
             <g class="hanging-ornament-group">
-              <line x1="126" y1="0" x2="126" y2="36" stroke="rgba(184, 138, 62, 0.55)" stroke-width="1.2" />
-              <rect x="122" y="36" width="8" height="3.2" rx="1" fill="#D8A85B" />
-              <circle cx="126" cy="48" r="9.5" fill="#C81E2B" />
-              <path d="M 121.5 44 a 5.5 5.5 0 0 1 4.5 -2" stroke="rgba(250, 247, 242, 0.55)" stroke-width="1.3" stroke-linecap="round" />
+              <line x1="118" y1="0" x2="118" y2="38" stroke="rgba(184, 138, 62, 0.68)" stroke-width="1.3" />
+              <path d="M 118 38 l 2.4 6.6 l 6.6 2.4 l -6.6 2.4 l -2.4 6.6 l -2.4 -6.6 l -6.6 -2.4 l 6.6 -2.4 z" fill="#D8A85B" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
+          <svg viewBox="0 0 210 140" fill="none">
+            <g class="hanging-ornament-group hanging-ornament-group--delay">
+              <line x1="56" y1="0" x2="56" y2="54" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.35" />
+              <rect x="52" y="54" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="56" cy="69" r="11.5" stroke="#D8A85B" stroke-width="1.6" fill="rgba(255, 253, 249, 0.85)" />
+              <path d="M 56 62 l 1.8 5 l 5 1.8 l -5 1.8 l -1.8 5 l -1.8 -5 l -5 -1.8 l 5 -1.8 z" fill="#C81E2B" />
+            </g>
+            <g class="hanging-ornament-group">
+              <line x1="138" y1="0" x2="138" y2="42" stroke="rgba(184, 138, 62, 0.74)" stroke-width="1.35" />
+              <rect x="133.5" y="42" width="9" height="4" rx="1.2" fill="#D8A85B" />
+              <circle cx="138" cy="58" r="12.5" fill="#C81E2B" />
+              <path d="M 127 56 Q 138 63 149 56" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M 132 51 a 6.5 6.5 0 0 1 6 -3" stroke="rgba(250, 247, 242, 0.65)" stroke-width="1.5" stroke-linecap="round" />
             </g>
           </svg>
         </div>
 
         <div class="festive-corner festive-corner--bl" aria-hidden="true">
-          <svg viewBox="0 0 210 150" fill="none">
-            <path d="M -6 150 Q 50 116 116 128" stroke="#183B30" stroke-width="1.7" stroke-linecap="round" />
-            <g stroke="#183B30" stroke-width="1.3" stroke-linecap="round">
-              <path d="M 32 132 l 11 -13 M 32 132 l 17 4 M 68 124 l 10 -12 M 68 124 l 14 7" />
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M -8 162 Q 56 118 142 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 32 140 l 14 -16 M 32 140 l 20 5 M 74 130 l 14 -14 M 74 130 l 18 8 M 114 130 l 12 -11" />
             </g>
             <g fill="#C81E2B">
-              <circle cx="46" cy="118" r="2.8" />
-              <circle cx="52" cy="123" r="2.4" />
+              <circle cx="48" cy="124" r="3.6" />
+              <circle cx="56" cy="130" r="3" />
+              <circle cx="88" cy="120" r="3.2" />
             </g>
-            <path d="M 96 104 l 1.5 4 l 4 1.5 l -4 1.5 l -1.5 4 l -1.5 -4 l -4 -1.5 l 4 -1.5 z" fill="#D8A85B" />
+            <path d="M 118 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--br" aria-hidden="true">
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M 248 162 Q 186 118 98 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 206 140 l -14 -16 M 206 140 l -20 5 M 164 130 l -14 -14 M 164 130 l -18 8" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="190" cy="124" r="3.6" />
+              <circle cx="182" cy="130" r="3" />
+            </g>
+            <path d="M 122 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
           </svg>
         </div>
 
@@ -564,18 +706,26 @@
                 </svg>
                 <div class="timeline-travel-sleigh timeline-travel-sleigh--mobile" id="timeline-travel-orb-mobile" aria-hidden="true">
                   <div class="timeline-travel-sleigh__body">
-                    <svg viewBox="0 0 68 48" fill="none">
-                      <circle cx="6" cy="22" r="1.4" fill="#F2CF8D" />
-                      <circle cx="10" cy="14" r="1.1" fill="#D8A85B" />
-                      <path d="M 4 30 l 1.2 3 l 3 1.2 l -3 1.2 l -1.2 3 l -1.2 -3 l -3 -1.2 l 3 -1.2 z" fill="#D8A85B" />
-                      <rect x="17" y="17" width="10" height="9" rx="2" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.1" />
-                      <rect x="25" y="13" width="14" height="13" rx="2.4" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.3" />
-                      <rect x="30.8" y="13" width="2.4" height="13" fill="#C81E2B" />
-                      <path d="M 32 13 C 28 8, 25 12, 32 13 C 39 12, 36 8, 32 13 Z" fill="#C81E2B" />
-                      <path d="M 12 20 C 12 13, 18 13, 21 20 L 23 24 L 41 24 C 46 24, 51 19, 54 19 C 56 19, 55 26, 49 31 C 45 34, 24 35, 17 34 C 12 33, 10 26, 12 20 Z" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.5" stroke-linejoin="round" />
-                      <path d="M 22 27.5 C 29 29.5, 39 29.5, 47 26.5" stroke="#F2CF8D" stroke-width="1.2" stroke-linecap="round" />
-                      <path d="M 20 33 L 18 41 M 42 33 L 44 41" stroke="#D8A85B" stroke-width="2.2" stroke-linecap="round" />
-                      <path d="M 10 41 L 47 41 C 55 41, 61 36, 59 30 C 58 27, 54 27, 53 30" stroke="#D8A85B" stroke-width="2.8" stroke-linecap="round" />
+                    <svg viewBox="0 0 84 56" fill="none">
+                      <g class="sleigh-sparkle">
+                        <circle cx="6" cy="24" r="1.8" fill="#F2CF8D" />
+                        <path d="M 4 34 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" fill="#D8A85B" />
+                      </g>
+                      <circle cx="12" cy="16" r="1.3" fill="#D8A85B" />
+                      <!-- Paquetes navideños sobre el trineo -->
+                      <rect x="20" y="18" width="12" height="11" rx="2" fill="#18382E" stroke="#F2CF8D" stroke-width="1.2" />
+                      <rect x="24.5" y="18" width="3" height="11" fill="#F2CF8D" />
+                      <rect x="30" y="12" width="16" height="16" rx="2.6" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.4" />
+                      <rect x="36.5" y="12" width="3" height="16" fill="#C81E2B" />
+                      <path d="M 38 12 C 33 6, 29 10, 38 12 C 47 10, 43 6, 38 12 Z" fill="#C81E2B" />
+                      <rect x="44" y="17" width="10" height="10" rx="2" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.2" />
+                      <!-- Cuerpo del trineo carmesí y oro -->
+                      <path d="M 14 22 C 14 14, 21 14, 25 22 L 27 28 L 51 28 C 57 28, 63 22, 67 22 C 70 22, 68 30, 61 36 C 56 40, 29 41, 20 40 C 14 39, 12 30, 14 22 Z" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.7" stroke-linejoin="round" />
+                      <path d="M 26 32.5 C 35 35, 48 35, 58 31.5" stroke="#F2CF8D" stroke-width="1.4" stroke-linecap="round" />
+                      <circle cx="67" cy="24" r="3" fill="#F2CF8D" />
+                      <!-- Patines curvos dorados -->
+                      <path d="M 24 40 L 21 48 M 51 40 L 54 48" stroke="#D8A85B" stroke-width="2.4" stroke-linecap="round" />
+                      <path d="M 12 48 L 58 48 C 68 48, 76 42, 74 34 C 73 30, 68 30, 67 34" stroke="#D8A85B" stroke-width="3.2" stroke-linecap="round" />
                     </svg>
                   </div>
                 </div>
@@ -583,18 +733,26 @@
 
               <div class="timeline-travel-sleigh timeline-travel-sleigh--desktop" id="timeline-travel-orb" aria-hidden="true">
                 <div class="timeline-travel-sleigh__body">
-                  <svg viewBox="0 0 68 48" fill="none">
-                    <circle cx="6" cy="22" r="1.4" fill="#F2CF8D" />
-                    <circle cx="10" cy="14" r="1.1" fill="#D8A85B" />
-                    <path d="M 4 30 l 1.2 3 l 3 1.2 l -3 1.2 l -1.2 3 l -1.2 -3 l -3 -1.2 l 3 -1.2 z" fill="#D8A85B" />
-                    <rect x="17" y="17" width="10" height="9" rx="2" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.1" />
-                    <rect x="25" y="13" width="14" height="13" rx="2.4" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.3" />
-                    <rect x="30.8" y="13" width="2.4" height="13" fill="#C81E2B" />
-                    <path d="M 32 13 C 28 8, 25 12, 32 13 C 39 12, 36 8, 32 13 Z" fill="#C81E2B" />
-                    <path d="M 12 20 C 12 13, 18 13, 21 20 L 23 24 L 41 24 C 46 24, 51 19, 54 19 C 56 19, 55 26, 49 31 C 45 34, 24 35, 17 34 C 12 33, 10 26, 12 20 Z" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.5" stroke-linejoin="round" />
-                    <path d="M 22 27.5 C 29 29.5, 39 29.5, 47 26.5" stroke="#F2CF8D" stroke-width="1.2" stroke-linecap="round" />
-                    <path d="M 20 33 L 18 41 M 42 33 L 44 41" stroke="#D8A85B" stroke-width="2.2" stroke-linecap="round" />
-                    <path d="M 10 41 L 47 41 C 55 41, 61 36, 59 30 C 58 27, 54 27, 53 30" stroke="#D8A85B" stroke-width="2.8" stroke-linecap="round" />
+                  <svg viewBox="0 0 84 56" fill="none">
+                    <g class="sleigh-sparkle">
+                      <circle cx="6" cy="24" r="1.8" fill="#F2CF8D" />
+                      <path d="M 4 34 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" fill="#D8A85B" />
+                    </g>
+                    <circle cx="12" cy="16" r="1.3" fill="#D8A85B" />
+                    <!-- Paquetes navideños sobre el trineo -->
+                    <rect x="20" y="18" width="12" height="11" rx="2" fill="#18382E" stroke="#F2CF8D" stroke-width="1.2" />
+                    <rect x="24.5" y="18" width="3" height="11" fill="#F2CF8D" />
+                    <rect x="30" y="12" width="16" height="16" rx="2.6" fill="#FAF7F2" stroke="#D8A85B" stroke-width="1.4" />
+                    <rect x="36.5" y="12" width="3" height="16" fill="#C81E2B" />
+                    <path d="M 38 12 C 33 6, 29 10, 38 12 C 47 10, 43 6, 38 12 Z" fill="#C81E2B" />
+                    <rect x="44" y="17" width="10" height="10" rx="2" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.2" />
+                    <!-- Cuerpo del trineo carmesí y oro -->
+                    <path d="M 14 22 C 14 14, 21 14, 25 22 L 27 28 L 51 28 C 57 28, 63 22, 67 22 C 70 22, 68 30, 61 36 C 56 40, 29 41, 20 40 C 14 39, 12 30, 14 22 Z" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.7" stroke-linejoin="round" />
+                    <path d="M 26 32.5 C 35 35, 48 35, 58 31.5" stroke="#F2CF8D" stroke-width="1.4" stroke-linecap="round" />
+                    <circle cx="67" cy="24" r="3" fill="#F2CF8D" />
+                    <!-- Patines curvos dorados -->
+                    <path d="M 24 40 L 21 48 M 51 40 L 54 48" stroke="#D8A85B" stroke-width="2.4" stroke-linecap="round" />
+                    <path d="M 12 48 L 58 48 C 68 48, 76 42, 74 34 C 73 30, 68 30, 67 34" stroke="#D8A85B" stroke-width="3.2" stroke-linecap="round" />
                   </svg>
                 </div>
               </div>
@@ -616,24 +774,45 @@
            SECCIÓN 4 · QUÉ SE PUEDE ENVIAR (PINO NOCTURNO + CINTA + BENTO)
            ============================================================== -->
       <section class="section-gifts" id="que-enviar" data-header-theme="dark" aria-labelledby="gifts-title">
-        <!-- Trazo decorativo de pino y estrellas en oro viejo -->
+        <canvas class="gifts-snow-canvas" id="gifts-snow-canvas" aria-hidden="true"></canvas>
+
+        <!-- Guirnalda navideña de pino, lazos y luces cálidas -->
         <div class="section-gifts__garland" aria-hidden="true">
-          <svg viewBox="0 0 1440 42" preserveAspectRatio="none" fill="none">
-            <path
-              d="M 0 12 Q 360 32 720 12 T 1440 12"
-              stroke="rgba(242, 207, 141, 0.32)"
-              stroke-width="1.2"
-            />
-            <g stroke="rgba(242, 207, 141, 0.45)" stroke-width="1.2" stroke-linecap="round">
-              <path d="M 180 18 l -7 8 M 180 18 l 0 10 M 180 18 l 7 8" />
-              <path d="M 520 16 l -7 8 M 520 16 l 0 10 M 520 16 l 7 8" />
-              <path d="M 920 16 l -7 8 M 920 16 l 0 10 M 920 16 l 7 8" />
-              <path d="M 1260 18 l -7 8 M 1260 18 l 0 10 M 1260 18 l 7 8" />
+          <svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none">
+            <path d="M -10 10 Q 180 42 360 14 T 720 16 T 1080 14 T 1450 12" stroke="#183F32" stroke-width="9" stroke-linecap="round" opacity="0.88" />
+            <path d="M -10 8 Q 180 38 360 12 T 720 14 T 1080 12 T 1450 10" stroke="#245B47" stroke-width="4.5" stroke-linecap="round" opacity="0.92" />
+            <path d="M -10 14 Q 180 46 360 18 T 720 20 T 1080 18 T 1450 16" stroke="rgba(242, 207, 141, 0.52)" stroke-width="1.4" />
+            <g stroke="#29644E" stroke-width="1.8" stroke-linecap="round">
+              <path d="M 180 26 l -9 14 M 180 26 l 0 16 M 180 26 l 9 14" />
+              <path d="M 520 20 l -9 14 M 520 20 l 0 16 M 520 20 l 9 14" />
+              <path d="M 920 20 l -9 14 M 920 20 l 0 16 M 920 20 l 9 14" />
+              <path d="M 1260 26 l -9 14 M 1260 26 l 0 16 M 1260 26 l 9 14" />
+            </g>
+            <g class="fairy-bulb">
+              <circle cx="95" cy="24" r="7" fill="rgba(242, 207, 141, 0.28)" />
+              <circle cx="95" cy="24" r="3.4" fill="#F2CF8D" />
+              <circle cx="430" cy="22" r="7" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="430" cy="22" r="3.4" fill="#FF6B78" />
+              <circle cx="720" cy="18" r="8" fill="rgba(242, 207, 141, 0.32)" />
+              <circle cx="720" cy="18" r="3.8" fill="#F2CF8D" />
+              <circle cx="1010" cy="22" r="7" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="1010" cy="22" r="3.4" fill="#FF6B78" />
+              <circle cx="1355" cy="24" r="7" fill="rgba(242, 207, 141, 0.28)" />
+              <circle cx="1355" cy="24" r="3.4" fill="#F2CF8D" />
+            </g>
+            <g class="fairy-bulb--alt">
+              <circle cx="265" cy="28" r="7" fill="rgba(226, 59, 72, 0.28)" />
+              <circle cx="265" cy="28" r="3.4" fill="#FF6B78" />
+              <circle cx="605" cy="24" r="7" fill="rgba(250, 247, 242, 0.26)" />
+              <circle cx="605" cy="24" r="3.2" fill="#FAF7F2" />
+              <circle cx="835" cy="24" r="7" fill="rgba(242, 207, 141, 0.28)" />
+              <circle cx="835" cy="24" r="3.4" fill="#F2CF8D" />
+              <circle cx="1175" cy="28" r="7" fill="rgba(250, 247, 242, 0.26)" />
+              <circle cx="1175" cy="28" r="3.2" fill="#FAF7F2" />
             </g>
             <g fill="#F2CF8D">
-              <path d="M 360 14 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" />
-              <path d="M 720 6 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
-              <path d="M 1080 14 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" />
+              <path d="M 360 20 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" />
+              <path d="M 1080 20 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" />
             </g>
           </svg>
         </div>
@@ -711,32 +890,62 @@
            SECCIÓN 5 · PARA QUIÉN, EL HILO ROJO Y CONFIANZA
            ============================================================== -->
       <section class="section-story" id="nosotros" aria-labelledby="story-title">
-        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
-          <svg viewBox="0 0 180 120" fill="none">
+        <div class="hanging-ornaments hanging-ornaments--left" aria-hidden="true">
+          <svg viewBox="0 0 180 135" fill="none">
             <g class="hanging-ornament-group">
-              <line x1="64" y1="0" x2="64" y2="48" stroke="rgba(184, 138, 62, 0.5)" stroke-width="1.2" />
-              <path d="M 64 48 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+              <line x1="56" y1="0" x2="56" y2="52" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="52" y="52" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="56" cy="67" r="11" fill="#C81E2B" />
+              <path d="M 47 66 Q 56 72 65 66" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
             </g>
             <g class="hanging-ornament-group hanging-ornament-group--slow">
-              <line x1="126" y1="0" x2="126" y2="62" stroke="rgba(184, 138, 62, 0.52)" stroke-width="1.2" />
-              <rect x="122" y="62" width="8" height="3.2" rx="1" fill="#D8A85B" />
-              <circle cx="126" cy="74" r="9.5" fill="#C81E2B" />
-              <path d="M 121.5 70 a 5.5 5.5 0 0 1 4.5 -2" stroke="rgba(250, 247, 242, 0.55)" stroke-width="1.3" stroke-linecap="round" />
+              <line x1="120" y1="0" x2="120" y2="38" stroke="rgba(184, 138, 62, 0.68)" stroke-width="1.3" />
+              <path d="M 120 38 l 2.4 6.6 l 6.6 2.4 l -6.6 2.4 l -2.4 6.6 l -2.4 -6.6 l -6.6 -2.4 l 6.6 -2.4 z" fill="#D8A85B" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
+          <svg viewBox="0 0 210 140" fill="none">
+            <g class="hanging-ornament-group">
+              <line x1="64" y1="0" x2="64" y2="48" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <path d="M 64 48 l 2.5 7 l 7 2.5 l -7 2.5 l -2.5 7 l -2.5 -7 l -7 -2.5 l 7 -2.5 z" fill="#D8A85B" />
+            </g>
+            <g class="hanging-ornament-group hanging-ornament-group--slow">
+              <line x1="138" y1="0" x2="138" y2="60" stroke="rgba(184, 138, 62, 0.74)" stroke-width="1.35" />
+              <rect x="133.5" y="60" width="9" height="4" rx="1.2" fill="#D8A85B" />
+              <circle cx="138" cy="76" r="12.5" fill="#C81E2B" />
+              <path d="M 127 74 Q 138 81 149 74" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M 132 69 a 6.5 6.5 0 0 1 6 -3" stroke="rgba(250, 247, 242, 0.65)" stroke-width="1.5" stroke-linecap="round" />
             </g>
           </svg>
         </div>
 
         <div class="festive-corner festive-corner--bl" aria-hidden="true">
-          <svg viewBox="0 0 210 150" fill="none">
-            <path d="M -6 150 Q 50 116 116 128" stroke="#183B30" stroke-width="1.7" stroke-linecap="round" />
-            <g stroke="#183B30" stroke-width="1.3" stroke-linecap="round">
-              <path d="M 32 132 l 11 -13 M 32 132 l 17 4 M 68 124 l 10 -12 M 68 124 l 14 7" />
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M -8 162 Q 56 118 142 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 32 140 l 14 -16 M 32 140 l 20 5 M 74 130 l 14 -14 M 74 130 l 18 8" />
             </g>
             <g fill="#C81E2B">
-              <circle cx="46" cy="118" r="2.8" />
-              <circle cx="52" cy="123" r="2.4" />
+              <circle cx="48" cy="124" r="3.6" />
+              <circle cx="56" cy="130" r="3" />
             </g>
-            <path d="M 96 104 l 1.5 4 l 4 1.5 l -4 1.5 l -1.5 4 l -1.5 -4 l -4 -1.5 l 4 -1.5 z" fill="#D8A85B" />
+            <path d="M 118 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--br" aria-hidden="true">
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M 248 162 Q 186 118 98 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 206 140 l -14 -16 M 206 140 l -20 5 M 164 130 l -14 -14 M 164 130 l -18 8" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="190" cy="124" r="3.6" />
+              <circle cx="182" cy="130" r="3" />
+            </g>
+            <path d="M 122 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
           </svg>
         </div>
 
@@ -769,44 +978,46 @@
                 <div class="origin-seal-frame">
                   <img
                     src="/brand/logo-perfil.png"
-                    alt="Emblema circular Akito con hilo carmesí"
+                    alt="Emblema Akito con hilo carmesí"
                     class="origin-seal-img"
                     id="origin-seal-img"
-                    width="108"
-                    height="108"
+                    width="94"
+                    height="94"
                   />
-                  <svg class="origin-seal-wreath" viewBox="0 0 144 144" fill="none" aria-hidden="true">
-                    <circle cx="72" cy="72" r="61" stroke="rgba(216, 168, 91, 0.55)" stroke-width="1.2" stroke-dasharray="3 4" />
-                    <g stroke="#183B30" stroke-width="1.5" stroke-linecap="round">
-                      <path d="M 72 11 l -6 -6 M 72 11 l 6 -6" />
-                      <path d="M 102.5 19.2 l 1.5 -8 M 102.5 19.2 l 8 -1.5" />
-                      <path d="M 124.8 41.5 l 6 -4 M 124.8 41.5 l 6 5" />
-                      <path d="M 133 72 l 6 -5 M 133 72 l 6 5" />
-                      <path d="M 124.8 102.5 l 6 -4 M 124.8 102.5 l 5 6" />
-                      <path d="M 102.5 124.8 l 7 1 M 102.5 124.8 l 1 8" />
-                      <path d="M 72 133 l 6 6 M 72 133 l -6 6" />
-                      <path d="M 41.5 124.8 l -1 8 M 41.5 124.8 l -7 1" />
-                      <path d="M 19.2 102.5 l -5 6 M 19.2 102.5 l -6 -4" />
-                      <path d="M 11 72 l -6 5 M 11 72 l -6 -5" />
-                      <path d="M 19.2 41.5 l -6 5 M 19.2 41.5 l -6 -4" />
-                      <path d="M 41.5 19.2 l -8 -1.5 M 41.5 19.2 l -1.5 -8" />
+                  <svg class="origin-seal-wreath" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+                    <circle cx="80" cy="80" r="68" stroke="#183B30" stroke-width="4.5" />
+                    <circle cx="80" cy="80" r="61" stroke="rgba(216, 168, 91, 0.72)" stroke-width="1.5" stroke-dasharray="4 4" />
+                    <g stroke="#245B47" stroke-width="1.8" stroke-linecap="round">
+                      <path d="M 80 12 l -7 -8 M 80 12 l 7 -8" />
+                      <path d="M 114 21 l 2 -10 M 114 21 l 10 -2" />
+                      <path d="M 139 46 l 8 -5 M 139 46 l 8 6" />
+                      <path d="M 148 80 l 8 -6 M 148 80 l 8 6" />
+                      <path d="M 139 114 l 8 -5 M 139 114 l 6 8" />
+                      <path d="M 114 139 l 9 2 M 114 139 l 2 10" />
+                      <path d="M 46 139 l -2 10 M 46 139 l -9 2" />
+                      <path d="M 21 114 l -6 8 M 21 114 l -8 -5" />
+                      <path d="M 12 80 l -8 6 M 12 80 l -8 -6" />
+                      <path d="M 21 46 l -8 6 M 21 46 l -8 -5" />
+                      <path d="M 46 21 l -10 -2 M 46 21 l -2 -10" />
                     </g>
                     <g fill="#C81E2B">
-                      <circle cx="115" cy="29" r="2.7" />
-                      <circle cx="119" cy="34" r="2.2" />
-                      <circle cx="115" cy="115" r="2.7" />
-                      <circle cx="110" cy="119" r="2.2" />
-                      <circle cx="29" cy="115" r="2.7" />
-                      <circle cx="25" cy="110" r="2.2" />
-                      <circle cx="29" cy="29" r="2.7" />
-                      <circle cx="34" cy="25" r="2.2" />
+                      <circle cx="128" cy="34" r="3.4" />
+                      <circle cx="133" cy="40" r="2.8" />
+                      <circle cx="128" cy="126" r="3.4" />
+                      <circle cx="122" cy="131" r="2.8" />
+                      <circle cx="32" cy="126" r="3.4" />
+                      <circle cx="27" cy="120" r="2.8" />
+                      <circle cx="32" cy="34" r="3.4" />
+                      <circle cx="38" cy="29" r="2.8" />
                     </g>
-                    <g fill="#D8A85B">
-                      <path d="M 72 4 l 1.2 3 l 3 1.2 l -3 1.2 l -1.2 3 l -1.2 -3 l -3 -1.2 l 3 -1.2 z" />
-                      <path d="M 140 72 l -3 1.2 l -1.2 3 l -1.2 -3 l -3 -1.2 l 3 -1.2 l 1.2 -3 l 1.2 3 z" />
-                      <path d="M 72 132 l 1.2 3 l 3 1.2 l -3 1.2 l -1.2 3 l -1.2 -3 l -3 -1.2 l 3 -1.2 z" />
-                      <path d="M 4 72 l 3 -1.2 l 1.2 -3 l 1.2 3 l 3 1.2 l -3 1.2 l -1.2 3 l -1.2 -3 z" />
+                    <g fill="#F2CF8D">
+                      <path d="M 80 2 l 1.8 4.6 l 4.6 1.8 l -4.6 1.8 l -1.8 4.6 l -1.8 -4.6 l -4.6 -1.8 l 4.6 -1.8 z" />
+                      <path d="M 156 80 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 l 1.6 -4.2 l 1.6 4.2 z" />
+                      <path d="M 4 80 l 4.2 -1.6 l 1.6 -4.2 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 z" />
                     </g>
+                    <!-- Moño carmesí festivo en la base de la corona -->
+                    <path d="M 80 144 C 66 135, 60 146, 80 146 C 100 146, 94 135, 80 144 Z" fill="#C81E2B" />
+                    <path d="M 80 146 L 71 157 M 80 146 L 89 157" stroke="#C81E2B" stroke-width="2.2" stroke-linecap="round" />
                   </svg>
                 </div>
                 <div class="origin-seal-caption">
@@ -883,17 +1094,63 @@
            SECCIÓN 6 · PREGUNTAS FRECUENTES
            ============================================================== -->
       <section class="section-faq" id="preguntas" aria-labelledby="faq-title">
-        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
-          <svg viewBox="0 0 180 120" fill="none">
-            <g class="hanging-ornament-group hanging-ornament-group--delay">
-              <line x1="68" y1="0" x2="68" y2="42" stroke="rgba(184, 138, 62, 0.5)" stroke-width="1.2" />
-              <circle cx="68" cy="52" r="9" stroke="#D8A85B" stroke-width="1.3" fill="rgba(250, 247, 242, 0.5)" />
-              <path d="M 68 46.5 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" fill="#D8A85B" />
+        <div class="hanging-ornaments hanging-ornaments--left" aria-hidden="true">
+          <svg viewBox="0 0 180 135" fill="none">
+            <g class="hanging-ornament-group hanging-ornament-group--slow">
+              <line x1="58" y1="0" x2="58" y2="50" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="54" y="50" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="58" cy="65" r="11" fill="#C81E2B" />
+              <path d="M 49 64 Q 58 70 67 64" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
             </g>
             <g class="hanging-ornament-group">
-              <line x1="132" y1="0" x2="132" y2="56" stroke="rgba(184, 138, 62, 0.52)" stroke-width="1.2" />
-              <path d="M 132 56 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+              <line x1="120" y1="0" x2="120" y2="38" stroke="rgba(184, 138, 62, 0.68)" stroke-width="1.3" />
+              <path d="M 120 38 l 2.4 6.6 l 6.6 2.4 l -6.6 2.4 l -2.4 6.6 l -2.4 -6.6 l -6.6 -2.4 l 6.6 -2.4 z" fill="#D8A85B" />
             </g>
+          </svg>
+        </div>
+
+        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
+          <svg viewBox="0 0 210 140" fill="none">
+            <g class="hanging-ornament-group hanging-ornament-group--delay">
+              <line x1="68" y1="0" x2="68" y2="48" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="64" y="48" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="68" cy="63" r="11.5" stroke="#D8A85B" stroke-width="1.6" fill="rgba(255, 253, 249, 0.85)" />
+              <path d="M 68 56 l 1.8 5 l 5 1.8 l -5 1.8 l -1.8 5 l -1.8 -5 l -5 -1.8 l 5 -1.8 z" fill="#C81E2B" />
+            </g>
+            <g class="hanging-ornament-group">
+              <line x1="142" y1="0" x2="142" y2="62" stroke="rgba(184, 138, 62, 0.74)" stroke-width="1.35" />
+              <rect x="137.5" y="62" width="9" height="4" rx="1.2" fill="#D8A85B" />
+              <circle cx="142" cy="78" r="12.5" fill="#C81E2B" />
+              <path d="M 131 76 Q 142 83 153 76" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--bl" aria-hidden="true">
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M -8 162 Q 56 118 142 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 32 140 l 14 -16 M 32 140 l 20 5 M 74 130 l 14 -14 M 74 130 l 18 8" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="48" cy="124" r="3.6" />
+              <circle cx="56" cy="130" r="3" />
+            </g>
+            <path d="M 118 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--br" aria-hidden="true">
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M 248 162 Q 186 118 98 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 206 140 l -14 -16 M 206 140 l -20 5 M 164 130 l -14 -14 M 164 130 l -18 8" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="190" cy="124" r="3.6" />
+              <circle cx="182" cy="130" r="3" />
+            </g>
+            <path d="M 122 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
           </svg>
         </div>
 
@@ -906,46 +1163,70 @@
               Lo esencial sobre tiempos, cobertura, pagos y seguimiento en destino.
             </p>
 
-            <!-- Ilustración navideña artesanal (pino, estrella dorada y regalos) -->
+            <!-- Ilustración navideña artesanal enriquecida (pino nevado iluminado, estrella y cuatro regalos) -->
             <figure class="faq-festive-art" aria-hidden="true">
-              <svg viewBox="0 0 320 215" fill="none">
-                <ellipse cx="160" cy="186" rx="88" ry="12" fill="rgba(216, 168, 91, 0.16)" />
-                <rect x="152" y="160" width="16" height="26" rx="3" fill="#6F4E2D" />
-                <!-- Capas del pino -->
-                <path d="M 160 32 C 134 62, 114 82, 92 98 C 122 106, 198 106, 228 98 C 206 82, 186 62, 160 32 Z" fill="#1D4236" stroke="rgba(242, 207, 141, 0.35)" stroke-width="1" />
-                <path d="M 160 64 C 128 96, 102 118, 76 134 C 114 144, 206 144, 244 134 C 218 118, 192 96, 160 64 Z" fill="#18382E" stroke="rgba(242, 207, 141, 0.35)" stroke-width="1" />
-                <path d="M 160 96 C 120 130, 90 152, 62 168 C 108 178, 212 178, 258 168 C 230 152, 200 130, 160 96 Z" fill="#11241E" stroke="rgba(242, 207, 141, 0.38)" stroke-width="1" />
-                <!-- Guirnalda carmesí del hilo rojo -->
-                <path d="M 132 76 Q 160 92 192 78" stroke="#C81E2B" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M 104 118 Q 160 136 218 116" stroke="#C81E2B" stroke-width="2.2" stroke-linecap="round" />
-                <path d="M 82 154 Q 160 172 238 152" stroke="#C81E2B" stroke-width="2.2" stroke-linecap="round" />
-                <!-- Esferas doradas y carmesí -->
-                <circle cx="144" cy="83" r="3.4" fill="#F2CF8D" />
-                <circle cx="176" cy="84" r="3" fill="#E23B48" />
-                <circle cx="128" cy="126" r="3.5" fill="#E23B48" />
-                <circle cx="164" cy="129" r="3.6" fill="#F2CF8D" />
-                <circle cx="198" cy="123" r="3.2" fill="#F2CF8D" />
-                <circle cx="108" cy="160" r="3.5" fill="#F2CF8D" />
-                <circle cx="152" cy="163" r="3.8" fill="#E23B48" />
-                <circle cx="208" cy="159" r="3.5" fill="#E23B48" />
-                <!-- Estrella dorada superior -->
-                <circle cx="160" cy="24" r="10" fill="rgba(216, 168, 91, 0.2)" />
-                <path d="M 160 12 l 2.4 7.6 l 7.6 2.4 l -7.6 2.4 l -2.4 7.6 l -2.4 -7.6 l -7.6 -2.4 l 7.6 -2.4 z" fill="#D8A85B" />
-                <!-- Regalos en la base -->
-                <rect x="94" y="164" width="32" height="24" rx="4" fill="#FFFDF9" stroke="#D8A85B" stroke-width="1.4" />
-                <rect x="108" y="164" width="4.5" height="24" fill="#C81E2B" />
-                <path d="M 110 164 C 103 156, 96 161, 110 164 C 124 161, 117 156, 110 164 Z" fill="#C81E2B" />
-                <rect x="192" y="168" width="28" height="20" rx="4" fill="#1A332B" stroke="#F2CF8D" stroke-width="1.3" />
-                <rect x="204" y="168" width="4" height="20" fill="#F2CF8D" />
-                <path d="M 206 168 C 200 161, 194 166, 206 168 C 218 166, 212 161, 206 168 Z" fill="#F2CF8D" />
-                <!-- Destellos sutiles -->
+              <svg viewBox="0 0 340 230" fill="none">
+                <ellipse cx="170" cy="202" rx="108" ry="14" fill="rgba(216, 168, 91, 0.22)" />
+                <rect x="160" y="172" width="20" height="28" rx="3" fill="#6F4E2D" />
+                <!-- Capas del pino nevado -->
+                <path d="M 170 32 C 140 66, 118 88, 92 106 C 126 115, 214 115, 248 106 C 222 88, 200 66, 170 32 Z" fill="#1F4A3B" stroke="rgba(250, 247, 242, 0.55)" stroke-width="1.3" />
+                <path d="M 170 66 C 134 102, 104 126, 74 144 C 118 155, 222 155, 266 144 C 236 126, 206 102, 170 66 Z" fill="#183C30" stroke="rgba(250, 247, 242, 0.5)" stroke-width="1.3" />
+                <path d="M 170 100 C 124 138, 90 162, 56 180 C 108 192, 232 192, 284 180 C 250 162, 216 138, 170 100 Z" fill="#11241E" stroke="rgba(250, 247, 242, 0.45)" stroke-width="1.3" />
+                <!-- Trazo dorado sutil de nieve en las puntas -->
+                <path d="M 94 106 Q 130 112 170 108 Q 210 112 246 106" stroke="rgba(250, 247, 242, 0.7)" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M 76 144 Q 124 152 170 148 Q 216 152 264 144" stroke="rgba(250, 247, 242, 0.65)" stroke-width="1.8" stroke-linecap="round" />
+                <!-- Guirnaldas carmesí del hilo rojo -->
+                <path d="M 136 80 Q 170 98 206 82" stroke="#C81E2B" stroke-width="2.6" stroke-linecap="round" />
+                <path d="M 106 126 Q 170 146 234 124" stroke="#C81E2B" stroke-width="2.6" stroke-linecap="round" />
+                <path d="M 78 164 Q 170 185 262 162" stroke="#C81E2B" stroke-width="2.6" stroke-linecap="round" />
+                <!-- Luces cálidas y esferas brillantes -->
+                <g class="fairy-bulb">
+                  <circle cx="152" cy="88" r="6" fill="rgba(242, 207, 141, 0.35)" />
+                  <circle cx="152" cy="88" r="3.4" fill="#F2CF8D" />
+                  <circle cx="128" cy="134" r="6.5" fill="rgba(226, 59, 72, 0.3)" />
+                  <circle cx="128" cy="134" r="4" fill="#E23B48" />
+                  <circle cx="212" cy="132" r="6.5" fill="rgba(242, 207, 141, 0.35)" />
+                  <circle cx="212" cy="132" r="3.6" fill="#F2CF8D" />
+                  <circle cx="158" cy="174" r="7" fill="rgba(226, 59, 72, 0.3)" />
+                  <circle cx="158" cy="174" r="4.2" fill="#E23B48" />
+                </g>
+                <g class="fairy-bulb--alt">
+                  <circle cx="188" cy="89" r="6" fill="rgba(226, 59, 72, 0.3)" />
+                  <circle cx="188" cy="89" r="3.6" fill="#E23B48" />
+                  <circle cx="172" cy="138" r="6.5" fill="rgba(242, 207, 141, 0.36)" />
+                  <circle cx="172" cy="138" r="4" fill="#F2CF8D" />
+                  <circle cx="106" cy="170" r="6.5" fill="rgba(242, 207, 141, 0.36)" />
+                  <circle cx="106" cy="170" r="3.8" fill="#F2CF8D" />
+                  <circle cx="230" cy="168" r="6.5" fill="rgba(226, 59, 72, 0.3)" />
+                  <circle cx="230" cy="168" r="4" fill="#E23B48" />
+                </g>
+                <!-- Estrella dorada radiante en la cima -->
+                <circle cx="170" cy="24" r="14" fill="rgba(216, 168, 91, 0.28)" />
+                <circle cx="170" cy="24" r="8" fill="rgba(242, 207, 141, 0.45)" />
+                <path d="M 170 8 l 3 9.5 l 9.5 3 l -9.5 3 l -3 9.5 l -3 -9.5 l -9.5 -3 l 9.5 -3 z" fill="#F2CF8D" stroke="#D8A85B" stroke-width="0.8" />
+                <!-- Cuatro regalos festivos al pie del pino -->
+                <rect x="64" y="182" width="28" height="22" rx="4" fill="#C81E2B" stroke="#F2CF8D" stroke-width="1.3" />
+                <rect x="75.5" y="182" width="5" height="22" fill="#F2CF8D" />
+                <path d="M 78 182 C 72 176, 66 180, 78 182 C 90 180, 84 176, 78 182 Z" fill="#F2CF8D" />
+
+                <rect x="98" y="172" width="38" height="32" rx="5" fill="#FFFDF9" stroke="#D8A85B" stroke-width="1.6" />
+                <rect x="114" y="172" width="6" height="32" fill="#C81E2B" />
+                <path d="M 117 172 C 108 162, 100 169, 117 172 C 134 169, 126 162, 117 172 Z" fill="#C81E2B" />
+
+                <rect x="204" y="176" width="34" height="28" rx="4.5" fill="#1A332B" stroke="#F2CF8D" stroke-width="1.5" />
+                <rect x="218.5" y="176" width="5" height="28" fill="#F2CF8D" />
+                <path d="M 221 176 C 214 167, 207 173, 221 176 C 235 173, 228 167, 221 176 Z" fill="#F2CF8D" />
+
+                <rect x="244" y="184" width="26" height="20" rx="4" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.3" />
+                <rect x="255" y="184" width="4" height="20" fill="#C81E2B" />
+                <!-- Destellos dorados -->
                 <g fill="#D8A85B">
-                  <path d="M 68 56 l 1.4 3.6 l 3.6 1.4 l -3.6 1.4 l -1.4 3.6 l -1.4 -3.6 l -3.6 -1.4 l 3.6 -1.4 z" />
-                  <path d="M 254 48 l 1.4 3.6 l 3.6 1.4 l -3.6 1.4 l -1.4 3.6 l -1.4 -3.6 l -3.6 -1.4 l 3.6 -1.4 z" />
-                  <circle cx="96" cy="38" r="1.6" />
-                  <circle cx="228" cy="72" r="1.5" />
-                  <circle cx="52" cy="112" r="1.5" />
-                  <circle cx="268" cy="114" r="1.6" />
+                  <path d="M 64 56 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
+                  <path d="M 276 48 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
+                  <circle cx="102" cy="36" r="2" />
+                  <circle cx="242" cy="72" r="1.8" />
+                  <circle cx="44" cy="116" r="1.8" />
+                  <circle cx="294" cy="116" r="2" />
                 </g>
               </svg>
             </figure>
@@ -961,32 +1242,61 @@
            SECCIÓN 7 · FORMULARIO DE COTIZACIÓN DIRECTO A WHATSAPP
            ============================================================== -->
       <section class="section-quote" id="cotizar" aria-labelledby="quote-title">
-        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
-          <svg viewBox="0 0 180 120" fill="none">
+        <div class="hanging-ornaments hanging-ornaments--left" aria-hidden="true">
+          <svg viewBox="0 0 180 135" fill="none">
             <g class="hanging-ornament-group">
-              <line x1="60" y1="0" x2="60" y2="44" stroke="rgba(184, 138, 62, 0.52)" stroke-width="1.2" />
-              <path d="M 60 44 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+              <line x1="56" y1="0" x2="56" y2="48" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <rect x="52" y="48" width="8" height="3.5" rx="1" fill="#D8A85B" />
+              <circle cx="56" cy="63" r="11" fill="#C81E2B" />
+              <path d="M 47 62 Q 56 68 65 62" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+            <g class="hanging-ornament-group hanging-ornament-group--slow">
+              <line x1="120" y1="0" x2="120" y2="38" stroke="rgba(184, 138, 62, 0.68)" stroke-width="1.3" />
+              <path d="M 120 38 l 2.4 6.6 l 6.6 2.4 l -6.6 2.4 l -2.4 6.6 l -2.4 -6.6 l -6.6 -2.4 l 6.6 -2.4 z" fill="#D8A85B" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="hanging-ornaments hanging-ornaments--right" aria-hidden="true">
+          <svg viewBox="0 0 210 140" fill="none">
+            <g class="hanging-ornament-group">
+              <line x1="60" y1="0" x2="60" y2="46" stroke="rgba(184, 138, 62, 0.72)" stroke-width="1.3" />
+              <path d="M 60 46 l 2.5 7 l 7 2.5 l -7 2.5 l -2.5 7 l -2.5 -7 l -7 -2.5 l 7 -2.5 z" fill="#D8A85B" />
             </g>
             <g class="hanging-ornament-group hanging-ornament-group--delay">
-              <line x1="126" y1="0" x2="126" y2="58" stroke="rgba(184, 138, 62, 0.52)" stroke-width="1.2" />
-              <rect x="122" y="58" width="8" height="3.2" rx="1" fill="#D8A85B" />
-              <circle cx="126" cy="70" r="9.5" fill="#C81E2B" />
-              <path d="M 121.5 66 a 5.5 5.5 0 0 1 4.5 -2" stroke="rgba(250, 247, 242, 0.55)" stroke-width="1.3" stroke-linecap="round" />
+              <line x1="132" y1="0" x2="132" y2="58" stroke="rgba(184, 138, 62, 0.74)" stroke-width="1.35" />
+              <rect x="127.5" y="58" width="9" height="4" rx="1.2" fill="#D8A85B" />
+              <circle cx="132" cy="74" r="12.5" fill="#C81E2B" />
+              <path d="M 121 72 Q 132 79 143 72" stroke="#F2CF8D" stroke-width="1.5" stroke-linecap="round" />
             </g>
           </svg>
         </div>
 
         <div class="festive-corner festive-corner--bl" aria-hidden="true">
-          <svg viewBox="0 0 210 150" fill="none">
-            <path d="M -6 150 Q 50 116 116 128" stroke="#183B30" stroke-width="1.7" stroke-linecap="round" />
-            <g stroke="#183B30" stroke-width="1.3" stroke-linecap="round">
-              <path d="M 32 132 l 11 -13 M 32 132 l 17 4 M 68 124 l 10 -12 M 68 124 l 14 7" />
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M -8 162 Q 56 118 142 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 32 140 l 14 -16 M 32 140 l 20 5 M 74 130 l 14 -14 M 74 130 l 18 8" />
             </g>
             <g fill="#C81E2B">
-              <circle cx="46" cy="118" r="2.8" />
-              <circle cx="52" cy="123" r="2.4" />
+              <circle cx="48" cy="124" r="3.6" />
+              <circle cx="56" cy="130" r="3" />
             </g>
-            <path d="M 96 104 l 1.5 4 l 4 1.5 l -4 1.5 l -1.5 4 l -1.5 -4 l -4 -1.5 l 4 -1.5 z" fill="#D8A85B" />
+            <path d="M 118 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
+          </svg>
+        </div>
+
+        <div class="festive-corner festive-corner--br" aria-hidden="true">
+          <svg viewBox="0 0 240 160" fill="none">
+            <path d="M 248 162 Q 186 118 98 134" stroke="#183B30" stroke-width="2.1" stroke-linecap="round" />
+            <g stroke="#1E4B3B" stroke-width="1.6" stroke-linecap="round">
+              <path d="M 206 140 l -14 -16 M 206 140 l -20 5 M 164 130 l -14 -14 M 164 130 l -18 8" />
+            </g>
+            <g fill="#C81E2B">
+              <circle cx="190" cy="124" r="3.6" />
+              <circle cx="182" cy="130" r="3" />
+            </g>
+            <path d="M 122 102 l 2 5.4 l 5.4 2 l -5.4 2 l -2 5.4 l -2 -5.4 l -5.4 -2 l 5.4 -2 z" fill="#D8A85B" />
           </svg>
         </div>
 
@@ -1195,6 +1505,27 @@
             </form>
 
             <aside class="preview-card" id="preview-card" aria-label="Vista previa del mensaje de WhatsApp">
+              <div class="preview-card__lights" aria-hidden="true">
+                <svg viewBox="0 0 420 22" preserveAspectRatio="none" fill="none">
+                  <path d="M 0 3 Q 70 15 140 5 T 280 7 T 420 4" stroke="rgba(242, 207, 141, 0.48)" stroke-width="1.2" />
+                  <g class="fairy-bulb">
+                    <circle cx="42" cy="9" r="5" fill="rgba(242, 207, 141, 0.3)" />
+                    <circle cx="42" cy="9" r="2.5" fill="#F2CF8D" />
+                    <circle cx="165" cy="9" r="5" fill="rgba(226, 59, 72, 0.28)" />
+                    <circle cx="165" cy="9" r="2.5" fill="#FF6B78" />
+                    <circle cx="292" cy="9" r="5" fill="rgba(242, 207, 141, 0.3)" />
+                    <circle cx="292" cy="9" r="2.5" fill="#F2CF8D" />
+                  </g>
+                  <g class="fairy-bulb--alt">
+                    <circle cx="102" cy="10" r="5" fill="rgba(250, 247, 242, 0.25)" />
+                    <circle cx="102" cy="10" r="2.3" fill="#FAF7F2" />
+                    <circle cx="228" cy="11" r="5" fill="rgba(242, 207, 141, 0.3)" />
+                    <circle cx="228" cy="11" r="2.5" fill="#F2CF8D" />
+                    <circle cx="362" cy="8" r="5" fill="rgba(226, 59, 72, 0.28)" />
+                    <circle cx="362" cy="8" r="2.5" fill="#FF6B78" />
+                  </g>
+                </svg>
+              </div>
               <div class="preview-card__head">
                 <h3 class="preview-card__title">
                   <i data-lucide="message-circle" aria-hidden="true"></i>
@@ -1225,14 +1556,41 @@
          FOOTER
          ================================================================ -->
     <footer class="site-footer">
+      <div class="footer-lights" aria-hidden="true">
+        <svg viewBox="0 0 1440 28" preserveAspectRatio="none" fill="none">
+          <path d="M 0 4 Q 180 22 360 6 T 720 8 T 1080 6 T 1440 4" stroke="rgba(242, 207, 141, 0.42)" stroke-width="1.2" />
+          <g class="fairy-bulb">
+            <circle cx="110" cy="12" r="5.5" fill="rgba(242, 207, 141, 0.28)" />
+            <circle cx="110" cy="12" r="2.8" fill="#F2CF8D" />
+            <circle cx="430" cy="11" r="5.5" fill="rgba(226, 59, 72, 0.28)" />
+            <circle cx="430" cy="11" r="2.8" fill="#FF6B78" />
+            <circle cx="720" cy="9" r="6" fill="rgba(242, 207, 141, 0.3)" />
+            <circle cx="720" cy="9" r="3" fill="#F2CF8D" />
+            <circle cx="1010" cy="11" r="5.5" fill="rgba(226, 59, 72, 0.28)" />
+            <circle cx="1010" cy="11" r="2.8" fill="#FF6B78" />
+            <circle cx="1330" cy="12" r="5.5" fill="rgba(242, 207, 141, 0.28)" />
+            <circle cx="1330" cy="12" r="2.8" fill="#F2CF8D" />
+          </g>
+          <g class="fairy-bulb--alt">
+            <circle cx="270" cy="14" r="5.5" fill="rgba(250, 247, 242, 0.26)" />
+            <circle cx="270" cy="14" r="2.6" fill="#FAF7F2" />
+            <circle cx="575" cy="12" r="5.5" fill="rgba(242, 207, 141, 0.28)" />
+            <circle cx="575" cy="12" r="2.8" fill="#F2CF8D" />
+            <circle cx="865" cy="12" r="5.5" fill="rgba(250, 247, 242, 0.26)" />
+            <circle cx="865" cy="12" r="2.6" fill="#FAF7F2" />
+            <circle cx="1170" cy="14" r="5.5" fill="rgba(242, 207, 141, 0.28)" />
+            <circle cx="1170" cy="14" r="2.8" fill="#F2CF8D" />
+          </g>
+        </svg>
+      </div>
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
             <div class="footer-seal">
               <img
-                src="/brand/logo-perfil.png"
-                alt="Akito · Regalos a distancia"
-                width="64"
+                src="/brand/logo-akito-light.png"
+                alt="Akito"
+                width="78"
                 height="64"
               />
             </div>

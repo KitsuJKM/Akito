@@ -49,19 +49,13 @@
 }
 
 .header-logo-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 0.35rem 0.7rem;
-  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.25rem;
+  border-radius: var(--radius-sm);
   background-color: transparent;
-  transition:
-    background-color var(--duration-base) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
-}
-
-.site-header.is-dark .header-logo-link {
-  background-color: var(--color-ivory);
-  padding: 0.35rem 0.95rem;
+  transition: transform var(--duration-fast) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -74,6 +68,23 @@
   height: 44px;
   width: auto;
   object-fit: contain;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.header-logo-img--light {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.25rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-header.is-dark .header-logo-img--dark {
+  opacity: 0;
+}
+
+.site-header.is-dark .header-logo-img--light {
+  opacity: 1;
 }
 
 .header-nav {
@@ -155,18 +166,50 @@
 
 .hero-garland {
   position: absolute;
-  top: clamp(4.15rem, 5.2vw, 4.75rem);
+  top: clamp(3.95rem, 4.9vw, 4.5rem);
   left: 0;
   right: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.72;
+  opacity: 0.96;
 }
 
 .hero-garland svg {
   display: block;
   width: 100%;
-  height: 68px;
+  height: 96px;
+}
+
+@keyframes fairyTwinkle {
+  0%,
+  100% {
+    opacity: 0.48;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.fairy-bulb {
+  animation: fairyTwinkle 2.6s ease-in-out infinite;
+}
+
+.fairy-bulb--alt {
+  animation: fairyTwinkle 3.2s ease-in-out infinite 1.25s;
+}
+
+@keyframes sleighSparkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.sleigh-sparkle {
+  animation: sleighSparkle 1.8s ease-in-out infinite;
 }
 
 .hero > .container {
@@ -317,11 +360,10 @@
 }
 
 .hero-postcard__seal img {
-  width: 38px;
+  width: 46px;
   height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--color-border);
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .hero-postcard__seal-text {
@@ -581,11 +623,23 @@
 .hanging-ornaments {
   position: absolute;
   top: 0;
-  right: clamp(0.5rem, 3vw, 2.5rem);
-  width: clamp(120px, 14vw, 185px);
+  right: clamp(0.45rem, 2.8vw, 2.25rem);
+  width: clamp(140px, 16vw, 225px);
   pointer-events: none;
   z-index: 1;
-  opacity: 0.78;
+  opacity: 0.94;
+}
+
+.hanging-ornaments--left {
+  right: auto;
+  left: clamp(0.45rem, 2.5vw, 2rem);
+  width: clamp(120px, 13.5vw, 195px);
+}
+
+@media (max-width: 1120px) {
+  .hanging-ornaments--left {
+    display: none;
+  }
 }
 
 .hanging-ornaments svg {
@@ -621,15 +675,20 @@
 
 .festive-corner {
   position: absolute;
-  width: clamp(140px, 16vw, 220px);
+  width: clamp(160px, 18vw, 255px);
   pointer-events: none;
   z-index: 1;
-  opacity: 0.52;
+  opacity: 0.82;
 }
 
 .festive-corner--bl {
   bottom: 0;
   left: 0;
+}
+
+.festive-corner--br {
+  bottom: 0;
+  right: 0;
 }
 
 .festive-corner svg {
@@ -1027,15 +1086,15 @@
 
 .timeline-travel-sleigh {
   position: absolute;
-  width: 56px;
-  height: 40px;
+  width: 72px;
+  height: 50px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 4;
   will-change: left, top;
   filter:
-    drop-shadow(0 6px 12px rgba(200, 30, 43, 0.26))
-    drop-shadow(0 0 10px rgba(216, 168, 91, 0.45));
+    drop-shadow(0 7px 14px rgba(200, 30, 43, 0.34))
+    drop-shadow(0 0 12px rgba(216, 168, 91, 0.55));
 }
 
 .timeline-travel-sleigh--desktop {
@@ -1043,8 +1102,8 @@
 }
 
 .timeline-travel-sleigh--mobile {
-  width: 40px;
-  height: 29px;
+  width: 48px;
+  height: 34px;
 }
 
 .timeline-travel-sleigh__body {
@@ -1101,6 +1160,28 @@
     color var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-spring),
     box-shadow var(--duration-base) var(--ease-out);
+}
+
+.step-knot::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 11px;
+  height: 5px;
+  border-radius: 2px 2px 0 0;
+  background-color: var(--color-gold);
+  border: 1px solid var(--color-gold-deep);
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.step-row.is-active .step-knot::before {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
 }
 
 .step-row.is-active .step-knot {
@@ -1219,25 +1300,35 @@
   overflow: clip;
 }
 
+.gifts-snow-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .section-gifts__garland {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   pointer-events: none;
-  opacity: 0.55;
+  z-index: 1;
+  opacity: 0.92;
 }
 
 .section-gifts__garland svg {
   display: block;
   width: 100%;
-  height: 42px;
+  height: 70px;
 }
 
 .section-gifts > .container,
 .section-gifts > .gifts-ribbon {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .gifts-ribbon {
@@ -1614,8 +1705,8 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .origin-seal-frame {
   position: relative;
-  width: 134px;
-  height: 134px;
+  width: 148px;
+  height: 148px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1632,14 +1723,9 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 }
 
 .origin-seal-img {
-  width: 108px;
-  height: 108px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(216, 168, 91, 0.55);
-  box-shadow:
-    0 0 0 4px rgba(200, 30, 43, 0.1),
-    var(--shadow-paper);
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -2187,12 +2273,29 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .preview-card {
   position: sticky;
   top: 5.5rem;
-  padding: 1.5rem;
+  padding: 1.75rem 1.5rem 1.5rem;
   border-radius: var(--radius-lg);
   background-color: var(--color-pine);
   color: var(--color-ivory);
-  border: 1px solid rgba(242, 207, 141, 0.22);
+  border: 1px solid rgba(242, 207, 141, 0.28);
   box-shadow: var(--shadow-paper);
+  overflow: hidden;
+}
+
+.preview-card__lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+.preview-card__lights svg {
+  display: block;
+  width: 100%;
+  height: 22px;
 }
 
 .preview-card__head {
@@ -2294,10 +2397,11 @@ html[data-motion='reduced'] .gifts-ribbon-track {
    ========================================================================== */
 .site-footer {
   position: relative;
-  padding-block: 3.5rem 2.5rem;
+  padding-block: 3.75rem 2.5rem;
   background-color: var(--color-pine-deep);
   color: var(--color-ivory);
   border-top: 1px solid rgba(242, 207, 141, 0.16);
+  overflow: clip;
 }
 
 .site-footer::before {
@@ -2308,10 +2412,28 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--color-crimson), var(--color-gold), var(--color-crimson));
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+.footer-lights {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.footer-lights svg {
+  display: block;
+  width: 100%;
+  height: 28px;
 }
 
 .footer-grid {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2324,23 +2446,22 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1.15rem;
 }
 
 .footer-seal {
-  width: 64px;
+  width: 78px;
   height: 64px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--color-ivory);
-  border: 2px solid rgba(242, 207, 141, 0.4);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-seal img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .footer-brand__name {
@@ -2635,13 +2756,13 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   }
 
   .hanging-ornaments {
-    opacity: 0.5;
-    width: 112px;
+    opacity: 0.72;
+    width: 122px;
   }
 
   .festive-corner {
-    opacity: 0.38;
-    width: 132px;
+    opacity: 0.58;
+    width: 148px;
   }
 }
 
@@ -2682,27 +2803,31 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   }
 
   .hero-garland svg {
+    height: 68px;
+  }
+
+  .section-gifts__garland svg {
     height: 52px;
   }
 
   .hanging-ornaments {
-    opacity: 0.42;
-    width: 92px;
+    opacity: 0.64;
+    width: 102px;
   }
 
   .festive-corner {
-    opacity: 0.32;
-    width: 108px;
+    opacity: 0.52;
+    width: 118px;
   }
 
   .origin-seal-frame {
-    width: 118px;
-    height: 118px;
+    width: 132px;
+    height: 132px;
   }
 
   .origin-seal-img {
-    width: 96px;
-    height: 96px;
+    width: 82px;
+    height: 82px;
   }
 
   .timeline-mobile-rail {
