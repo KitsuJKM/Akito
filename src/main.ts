@@ -17,10 +17,7 @@ import {
   RotateCcw,
   Send,
   ShieldCheck,
-  Snowflake,
   Sparkles,
-  Star,
-  TreePine,
   createIcons,
 } from 'lucide';
 
@@ -53,10 +50,7 @@ function bootstrap(): void {
       RotateCcw,
       Send,
       ShieldCheck,
-      Snowflake,
       Sparkles,
-      Star,
-      TreePine,
     },
   });
 

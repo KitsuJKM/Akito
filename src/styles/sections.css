@@ -198,25 +198,6 @@
   box-shadow: 0 0 0 3px rgba(226, 59, 72, 0.25);
 }
 
-.season-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.28rem 0.72rem;
-  border-radius: var(--radius-pill);
-  background: rgba(216, 168, 91, 0.16);
-  border: 1px solid rgba(242, 207, 141, 0.35);
-  color: var(--color-gold-light);
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.season-pill svg {
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-}
-
 .hero-title {
   font-size: clamp(2.55rem, 5.1vw, 4.35rem);
   line-height: 1.07;
@@ -267,69 +248,12 @@
   }
 }
 
-.christmas-countdown {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-top: 1.35rem;
-  padding: 0.5rem 0.95rem;
-  border-radius: var(--radius-pill);
-  background: rgba(250, 247, 242, 0.07);
-  border: 1px solid rgba(242, 207, 141, 0.28);
-  color: var(--color-gold-light);
-  font-size: 0.84rem;
-  font-weight: 500;
-  transition:
-    background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
-}
-
-.christmas-countdown svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  transition: transform var(--duration-fast) var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .christmas-countdown:hover {
-    background: rgba(250, 247, 242, 0.12);
-    border-color: rgba(242, 207, 141, 0.5);
-    transform: translateY(-1px);
-  }
-
-  .christmas-countdown:hover svg {
-    transform: translateX(2px);
-  }
-}
-
-.christmas-countdown__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-gold-light);
-  box-shadow: 0 0 0 4px rgba(242, 207, 141, 0.2);
-  flex-shrink: 0;
-  animation: christmasDotPulse 2.8s ease-in-out infinite;
-}
-
-@keyframes christmasDotPulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 3px rgba(242, 207, 141, 0.18);
-  }
-  50% {
-    box-shadow: 0 0 0 6px rgba(242, 207, 141, 0.34);
-  }
-}
-
 .hero-footnotes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.5rem;
-  margin-top: 1.75rem;
-  padding-top: 1.45rem;
+  margin-top: 2.2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(250, 247, 242, 0.14);
   font-size: 0.9rem;
   color: rgba(250, 247, 242, 0.8);
@@ -1152,9 +1076,10 @@
 }
 
 /* ==========================================================================
-   SECCIÓN 4 · COLECCIÓN DE NAVIDAD (PINO NOCTURNO + ORO + CINTA MARQUEE)
+   SECCIÓN 4 · QUÉ SE PUEDE ENVIAR (PINO NOCTURNO + ORO + CINTA MARQUEE)
    ========================================================================== */
 .section-gifts {
+  position: relative;
   padding-block: var(--section-pad-y);
   background:
     radial-gradient(circle at 86% 12%, rgba(216, 168, 91, 0.16), transparent 44%),
@@ -1164,6 +1089,27 @@
   border-top: 1px solid rgba(242, 207, 141, 0.16);
   border-bottom: 1px solid rgba(242, 207, 141, 0.16);
   overflow: clip;
+}
+
+.section-gifts__garland {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.section-gifts__garland svg {
+  display: block;
+  width: 100%;
+  height: 42px;
+}
+
+.section-gifts > .container,
+.section-gifts > .gifts-ribbon {
+  position: relative;
+  z-index: 1;
 }
 
 .gifts-ribbon {
@@ -1923,46 +1869,6 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 }
 
 .gift-chip.is-selected {
-  background-color: var(--color-crimson);
-  border-color: var(--color-crimson);
-  color: var(--color-ivory);
-}
-
-/* Atajos rápidos de fechas navideñas */
-.date-quick-picks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.25rem;
-}
-
-.date-quick-pill {
-  padding: 0.32rem 0.72rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-ivory);
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--color-pine);
-  transition:
-    background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .date-quick-pill:hover {
-    border-color: var(--color-crimson);
-    color: var(--color-crimson);
-  }
-}
-
-.date-quick-pill:active {
-  transform: scale(0.96);
-}
-
-.date-quick-pill.is-selected {
   background-color: var(--color-crimson);
   border-color: var(--color-crimson);
   color: var(--color-ivory);

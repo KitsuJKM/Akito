@@ -272,7 +272,6 @@ html[data-motion='reduced'] .origin-seal-img {
   transform: none !important;
 }
 
-html[data-motion='reduced'] .hero-map-star,
-html[data-motion='reduced'] .christmas-countdown__dot {
+html[data-motion='reduced'] .hero-map-star {
   animation: none !important;
 }
