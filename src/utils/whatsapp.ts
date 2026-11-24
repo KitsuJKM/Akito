@@ -10,6 +10,8 @@ export interface QuoteFormData {
   deliveryAddress: string;
   mapsUrl: string;
   budgetRange: string;
+  budgetLocalRef?: string;
+  budgetCurrency?: string;
   moreDetails: string;
 }
 
@@ -81,7 +83,11 @@ export function buildWhatsAppMessage(data: QuoteFormData): string {
   }
 
   if (data.budgetRange.trim()) {
-    lines.push(`• Presupuesto aproximado: ${data.budgetRange.trim()}`);
+    const localRef = data.budgetLocalRef?.trim();
+    const budgetText = localRef
+      ? `${data.budgetRange.trim()} (ref. aprox. ${localRef})`
+      : data.budgetRange.trim();
+    lines.push(`• Presupuesto aproximado: ${budgetText}`);
   }
 
   if (data.moreDetails.trim()) {

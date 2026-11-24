@@ -1841,10 +1841,23 @@
                 </div>
 
                 <div class="field field--full">
-                  <span class="field-label">
-                    <span>Presupuesto aproximado</span>
-                    <span class="field-optional">Opcional</span>
-                  </span>
+                  <div class="budget-header-row">
+                    <span class="field-label">
+                      <span>Presupuesto aproximado</span>
+                      <span class="field-optional">Opcional</span>
+                    </span>
+                    <div class="budget-currency-control">
+                      <label for="budgetCurrency" class="budget-currency-label">Ref. en</label>
+                      <select
+                        id="budgetCurrency"
+                        name="budgetCurrency"
+                        class="budget-currency-select"
+                        aria-label="Moneda de referencia orientativa"
+                      >
+                        <!-- Hidratado desde src/utils/currency.ts -->
+                      </select>
+                    </div>
+                  </div>
                   <div
                     class="budget-chips"
                     id="budget-chips"
@@ -1853,6 +1866,7 @@
                   >
                     <!-- Hidratado desde src/config/akito.ts -->
                   </div>
+                  <p class="budget-local-hint" id="budget-local-hint" aria-live="polite"></p>
                 </div>
 
                 <div class="field field--full">

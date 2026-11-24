@@ -16,6 +16,14 @@ import {
 } from '../config/akito';
 import { trackEvent } from '../utils/analytics';
 import {
+  CURRENCY_REFERENCES,
+  currencyFromCountryName,
+  detectDefaultCurrency,
+  formatBudgetLocalRange,
+  isCurrencyCode,
+  type CurrencyCode,
+} from '../utils/currency';
+import {
   buildWhatsAppMessage,
   buildWhatsAppUrl,
   isValidOptionalUrl,
@@ -310,15 +318,30 @@ function renderFaqItems(): void {
 }
 
 function renderBudgetChips(): void {
+  const selectEl = document.getElementById('budgetCurrency') as HTMLSelectElement | null;
+  if (selectEl) {
+    selectEl.replaceChildren();
+    CURRENCY_REFERENCES.forEach((entry) => {
+      const option = document.createElement('option');
+      option.value = entry.code;
+      option.textContent = entry.selectLabel;
+      selectEl.appendChild(option);
+    });
+  }
+
   const wrap = document.getElementById('budget-chips');
   if (!wrap) return;
 
   wrap.replaceChildren();
   BUDGET_RANGES.forEach((rangeText) => {
-    const btn = createEl('button', 'gift-chip', rangeText);
+    const btn = createEl('button', 'gift-chip budget-chip');
     btn.type = 'button';
     btn.dataset.budgetValue = rangeText;
     btn.setAttribute('aria-pressed', 'false');
+    btn.append(
+      createEl('span', 'budget-chip__usd', rangeText),
+      createEl('span', 'budget-chip__local', ''),
+    );
     wrap.appendChild(btn);
   });
 }
@@ -683,6 +706,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
   const draftStatusEl = document.getElementById('draft-status');
   const clearDraftBtn = document.getElementById('clear-draft-btn') as HTMLButtonElement | null;
   const budgetChipsEl = document.getElementById('budget-chips');
+  const currencySelectEl = document.getElementById('budgetCurrency') as HTMLSelectElement | null;
+  const budgetHintEl = document.getElementById('budget-local-hint');
 
   if (
     !form ||
@@ -704,6 +729,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
 
   whenEl.min = getTodayLocalIso();
   let selectedBudget = '';
+  let selectedCurrency: CurrencyCode = detectDefaultCurrency();
+  let userPickedCurrency = false;
 
   const readFormData = (): QuoteFormData => ({
     whatToSend: whatToSendEl.value,
@@ -715,6 +742,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
     deliveryAddress: addressEl.value,
     mapsUrl: mapsUrlEl.value,
     budgetRange: selectedBudget,
+    budgetCurrency: selectedCurrency,
+    budgetLocalRef: formatBudgetLocalRange(selectedBudget, selectedCurrency),
     moreDetails: moreDetailsEl.value,
   });
 
@@ -768,9 +797,39 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
       if (typeof parsed.deliveryAddress === 'string') addressEl.value = parsed.deliveryAddress;
       if (typeof parsed.mapsUrl === 'string') mapsUrlEl.value = parsed.mapsUrl;
       if (typeof parsed.budgetRange === 'string') selectedBudget = parsed.budgetRange;
+      if (isCurrencyCode(parsed.budgetCurrency)) {
+        selectedCurrency = parsed.budgetCurrency;
+        userPickedCurrency = true;
+      }
       if (typeof parsed.moreDetails === 'string') moreDetailsEl.value = parsed.moreDetails;
     } catch {
       // Borrador corrupto o almacenamiento bloqueado
+    }
+  };
+
+  const renderCurrencyReferencesUI = () => {
+    if (currencySelectEl && currencySelectEl.value !== selectedCurrency) {
+      currencySelectEl.value = selectedCurrency;
+    }
+
+    document.querySelectorAll<HTMLButtonElement>('#budget-chips .gift-chip').forEach((chip) => {
+      const budgetVal = chip.dataset.budgetValue ?? '';
+      const localEl = chip.querySelector<HTMLElement>('.budget-chip__local');
+      if (!localEl) return;
+      const localRange = formatBudgetLocalRange(budgetVal, selectedCurrency);
+      localEl.textContent = localRange ? `≈ ${localRange}` : '';
+    });
+
+    if (budgetHintEl) {
+      if (selectedCurrency === 'USD') {
+        budgetHintEl.textContent =
+          'Puedes elegir tu moneda arriba para ver una referencia orientativa local.';
+      } else {
+        const selectedLocal = formatBudgetLocalRange(selectedBudget, selectedCurrency);
+        budgetHintEl.textContent = selectedLocal
+          ? `Referencia orientativa en ${selectedCurrency}: aprox. ${selectedLocal}. El valor final se confirma en tu cotización.`
+          : `Referencias orientativas en ${selectedCurrency} según tasa aproximada. El valor final se confirma al cotizar.`;
+      }
     }
   };
 
@@ -782,6 +841,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
       chip.classList.toggle('is-selected', matched);
       chip.setAttribute('aria-pressed', matched ? 'true' : 'false');
     });
+
+    renderCurrencyReferencesUI();
 
     document.querySelectorAll<HTMLButtonElement>('#budget-chips .gift-chip').forEach((chip) => {
       const budgetVal = chip.dataset.budgetValue ?? '';
@@ -847,8 +908,26 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
   clearFieldErrorOnInput(addressEl, 'err-deliveryAddress');
   clearFieldErrorOnInput(mapsUrlEl, 'err-mapsUrl');
 
-  originCountryEl.addEventListener('input', () => updatePreviewAndProgress());
+  originCountryEl.addEventListener('input', () => {
+    if (!userPickedCurrency) {
+      const detected = currencyFromCountryName(originCountryEl.value);
+      if (detected) {
+        selectedCurrency = detected;
+      }
+    }
+    updatePreviewAndProgress();
+  });
   moreDetailsEl.addEventListener('input', () => updatePreviewAndProgress());
+
+  if (currencySelectEl) {
+    currencySelectEl.addEventListener('change', () => {
+      if (!isCurrencyCode(currencySelectEl.value)) return;
+      selectedCurrency = currencySelectEl.value;
+      userPickedCurrency = true;
+      updatePreviewAndProgress();
+      trackEvent('budget_currency_change', { currency: selectedCurrency });
+    });
+  }
 
   flexibleEl.addEventListener('change', () => {
     const isFlex = flexibleEl.checked;
@@ -899,6 +978,8 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
     clearDraftBtn.addEventListener('click', () => {
       form.reset();
       selectedBudget = '';
+      userPickedCurrency = false;
+      selectedCurrency = detectDefaultCurrency();
       whenEl.disabled = false;
       whenEl.required = true;
       setFieldError(whatToSendEl, 'err-whatToSend', '');
