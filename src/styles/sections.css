@@ -2325,15 +2325,19 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  max-width: 100%;
 }
 
 .budget-currency-label {
   font-size: 0.78rem;
   font-weight: 500;
   color: var(--color-ink-muted);
+  white-space: nowrap;
 }
 
 .budget-currency-select {
+  max-width: 100%;
+  min-width: 0;
   padding: 0.26rem 0.72rem;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(216, 168, 91, 0.5);

@@ -313,6 +313,8 @@ export const DESTINATION_COUNTRIES: string[] = [
   'Honduras',
   'Nicaragua',
   'Venezuela',
+  'Cuba',
+  'Haití',
   'Puerto Rico',
 ];
 

@@ -1,14 +1,23 @@
 export type CurrencyCode =
   | 'USD'
-  | 'COP'
-  | 'EUR'
-  | 'MXN'
-  | 'CLP'
-  | 'PEN'
   | 'ARS'
+  | 'BOB'
+  | 'BRL'
+  | 'CLP'
+  | 'COP'
   | 'CRC'
+  | 'CUP'
   | 'DOP'
-  | 'BRL';
+  | 'EUR'
+  | 'GTQ'
+  | 'HNL'
+  | 'HTG'
+  | 'MXN'
+  | 'NIO'
+  | 'PEN'
+  | 'PYG'
+  | 'UYU'
+  | 'VES';
 
 export interface CurrencyReference {
   code: CurrencyCode;
@@ -20,16 +29,25 @@ export interface CurrencyReference {
 }
 
 export const CURRENCY_REFERENCES: readonly CurrencyReference[] = [
-  { code: 'USD', shortLabel: 'USD', selectLabel: 'USD · Dólar', symbol: '$', rateFromUsd: 1, step: 1 },
-  { code: 'COP', shortLabel: 'COP', selectLabel: 'COP · Colombia', symbol: '$', rateFromUsd: 4200, step: 10000 },
-  { code: 'EUR', shortLabel: 'EUR', selectLabel: 'EUR · España / Europa', symbol: '€', rateFromUsd: 0.92, step: 5 },
-  { code: 'MXN', shortLabel: 'MXN', selectLabel: 'MXN · México', symbol: '$', rateFromUsd: 19.5, step: 50 },
-  { code: 'CLP', shortLabel: 'CLP', selectLabel: 'CLP · Chile', symbol: '$', rateFromUsd: 960, step: 5000 },
-  { code: 'PEN', shortLabel: 'PEN', selectLabel: 'PEN · Perú', symbol: 'S/', rateFromUsd: 3.75, step: 10 },
-  { code: 'ARS', shortLabel: 'ARS', selectLabel: 'ARS · Argentina', symbol: '$', rateFromUsd: 1100, step: 5000 },
-  { code: 'CRC', shortLabel: 'CRC', selectLabel: 'CRC · Costa Rica', symbol: '₡', rateFromUsd: 515, step: 5000 },
-  { code: 'DOP', shortLabel: 'DOP', selectLabel: 'DOP · Rep. Dominicana', symbol: 'RD$', rateFromUsd: 60, step: 500 },
-  { code: 'BRL', shortLabel: 'BRL', selectLabel: 'BRL · Brasil', symbol: 'R$', rateFromUsd: 5.8, step: 10 },
+  { code: 'USD', shortLabel: 'USD', selectLabel: 'USD · Dólar (US/EC/PA/SV/PR)', symbol: '$', rateFromUsd: 1, step: 1 },
+  { code: 'ARS', shortLabel: 'ARS', selectLabel: 'Argentina · ARS', symbol: '$', rateFromUsd: 1100, step: 5000 },
+  { code: 'BOB', shortLabel: 'BOB', selectLabel: 'Bolivia · BOB', symbol: 'Bs', rateFromUsd: 6.9, step: 10 },
+  { code: 'BRL', shortLabel: 'BRL', selectLabel: 'Brasil · BRL', symbol: 'R$', rateFromUsd: 5.8, step: 10 },
+  { code: 'CLP', shortLabel: 'CLP', selectLabel: 'Chile · CLP', symbol: '$', rateFromUsd: 960, step: 5000 },
+  { code: 'COP', shortLabel: 'COP', selectLabel: 'Colombia · COP', symbol: '$', rateFromUsd: 4200, step: 10000 },
+  { code: 'CRC', shortLabel: 'CRC', selectLabel: 'Costa Rica · CRC', symbol: '₡', rateFromUsd: 515, step: 5000 },
+  { code: 'CUP', shortLabel: 'CUP', selectLabel: 'Cuba · CUP', symbol: '$', rateFromUsd: 120, step: 100 },
+  { code: 'EUR', shortLabel: 'EUR', selectLabel: 'España / Europa · EUR', symbol: '€', rateFromUsd: 0.92, step: 5 },
+  { code: 'GTQ', shortLabel: 'GTQ', selectLabel: 'Guatemala · GTQ', symbol: 'Q', rateFromUsd: 7.75, step: 10 },
+  { code: 'HTG', shortLabel: 'HTG', selectLabel: 'Haití · HTG', symbol: 'G', rateFromUsd: 131, step: 100 },
+  { code: 'HNL', shortLabel: 'HNL', selectLabel: 'Honduras · HNL', symbol: 'L', rateFromUsd: 25.5, step: 50 },
+  { code: 'MXN', shortLabel: 'MXN', selectLabel: 'México · MXN', symbol: '$', rateFromUsd: 19.5, step: 50 },
+  { code: 'NIO', shortLabel: 'NIO', selectLabel: 'Nicaragua · NIO', symbol: 'C$', rateFromUsd: 36.8, step: 50 },
+  { code: 'PYG', shortLabel: 'PYG', selectLabel: 'Paraguay · PYG', symbol: '₲', rateFromUsd: 7800, step: 10000 },
+  { code: 'PEN', shortLabel: 'PEN', selectLabel: 'Perú · PEN', symbol: 'S/', rateFromUsd: 3.75, step: 10 },
+  { code: 'DOP', shortLabel: 'DOP', selectLabel: 'Rep. Dominicana · DOP', symbol: 'RD$', rateFromUsd: 60, step: 500 },
+  { code: 'UYU', shortLabel: 'UYU', selectLabel: 'Uruguay · UYU', symbol: '$U', rateFromUsd: 42, step: 100 },
+  { code: 'VES', shortLabel: 'VES', selectLabel: 'Venezuela · VES', symbol: 'Bs', rateFromUsd: 52, step: 50 },
 ];
 
 const CURRENCY_BY_CODE = new Map<CurrencyCode, CurrencyReference>(
@@ -43,21 +61,30 @@ const BUDGET_USD_BOUNDS: Readonly<Record<string, { minUsd: number; maxUsd?: numb
 };
 
 const COUNTRY_CURRENCY_MAP: Readonly<Record<string, CurrencyCode>> = {
+  argentina: 'ARS',
+  bolivia: 'BOB',
+  brasil: 'BRL',
+  brazil: 'BRL',
+  chile: 'CLP',
   colombia: 'COP',
+  'costa rica': 'CRC',
+  cuba: 'CUP',
   espana: 'EUR',
   francia: 'EUR',
   italia: 'EUR',
   alemania: 'EUR',
   portugal: 'EUR',
+  guatemala: 'GTQ',
+  haiti: 'HTG',
+  honduras: 'HNL',
   mexico: 'MXN',
-  chile: 'CLP',
+  nicaragua: 'NIO',
+  paraguay: 'PYG',
   peru: 'PEN',
-  argentina: 'ARS',
-  'costa rica': 'CRC',
   'republica dominicana': 'DOP',
   'rep dominicana': 'DOP',
-  brasil: 'BRL',
-  brazil: 'BRL',
+  uruguay: 'UYU',
+  venezuela: 'VES',
   'estados unidos': 'USD',
   'ee uu': 'USD',
   usa: 'USD',
@@ -65,6 +92,40 @@ const COUNTRY_CURRENCY_MAP: Readonly<Record<string, CurrencyCode>> = {
   panama: 'USD',
   'el salvador': 'USD',
   'puerto rico': 'USD',
+};
+
+const TIMEZONE_CURRENCY_MAP: Readonly<Record<string, CurrencyCode>> = {
+  'America/Buenos_Aires': 'ARS',
+  'America/La_Paz': 'BOB',
+  'America/Sao_Paulo': 'BRL',
+  'America/Fortaleza': 'BRL',
+  'America/Recife': 'BRL',
+  'America/Manaus': 'BRL',
+  'America/Bahia': 'BRL',
+  'America/Belem': 'BRL',
+  'America/Cuiaba': 'BRL',
+  'America/Santiago': 'CLP',
+  'America/Punta_Arenas': 'CLP',
+  'America/Bogota': 'COP',
+  'America/Costa_Rica': 'CRC',
+  'America/Havana': 'CUP',
+  'America/Santo_Domingo': 'DOP',
+  'America/Guatemala': 'GTQ',
+  'America/Tegucigalpa': 'HNL',
+  'America/Port-au-Prince': 'HTG',
+  'America/Mexico_City': 'MXN',
+  'America/Monterrey': 'MXN',
+  'America/Cancun': 'MXN',
+  'America/Merida': 'MXN',
+  'America/Tijuana': 'MXN',
+  'America/Chihuahua': 'MXN',
+  'America/Mazatlan': 'MXN',
+  'America/Hermosillo': 'MXN',
+  'America/Managua': 'NIO',
+  'America/Lima': 'PEN',
+  'America/Asuncion': 'PYG',
+  'America/Montevideo': 'UYU',
+  'America/Caracas': 'VES',
 };
 
 function formatIntegerWithDots(value: number): string {
@@ -96,29 +157,9 @@ export function isCurrencyCode(value: unknown): value is CurrencyCode {
 export function detectDefaultCurrency(): CurrencyCode {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-    if (tz === 'America/Bogota') return 'COP';
     if (tz.startsWith('Europe/')) return 'EUR';
-    if (
-      tz === 'America/Mexico_City' ||
-      tz === 'America/Monterrey' ||
-      tz === 'America/Cancun' ||
-      tz === 'America/Merida' ||
-      tz === 'America/Tijuana'
-    ) {
-      return 'MXN';
-    }
-    if (tz === 'America/Santiago') return 'CLP';
-    if (tz === 'America/Lima') return 'PEN';
-    if (tz.startsWith('America/Argentina/') || tz === 'America/Buenos_Aires') return 'ARS';
-    if (tz === 'America/Costa_Rica') return 'CRC';
-    if (tz === 'America/Santo_Domingo') return 'DOP';
-    if (
-      tz === 'America/Sao_Paulo' ||
-      tz === 'America/Fortaleza' ||
-      tz === 'America/Recife'
-    ) {
-      return 'BRL';
-    }
+    if (tz.startsWith('America/Argentina/')) return 'ARS';
+    return TIMEZONE_CURRENCY_MAP[tz] ?? 'USD';
   } catch {
     // Entornos sin soporte completo de Intl.DateTimeFormat
   }
