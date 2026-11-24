@@ -4,6 +4,7 @@ export interface FestiveSnowHandle {
   destroy: () => void;
 }
 
+type SnowTheme = 'dark' | 'light';
 type MoteKind = 'ball' | 'crystal' | 'goldSparkle';
 
 interface FestiveMote {
@@ -28,8 +29,13 @@ interface SnowLayerHandle {
 
 const CRYSTAL_STEP_ANGLE = Math.PI / 3;
 
-function createMote(width: number, height: number, scatterY: boolean, index: number): FestiveMote {
-  // Mix snowballs (~52%), 6-point crystals (~26%), and golden sparkles (~22%)
+function createMote(
+  width: number,
+  height: number,
+  scatterY: boolean,
+  index: number,
+  theme: SnowTheme,
+): FestiveMote {
   const bucket = index % 10;
   let kind: MoteKind = 'ball';
   if (bucket === 2 || bucket === 6 || bucket === 9) {
@@ -40,28 +46,41 @@ function createMote(width: number, height: number, scatterY: boolean, index: num
 
   const isGold = kind === 'goldSparkle';
   const isCrystal = kind === 'crystal';
+  const isLightTheme = theme === 'light';
 
   return {
     kind,
     x: Math.random() * width,
     y: scatterY ? Math.random() * height : -18 - Math.random() * 28,
-    vx: (Math.random() - 0.5) * 0.24,
-    vy: isCrystal ? 0.34 + Math.random() * 0.48 : 0.42 + Math.random() * 0.72,
-    size: isCrystal
-      ? 4.8 + Math.random() * 4.4
-      : isGold
-        ? 3.2 + Math.random() * 3.2
-        : 1.5 + Math.random() * 2.5,
-    alpha: isGold
-      ? 0.42 + Math.random() * 0.42
+    vx: (Math.random() - 0.5) * 0.22,
+    vy: isLightTheme
+      ? isCrystal
+        ? 0.24 + Math.random() * 0.34
+        : 0.28 + Math.random() * 0.44
       : isCrystal
-        ? 0.34 + Math.random() * 0.36
-        : 0.26 + Math.random() * 0.44,
+        ? 0.34 + Math.random() * 0.48
+        : 0.42 + Math.random() * 0.72,
+    size: isCrystal
+      ? (isLightTheme ? 4.4 : 4.8) + Math.random() * 4.2
+      : isGold
+        ? (isLightTheme ? 3.0 : 3.2) + Math.random() * 2.8
+        : 1.5 + Math.random() * 2.3,
+    alpha: isLightTheme
+      ? isGold
+        ? 0.28 + Math.random() * 0.24
+        : isCrystal
+          ? 0.26 + Math.random() * 0.24
+          : 0.24 + Math.random() * 0.22
+      : isGold
+        ? 0.42 + Math.random() * 0.42
+        : isCrystal
+          ? 0.34 + Math.random() * 0.36
+          : 0.26 + Math.random() * 0.44,
     phase: Math.random() * Math.PI * 2,
     twinkleSpeed: 0.9 + Math.random() * 1.4,
     rotation: Math.random() * Math.PI * 2,
-    spin: (Math.random() - 0.5) * 0.012,
-    swayAmp: 0.16 + Math.random() * 0.38,
+    spin: (Math.random() - 0.5) * 0.011,
+    swayAmp: 0.16 + Math.random() * 0.36,
     swayFreq: 0.45 + Math.random() * 0.75,
   };
 }
@@ -106,17 +125,27 @@ function drawSparkleStar(ctx: CanvasRenderingContext2D, outer: number): void {
   ctx.fill();
 }
 
-function drawMote(ctx: CanvasRenderingContext2D, mote: FestiveMote, alphaScale: number): void {
-  const alpha = Math.max(0.05, Math.min(0.95, mote.alpha * alphaScale));
+function drawMote(
+  ctx: CanvasRenderingContext2D,
+  mote: FestiveMote,
+  alphaScale: number,
+  theme: SnowTheme,
+): void {
+  const maxAlpha = theme === 'light' ? 0.55 : 0.95;
+  const alpha = Math.max(0.05, Math.min(maxAlpha, mote.alpha * alphaScale));
+
+  const ballRgb = theme === 'light' ? '143, 168, 184' : '250, 247, 242';
+  const crystalRgb = theme === 'light' ? '184, 138, 62' : '250, 247, 242';
+  const sparkleRgb = theme === 'light' ? '216, 168, 91' : '242, 207, 141';
 
   if (mote.kind === 'ball') {
-    if (mote.size > 2.8) {
-      ctx.fillStyle = `rgba(250, 247, 242, ${(alpha * 0.24).toFixed(3)})`;
+    if (mote.size > 2.6) {
+      ctx.fillStyle = `rgba(${ballRgb}, ${(alpha * 0.28).toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(mote.x, mote.y, mote.size * 1.9, 0, Math.PI * 2);
       ctx.fill();
     }
-    ctx.fillStyle = `rgba(250, 247, 242, ${alpha.toFixed(3)})`;
+    ctx.fillStyle = `rgba(${ballRgb}, ${alpha.toFixed(3)})`;
     ctx.beginPath();
     ctx.arc(mote.x, mote.y, mote.size, 0, Math.PI * 2);
     ctx.fill();
@@ -128,21 +157,20 @@ function drawMote(ctx: CanvasRenderingContext2D, mote: FestiveMote, alphaScale: 
   ctx.rotate(mote.rotation);
 
   if (mote.kind === 'crystal') {
-    ctx.strokeStyle = `rgba(250, 247, 242, ${alpha.toFixed(3)})`;
-    ctx.lineWidth = 1.05;
+    ctx.strokeStyle = `rgba(${crystalRgb}, ${alpha.toFixed(3)})`;
+    ctx.lineWidth = theme === 'light' ? 1.15 : 1.05;
     ctx.lineCap = 'round';
     drawCrystalFlake(ctx, mote.size);
     ctx.restore();
     return;
   }
 
-  // Warm gold bokeh halo + crisp 4-point star
-  ctx.fillStyle = `rgba(242, 207, 141, ${(alpha * 0.28).toFixed(3)})`;
+  ctx.fillStyle = `rgba(${sparkleRgb}, ${(alpha * 0.28).toFixed(3)})`;
   ctx.beginPath();
   ctx.arc(0, 0, mote.size * 2.1, 0, Math.PI * 2);
   ctx.fill();
 
-  ctx.fillStyle = `rgba(242, 207, 141, ${alpha.toFixed(3)})`;
+  ctx.fillStyle = `rgba(${sparkleRgb}, ${alpha.toFixed(3)})`;
   drawSparkleStar(ctx, mote.size * 1.18);
   ctx.restore();
 }
@@ -151,6 +179,7 @@ function mountSnowCanvas(
   canvasId: string,
   moteCount: number,
   mode: MotionMode,
+  theme: SnowTheme,
 ): SnowLayerHandle | null {
   const canvas = document.getElementById(canvasId);
   if (!(canvas instanceof HTMLCanvasElement)) {
@@ -178,7 +207,7 @@ function mountSnowCanvas(
 
   const populate = () => {
     motes = Array.from({ length: moteCount }, (_, index) =>
-      createMote(width, height, true, index),
+      createMote(width, height, true, index, theme),
     );
   };
 
@@ -186,7 +215,7 @@ function mountSnowCanvas(
     if (width === 0 || height === 0) return;
     ctx.clearRect(0, 0, width, height);
     for (const mote of motes) {
-      drawMote(ctx, mote, 0.85);
+      drawMote(ctx, mote, 0.85, theme);
     }
   };
 
@@ -232,8 +261,7 @@ function mountSnowCanvas(
       mote.rotation += mote.spin * dt;
 
       if (mote.y > height + 20) {
-        const replacement = createMote(width, height, false, i);
-        motes[i] = replacement;
+        motes[i] = createMote(width, height, false, i, theme);
       } else if (mote.x < -20) {
         mote.x = width + 18;
       } else if (mote.x > width + 20) {
@@ -247,7 +275,7 @@ function mountSnowCanvas(
             ? 0.8 + 0.2 * Math.sin(elapsedSec * 0.75 + mote.phase)
             : 1;
 
-      drawMote(ctx, motes[i], twinkle);
+      drawMote(ctx, motes[i], twinkle, theme);
     }
 
     rafId = window.requestAnimationFrame(step);
@@ -323,10 +351,19 @@ function mountSnowCanvas(
 }
 
 export function createFestiveSnow(mode: MotionMode): FestiveSnowHandle {
-  const layers = [
-    mountSnowCanvas('hero-snow-canvas', 56, mode),
-    mountSnowCanvas('gifts-snow-canvas', 42, mode),
-  ].filter((layer): layer is SnowLayerHandle => layer !== null);
+  const specs: ReadonlyArray<readonly [id: string, count: number, theme: SnowTheme]> = [
+    ['hero-snow-canvas', 56, 'dark'],
+    ['twilight-snow-canvas', 28, 'light'],
+    ['process-snow-canvas', 34, 'light'],
+    ['gifts-snow-canvas', 42, 'dark'],
+    ['story-snow-canvas', 28, 'light'],
+    ['faq-snow-canvas', 46, 'dark'],
+    ['quote-snow-canvas', 28, 'light'],
+  ];
+
+  const layers = specs
+    .map(([id, count, theme]) => mountSnowCanvas(id, count, mode, theme))
+    .filter((layer): layer is SnowLayerHandle => layer !== null);
 
   return {
     destroy: () => {
