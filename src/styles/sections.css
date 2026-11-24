@@ -8,10 +8,10 @@
   right: 0;
   z-index: 60;
   padding-block: 0.85rem;
-  background-color: rgba(250, 247, 242, 0.88);
+  background-color: rgba(250, 247, 242, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(26, 34, 56, 0.06);
+  border-bottom: 1px solid rgba(26, 34, 56, 0.08);
   transition:
     background-color var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
@@ -20,12 +20,12 @@
 }
 
 .site-header.is-scrolled {
-  box-shadow: 0 10px 30px -18px rgba(26, 34, 56, 0.2);
+  box-shadow: 0 10px 30px -18px rgba(17, 36, 30, 0.24);
 }
 
 .site-header.is-dark {
-  background-color: rgba(26, 34, 56, 0.92);
-  border-bottom-color: rgba(250, 247, 242, 0.14);
+  background-color: rgba(17, 36, 30, 0.9);
+  border-bottom-color: rgba(242, 207, 141, 0.16);
   color: var(--color-ivory);
 }
 
@@ -35,7 +35,7 @@
   right: 0;
   bottom: -1px;
   height: 2.5px;
-  background: linear-gradient(90deg, var(--color-crimson), var(--color-coral));
+  background: linear-gradient(90deg, var(--color-crimson), var(--color-gold));
   transform-origin: left center;
   transform: scaleX(0);
   pointer-events: none;
@@ -100,12 +100,14 @@
   background-color: var(--color-crimson);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform var(--duration-base) var(--ease-out);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .header-nav__link:hover {
-    color: var(--color-twilight);
+    color: var(--color-pine);
   }
 
   .header-nav__link:hover::after {
@@ -114,7 +116,11 @@
 }
 
 .site-header.is-dark .header-nav__link {
-  color: var(--color-on-dark-muted);
+  color: rgba(250, 247, 242, 0.82);
+}
+
+.site-header.is-dark .header-nav__link::after {
+  background-color: var(--color-gold-light);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -124,17 +130,48 @@
 }
 
 /* ==========================================================================
-   SECCIÓN 1 · HERO NARRATIVO + POSTAL INTERACTIVA DEL HILO ROJO
+   SECCIÓN 1 · HERO NAVIDEÑO EN PINO NOCTURNO + POSTAL DE NOCHEBUENA
    ========================================================================== */
 .hero {
   position: relative;
-  padding-top: clamp(7rem, 11vw, 9.25rem);
+  padding-top: clamp(7.25rem, 11.5vw, 9.6rem);
   padding-bottom: clamp(2.5rem, 4.5vw, 4rem);
   background:
-    radial-gradient(circle at 86% 18%, rgba(232, 141, 103, 0.24), transparent 44%),
-    radial-gradient(circle at 12% 84%, rgba(200, 30, 43, 0.06), transparent 40%),
-    var(--color-ivory);
+    radial-gradient(circle at 86% 14%, rgba(216, 168, 91, 0.2), transparent 44%),
+    radial-gradient(circle at 10% 82%, rgba(200, 30, 43, 0.16), transparent 42%),
+    linear-gradient(155deg, var(--color-pine-deep) 0%, var(--color-pine) 54%, #192435 100%);
+  color: var(--color-on-dark);
   overflow: clip;
+}
+
+.hero-snow-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-garland {
+  position: absolute;
+  top: clamp(4.15rem, 5.2vw, 4.75rem);
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+.hero-garland svg {
+  display: block;
+  width: 100%;
+  height: 68px;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-grid {
@@ -145,13 +182,45 @@
 }
 
 .hero-tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.9rem;
   margin-bottom: 1.25rem;
+}
+
+.hero .brand-tag {
+  color: var(--color-gold-light);
+}
+
+.hero .brand-tag__dot {
+  background-color: var(--color-crimson-bright);
+  box-shadow: 0 0 0 3px rgba(226, 59, 72, 0.25);
+}
+
+.season-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.72rem;
+  border-radius: var(--radius-pill);
+  background: rgba(216, 168, 91, 0.16);
+  border: 1px solid rgba(242, 207, 141, 0.35);
+  color: var(--color-gold-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.season-pill svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
 }
 
 .hero-title {
   font-size: clamp(2.55rem, 5.1vw, 4.35rem);
   line-height: 1.07;
-  color: var(--color-twilight);
+  color: var(--color-ivory);
   letter-spacing: -0.025em;
 }
 
@@ -162,14 +231,18 @@
 .hero-title-em {
   font-style: italic;
   font-weight: 400;
-  color: var(--color-crimson);
+  color: var(--color-gold-light);
 }
 
 .hero-subtitle {
   margin-top: 1.35rem;
   font-size: clamp(1.06rem, 1.35vw, 1.2rem);
-  color: var(--color-ink-muted);
+  color: rgba(250, 247, 242, 0.84);
   max-width: 50ch;
+}
+
+.hero-subtitle strong {
+  color: var(--color-ivory);
 }
 
 .hero-actions {
@@ -180,15 +253,86 @@
   margin-top: 2rem;
 }
 
+.hero .btn--secondary {
+  background-color: rgba(250, 247, 242, 0.08);
+  border-color: rgba(242, 207, 141, 0.35);
+  color: var(--color-ivory);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero .btn--secondary:hover {
+    background-color: rgba(250, 247, 242, 0.14);
+    border-color: var(--color-gold-light);
+    color: var(--color-ivory);
+  }
+}
+
+.christmas-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgba(250, 247, 242, 0.07);
+  border: 1px solid rgba(242, 207, 141, 0.28);
+  color: var(--color-gold-light);
+  font-size: 0.84rem;
+  font-weight: 500;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.christmas-countdown svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .christmas-countdown:hover {
+    background: rgba(250, 247, 242, 0.12);
+    border-color: rgba(242, 207, 141, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .christmas-countdown:hover svg {
+    transform: translateX(2px);
+  }
+}
+
+.christmas-countdown__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold-light);
+  box-shadow: 0 0 0 4px rgba(242, 207, 141, 0.2);
+  flex-shrink: 0;
+  animation: christmasDotPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes christmasDotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(242, 207, 141, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(242, 207, 141, 0.34);
+  }
+}
+
 .hero-footnotes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.5rem;
-  margin-top: 2.2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--color-border);
+  margin-top: 1.75rem;
+  padding-top: 1.45rem;
+  border-top: 1px solid rgba(250, 247, 242, 0.14);
   font-size: 0.9rem;
-  color: var(--color-ink-muted);
+  color: rgba(250, 247, 242, 0.8);
 }
 
 .hero-footnote-item {
@@ -200,17 +344,27 @@
 .hero-footnote-item svg {
   width: 16px;
   height: 16px;
-  color: var(--color-crimson);
+  color: var(--color-gold-light);
 }
 
 /* Postal interactiva del Hero */
 .hero-postcard {
   position: relative;
-  background-color: #FFFFFF;
-  border: 1px solid var(--color-border);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      var(--color-crimson) 0 12px,
+      #FFFDF9 12px 20px,
+      var(--color-pine) 20px 32px,
+      #FFFDF9 32px 40px
+    )
+    top left / 100% 5px no-repeat,
+    #FFFDF9;
+  color: var(--color-ink);
+  border: 1px solid rgba(242, 207, 141, 0.38);
   border-radius: var(--radius-lg);
-  padding: clamp(1.4rem, 3vw, 2.15rem);
-  box-shadow: var(--shadow-paper);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.4rem, 3vw, 2.15rem) clamp(1.4rem, 3vw, 2.15rem);
+  box-shadow: 0 22px 48px -18px rgba(0, 0, 0, 0.45);
 }
 
 .hero-postcard::before {
@@ -219,8 +373,8 @@
   inset: -10px;
   z-index: -1;
   border-radius: calc(var(--radius-lg) + 8px);
-  background: linear-gradient(135deg, rgba(232, 141, 103, 0.26), rgba(200, 30, 43, 0.08));
-  filter: blur(18px);
+  background: linear-gradient(135deg, rgba(216, 168, 91, 0.34), rgba(200, 30, 43, 0.18));
+  filter: blur(22px);
 }
 
 .hero-postcard__top {
@@ -256,7 +410,7 @@
   font-family: var(--font-display);
   font-size: 0.96rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .hero-postcard__seal-sub {
@@ -268,13 +422,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.32rem 0.7rem;
+  padding: 0.32rem 0.72rem;
   border-radius: var(--radius-pill);
-  background-color: var(--color-crimson-tint);
-  color: var(--color-crimson);
+  background-color: var(--color-gold-tint);
+  border: 1px solid rgba(216, 168, 91, 0.32);
+  color: var(--color-gold-deep);
   font-size: 0.78rem;
   font-weight: 600;
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.hero-postcard__stamp svg {
+  width: 13px;
+  height: 13px;
   flex-shrink: 0;
 }
 
@@ -310,7 +471,7 @@
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .hero-city-country {
@@ -328,17 +489,39 @@
   width: 100%;
   height: auto;
   border-radius: 14px;
-  border: 1px solid var(--color-border);
-  box-shadow: inset 0 1px 4px rgba(26, 34, 56, 0.05);
+  border: 1px solid rgba(216, 168, 91, 0.28);
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hero-map-star {
+  animation: mapStarTwinkle 4.2s ease-in-out infinite;
+}
+
+.hero-map-star--delay-1 {
+  animation-delay: 1.3s;
+}
+
+.hero-map-star--delay-2 {
+  animation-delay: 2.6s;
+}
+
+@keyframes mapStarTwinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.9;
+  }
 }
 
 .hero-map-label {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 600;
-  fill: var(--color-twilight);
+  fill: var(--color-ivory);
   paint-order: stroke;
-  stroke: rgba(246, 241, 232, 0.92);
+  stroke: rgba(17, 36, 30, 0.92);
   stroke-width: 3.5px;
   stroke-linejoin: round;
 }
@@ -369,7 +552,7 @@
   font-family: var(--font-display);
   font-size: 1.06rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   line-height: 1.35;
 }
 
@@ -414,8 +597,8 @@
 
 @media (hover: hover) and (pointer: fine) {
   .route-pill:hover {
-    border-color: var(--color-twilight);
-    color: var(--color-twilight);
+    border-color: var(--color-pine);
+    color: var(--color-pine);
   }
 }
 
@@ -424,8 +607,8 @@
 }
 
 .route-pill.is-active {
-  background-color: var(--color-twilight);
-  border-color: var(--color-twilight);
+  background-color: var(--color-pine);
+  border-color: var(--color-pine);
   color: var(--color-ivory);
 }
 
@@ -441,7 +624,7 @@
   gap: 0.7rem;
   font-size: 0.84rem;
   font-weight: 500;
-  color: var(--color-ink-muted);
+  color: rgba(250, 247, 242, 0.78);
   transition: color var(--duration-fast) var(--ease-out);
 }
 
@@ -449,27 +632,28 @@
   width: 28px;
   height: 2px;
   border-radius: var(--radius-pill);
-  background-color: var(--color-crimson);
+  background: linear-gradient(90deg, var(--color-crimson-bright), var(--color-gold-light));
   transform-origin: left center;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .hero-scroll-cue:hover {
-    color: var(--color-twilight);
+    color: var(--color-gold-light);
   }
 }
 
 /* ==========================================================================
-   SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (AZUL CREPUSCULAR)
+   SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (MARFIL CÁLIDO EDITORIAL)
    ========================================================================== */
 .section-twilight {
   position: relative;
   padding-block: clamp(4rem, 7vw, 6.25rem);
   background:
-    radial-gradient(circle at 18% 25%, rgba(232, 141, 103, 0.14), transparent 44%),
-    radial-gradient(circle at 82% 76%, rgba(200, 30, 43, 0.14), transparent 45%),
-    var(--color-twilight);
-  color: var(--color-on-dark);
+    radial-gradient(circle at 14% 20%, rgba(216, 168, 91, 0.14), transparent 46%),
+    radial-gradient(circle at 88% 80%, rgba(200, 30, 43, 0.06), transparent 42%),
+    var(--color-ivory);
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-border);
   overflow: clip;
 }
 
@@ -494,13 +678,13 @@
   }
 }
 
-/* Borde completo sutil (evita barra lateral aislada) */
 .manifesto-box {
   margin-top: 0.25rem;
   padding: 1.2rem 1.4rem;
-  border: 1px solid rgba(232, 141, 103, 0.28);
-  background-color: rgba(250, 247, 242, 0.05);
+  border: 1px solid rgba(216, 168, 91, 0.42);
+  background-color: #FFFFFF;
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-paper);
 }
 
 .manifesto-box p {
@@ -508,12 +692,12 @@
   font-size: 1.14rem;
   font-weight: 400;
   line-height: 1.48;
-  color: var(--color-ivory);
+  color: var(--color-pine);
 }
 
 .manifesto-box strong {
   font-weight: 600;
-  color: var(--color-coral);
+  color: var(--color-crimson);
 }
 
 .friction-tracker {
@@ -522,8 +706,8 @@
   gap: 0.85rem;
   padding: 0.55rem 0.95rem;
   border-radius: var(--radius-pill);
-  background-color: rgba(250, 247, 242, 0.06);
-  border: 1px solid rgba(250, 247, 242, 0.12);
+  background-color: var(--color-ivory-warm);
+  border: 1px solid var(--color-border);
   align-self: flex-start;
 }
 
@@ -542,8 +726,9 @@
   justify-content: center;
   font-size: 0.74rem;
   font-weight: 600;
-  color: rgba(250, 247, 242, 0.65);
-  border: 1px solid rgba(250, 247, 242, 0.22);
+  color: var(--color-ink-muted);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-strong);
   transition:
     background-color var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
@@ -561,7 +746,7 @@
 .friction-tracker__label {
   font-size: 0.84rem;
   font-weight: 500;
-  color: var(--color-on-dark-muted);
+  color: var(--color-pine);
 }
 
 .friction-list {
@@ -574,16 +759,18 @@
   position: relative;
   padding: 1.15rem 1.35rem;
   border-radius: var(--radius-md);
-  background-color: var(--color-twilight-soft);
-  border: 1px solid var(--color-border-dark);
+  background-color: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--color-border);
   transition:
     border-color var(--duration-base) var(--ease-out),
-    background-color var(--duration-base) var(--ease-out);
+    background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .friction-card.is-in-focus {
-  border-color: rgba(232, 141, 103, 0.5);
-  background-color: #2B3759;
+  border-color: rgba(200, 30, 43, 0.34);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-paper);
 }
 
 .friction-card__top {
@@ -593,24 +780,25 @@
   gap: 0.45rem 0.65rem;
   margin-bottom: 0.7rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .friction-card__num {
   font-family: var(--font-display);
   font-size: 0.86rem;
   font-weight: 600;
-  color: var(--color-coral);
+  color: var(--color-crimson);
   flex-shrink: 0;
 }
 
 .friction-role--problem {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(250, 247, 242, 0.58);
+  color: var(--color-ink-muted);
   padding: 0.12rem 0.5rem;
   border-radius: var(--radius-pill);
-  background-color: rgba(250, 247, 242, 0.07);
+  background-color: var(--color-ivory-warm);
+  border: 1px solid var(--color-border);
   flex-shrink: 0;
 }
 
@@ -618,7 +806,7 @@
   display: block;
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--color-coral);
+  color: var(--color-gold-deep);
   margin-bottom: 0.15rem;
 }
 
@@ -626,7 +814,7 @@
   font-family: var(--font-sans);
   font-size: 0.94rem;
   font-weight: 500;
-  color: rgba(250, 247, 242, 0.8);
+  color: var(--color-ink-muted);
 }
 
 .friction-card__solution-row {
@@ -644,8 +832,8 @@
   height: 28px;
   margin-top: 0.1rem;
   border-radius: 50%;
-  background-color: rgba(200, 30, 43, 0.24);
-  color: var(--color-coral);
+  background-color: var(--color-crimson-tint);
+  color: var(--color-crimson);
   transition: transform 220ms var(--ease-out);
 }
 
@@ -662,13 +850,13 @@
   font-family: var(--font-display);
   font-size: 1.08rem;
   font-weight: 600;
-  color: var(--color-ivory);
+  color: var(--color-pine);
   margin-bottom: 0.2rem;
 }
 
 .friction-solution__text {
   font-size: 0.91rem;
-  color: var(--color-on-dark-muted);
+  color: var(--color-ink-muted);
   line-height: 1.5;
 }
 
@@ -678,7 +866,7 @@
 .section-process {
   position: relative;
   padding-block: var(--section-pad-y);
-  background-color: var(--color-ivory);
+  background-color: #F5EFE4;
 }
 
 .process-header {
@@ -699,11 +887,11 @@
   padding: 0.55rem 1.05rem;
   border-radius: var(--radius-pill);
   background-color: #FFFFFF;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(216, 168, 91, 0.36);
   box-shadow: var(--shadow-paper);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .process-progress-pill__dot {
@@ -731,7 +919,7 @@
   box-shadow: var(--shadow-paper);
   font-size: 0.86rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   position: relative;
   z-index: 3;
 }
@@ -791,7 +979,7 @@
 }
 
 .timeline-thread-base {
-  stroke: rgba(26, 34, 56, 0.12);
+  stroke: rgba(17, 36, 30, 0.14);
   stroke-width: 2;
   stroke-dasharray: 5 6;
   fill: none;
@@ -810,7 +998,7 @@
   height: 14px;
   border-radius: 50%;
   background-color: var(--color-crimson);
-  border: 2.5px solid var(--color-ivory);
+  border: 2.5px solid var(--color-gold-light);
   box-shadow: 0 0 0 5px rgba(200, 30, 43, 0.22);
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -865,16 +1053,18 @@
 
 .step-row.is-active .step-knot {
   background-color: var(--color-crimson);
-  border-color: var(--color-crimson);
+  border-color: var(--color-gold);
   color: var(--color-ivory);
   transform: scale(1.09);
-  box-shadow: 0 0 0 6px var(--color-crimson-tint);
+  box-shadow:
+    0 0 0 4px rgba(216, 168, 91, 0.25),
+    0 0 0 7px var(--color-crimson-tint);
 }
 
 .step-card {
   padding: 1.4rem 1.65rem;
   border-radius: var(--radius-md);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--color-border);
@@ -885,7 +1075,7 @@
 }
 
 .step-row.is-active .step-card {
-  background-color: rgba(255, 255, 255, 0.96);
+  background-color: rgba(255, 255, 255, 0.98);
   border-color: rgba(200, 30, 43, 0.34);
   box-shadow: var(--shadow-paper);
 }
@@ -945,13 +1135,13 @@
 .step-card__meta {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-crimson);
+  color: var(--color-gold-deep);
   margin-bottom: 0.3rem;
 }
 
 .step-card__title {
   font-size: 1.32rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   margin-bottom: 0.45rem;
 }
 
@@ -962,22 +1152,26 @@
 }
 
 /* ==========================================================================
-   SECCIÓN 4 · QUÉ SE PUEDE ENVIAR (CINTA EN SCROLL + BENTO EDITORIAL)
+   SECCIÓN 4 · COLECCIÓN DE NAVIDAD (PINO NOCTURNO + ORO + CINTA MARQUEE)
    ========================================================================== */
 .section-gifts {
   padding-block: var(--section-pad-y);
-  background-color: var(--color-ivory-warm);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 86% 12%, rgba(216, 168, 91, 0.16), transparent 44%),
+    radial-gradient(circle at 12% 84%, rgba(200, 30, 43, 0.14), transparent 46%),
+    var(--color-pine);
+  color: var(--color-on-dark);
+  border-top: 1px solid rgba(242, 207, 141, 0.16);
+  border-bottom: 1px solid rgba(242, 207, 141, 0.16);
   overflow: clip;
 }
 
 .gifts-ribbon {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding-block: 0.95rem;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  background-color: rgba(250, 247, 242, 0.65);
+  border-top: 1px solid rgba(242, 207, 141, 0.22);
+  border-bottom: 1px solid rgba(242, 207, 141, 0.22);
+  background-color: rgba(11, 25, 20, 0.62);
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
@@ -990,7 +1184,7 @@
   white-space: nowrap;
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
-  color: var(--color-twilight);
+  color: var(--color-ivory);
   will-change: transform;
   animation: giftsRibbonMarquee 42s linear infinite;
 }
@@ -1025,11 +1219,11 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .gifts-ribbon-track em {
   font-style: italic;
   font-weight: 400;
-  color: var(--color-crimson);
+  color: var(--color-gold-light);
 }
 
 .gifts-ribbon__dot {
-  color: var(--color-coral);
+  color: var(--color-gold);
   font-size: 0.9rem;
 }
 
@@ -1058,25 +1252,27 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 1.35rem;
   padding: 1.65rem;
   border-radius: var(--radius-md);
-  background-color: var(--color-ivory);
-  border: 1px solid var(--color-border);
+  background-color: rgba(250, 247, 242, 0.055);
+  border: 1px solid rgba(242, 207, 141, 0.18);
   transition:
     transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+    border-color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
 }
 
 .gift-card--featured .gift-card__surface {
   background:
-    radial-gradient(circle at 100% 0%, rgba(232, 141, 103, 0.16), transparent 55%),
-    #FFFFFF;
+    radial-gradient(circle at 100% 0%, rgba(216, 168, 91, 0.18), transparent 55%),
+    linear-gradient(155deg, rgba(200, 30, 43, 0.12), rgba(250, 247, 242, 0.06));
+  border-color: rgba(242, 207, 141, 0.34);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .gift-card:hover .gift-card__surface {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-card-hover);
-    border-color: rgba(200, 30, 43, 0.3);
+    box-shadow: 0 22px 46px -18px rgba(0, 0, 0, 0.45);
+    border-color: rgba(242, 207, 141, 0.52);
   }
 
   .gift-card:hover .gift-card__icon {
@@ -1098,8 +1294,9 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-crimson-tint);
-  color: var(--color-crimson);
+  background-color: rgba(216, 168, 91, 0.16);
+  border: 1px solid rgba(242, 207, 141, 0.28);
+  color: var(--color-gold-light);
   transition: transform var(--duration-base) var(--ease-spring);
 }
 
@@ -1111,21 +1308,22 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .gift-card__tag {
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--color-ink-muted);
+  color: var(--color-gold-light);
   padding: 0.25rem 0.7rem;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(242, 207, 141, 0.26);
+  background-color: rgba(216, 168, 91, 0.08);
 }
 
 .gift-card__title {
   font-size: 1.3rem;
-  color: var(--color-twilight);
+  color: var(--color-ivory);
   margin-bottom: 0.5rem;
 }
 
 .gift-card__desc {
   font-size: 0.95rem;
-  color: var(--color-ink-muted);
+  color: rgba(250, 247, 242, 0.8);
 }
 
 .gift-card__cta {
@@ -1133,15 +1331,16 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 0.95rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(200, 30, 43, 0.24);
-  background-color: transparent;
+  border: 1px solid rgba(226, 59, 72, 0.55);
+  background-color: rgba(200, 30, 43, 0.22);
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--color-crimson);
+  color: var(--color-ivory);
   transition:
     background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
     color var(--duration-fast) var(--ease-out),
     transform var(--duration-fast) var(--ease-out);
 }
@@ -1155,6 +1354,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 @media (hover: hover) and (pointer: fine) {
   .gift-card__cta:hover {
     background-color: var(--color-crimson);
+    border-color: var(--color-crimson);
     color: var(--color-ivory);
   }
 
@@ -1171,8 +1371,8 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   margin-top: 2rem;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius-md);
-  background-color: rgba(250, 247, 242, 0.82);
-  border: 1px dashed var(--color-border-strong);
+  background-color: rgba(250, 247, 242, 0.055);
+  border: 1px dashed rgba(242, 207, 141, 0.32);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1182,8 +1382,12 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .gifts-reassurance p {
   font-size: 0.97rem;
-  color: var(--color-twilight);
+  color: rgba(250, 247, 242, 0.88);
   max-width: 66ch;
+}
+
+.gifts-reassurance strong {
+  color: var(--color-gold-light);
 }
 
 /* ==========================================================================
@@ -1219,7 +1423,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .audience-tabs__active {
   position: absolute;
   inset: 0.35rem;
-  background-color: var(--color-twilight);
+  background-color: var(--color-pine);
   border-radius: var(--radius-pill);
   pointer-events: none;
   clip-path: inset(0 75% 0 0 round 999px);
@@ -1246,7 +1450,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 @media (hover: hover) and (pointer: fine) {
   .audience-tab:hover {
-    color: var(--color-twilight);
+    color: var(--color-pine);
   }
 }
 
@@ -1276,7 +1480,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .audience-panel__headline {
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  color: var(--color-twilight);
+  color: var(--color-pine);
   margin-bottom: 0.75rem;
 }
 
@@ -1290,7 +1494,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   padding: 1.2rem 1.35rem;
   border-radius: var(--radius-md);
   background-color: var(--color-ivory);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(216, 168, 91, 0.32);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1305,7 +1509,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .audience-panel__detail {
   font-size: 0.94rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 /* Origen del nombre + Compromisos de confianza */
@@ -1335,15 +1539,17 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   height: 108px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(200, 30, 43, 0.22);
-  box-shadow: var(--shadow-paper);
+  border: 2px solid rgba(216, 168, 91, 0.55);
+  box-shadow:
+    0 0 0 4px rgba(200, 30, 43, 0.1),
+    var(--shadow-paper);
   flex-shrink: 0;
 }
 
 .origin-seal-caption {
   font-family: var(--font-display);
   font-size: 1.05rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .origin-seal-caption span {
@@ -1367,19 +1573,19 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 }
 
 .origin-copy strong {
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .trust-card {
   padding: clamp(1.6rem, 3vw, 2.2rem);
   border-radius: var(--radius-lg);
   background-color: var(--color-ivory-warm);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(216, 168, 91, 0.35);
 }
 
 .trust-card__title {
   font-size: 1.55rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   margin-bottom: 1.15rem;
 }
 
@@ -1394,7 +1600,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.96rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .trust-item__icon {
@@ -1478,7 +1684,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 .faq-item.is-open {
   background-color: #FFFFFF;
-  border-color: rgba(200, 30, 43, 0.28);
+  border-color: rgba(216, 168, 91, 0.45);
   box-shadow: var(--shadow-paper);
 }
 
@@ -1496,7 +1702,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   font-size: 1.08rem;
   font-weight: 600;
   line-height: 1.35;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .faq-trigger__icon {
@@ -1557,7 +1763,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .section-quote {
   padding-block: var(--section-pad-y);
   background:
-    radial-gradient(circle at 80% 10%, rgba(232, 141, 103, 0.2), transparent 46%),
+    radial-gradient(circle at 80% 10%, rgba(216, 168, 91, 0.2), transparent 46%),
     linear-gradient(180deg, var(--color-ivory) 0%, var(--color-ivory-warm) 100%);
   border-top: 1px solid var(--color-border);
 }
@@ -1579,7 +1785,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   padding: clamp(1.5rem, 3.5vw, 2.5rem);
   border-radius: var(--radius-lg);
   background-color: #FFFFFF;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(216, 168, 91, 0.28);
   box-shadow: var(--shadow-paper);
 }
 
@@ -1599,7 +1805,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 1rem;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .quote-progress__count {
@@ -1617,7 +1823,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   height: 100%;
   width: 0%;
   border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--color-crimson), var(--color-coral));
+  background: linear-gradient(90deg, var(--color-crimson), var(--color-gold));
   transition: width 320ms var(--ease-out);
 }
 
@@ -1645,7 +1851,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   background-color: var(--color-ivory);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   transition:
     border-color var(--duration-fast) var(--ease-out),
     color var(--duration-fast) var(--ease-out),
@@ -1697,7 +1903,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   background-color: var(--color-ivory);
   font-size: 0.84rem;
   font-weight: 500;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   transition:
     background-color var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
@@ -1717,6 +1923,46 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 }
 
 .gift-chip.is-selected {
+  background-color: var(--color-crimson);
+  border-color: var(--color-crimson);
+  color: var(--color-ivory);
+}
+
+/* Atajos rápidos de fechas navideñas */
+.date-quick-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.date-quick-pill {
+  padding: 0.32rem 0.72rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-ivory);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-pine);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .date-quick-pill:hover {
+    border-color: var(--color-crimson);
+    color: var(--color-crimson);
+  }
+}
+
+.date-quick-pill:active {
+  transform: scale(0.96);
+}
+
+.date-quick-pill.is-selected {
   background-color: var(--color-crimson);
   border-color: var(--color-crimson);
   color: var(--color-ivory);
@@ -1745,7 +1991,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-twilight);
+  color: var(--color-pine);
 }
 
 .field-optional {
@@ -1761,7 +2007,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   border: 1px solid var(--color-border-strong);
   background-color: var(--color-ivory);
   font-size: 0.96rem;
-  color: var(--color-twilight);
+  color: var(--color-pine);
   transition:
     border-color var(--duration-fast) var(--ease-out),
     background-color var(--duration-fast) var(--ease-out),
@@ -1844,14 +2090,15 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   text-align: center;
 }
 
-/* Vista previa en vivo del mensaje de WhatsApp */
+/* Vista previa en vivo del mensaje de WhatsApp (Pino Nocturno) */
 .preview-card {
   position: sticky;
   top: 5.5rem;
   padding: 1.5rem;
   border-radius: var(--radius-lg);
-  background-color: var(--color-twilight);
+  background-color: var(--color-pine);
   color: var(--color-ivory);
+  border: 1px solid rgba(242, 207, 141, 0.22);
   box-shadow: var(--shadow-paper);
 }
 
@@ -1861,7 +2108,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   justify-content: space-between;
   gap: 0.75rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid rgba(242, 207, 141, 0.16);
 }
 
 .preview-card__title {
@@ -1876,7 +2123,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 .preview-card__title svg {
   width: 18px;
   height: 18px;
-  color: var(--color-coral);
+  color: var(--color-gold-light);
 }
 
 .preview-card__live {
@@ -1885,7 +2132,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.35rem;
   font-size: 0.76rem;
   font-weight: 600;
-  color: var(--color-coral);
+  color: var(--color-gold-light);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -1901,8 +2148,8 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   margin-top: 1.15rem;
   padding: 1.15rem 1.2rem;
   border-radius: 4px 16px 16px 16px;
-  background-color: var(--color-twilight-soft);
-  border: 1px solid var(--color-border-dark);
+  background-color: var(--color-pine-soft);
+  border: 1px solid rgba(242, 207, 141, 0.16);
   font-family: var(--font-sans);
   font-size: 0.89rem;
   line-height: 1.58;
@@ -1953,10 +2200,22 @@ html[data-motion='reduced'] .gifts-ribbon-track {
    FOOTER + INTERRUPTOR DE MOVIMIENTO
    ========================================================================== */
 .site-footer {
+  position: relative;
   padding-block: 3.5rem 2.5rem;
-  background-color: var(--color-twilight);
+  background-color: var(--color-pine-deep);
   color: var(--color-ivory);
-  border-top: 1px solid var(--color-border-dark);
+  border-top: 1px solid rgba(242, 207, 141, 0.16);
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-crimson), var(--color-gold), var(--color-crimson));
+  opacity: 0.7;
 }
 
 .footer-grid {
@@ -1966,7 +2225,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   justify-content: space-between;
   gap: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid rgba(242, 207, 141, 0.14);
 }
 
 .footer-brand {
@@ -1981,7 +2240,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   border-radius: 50%;
   overflow: hidden;
   background-color: var(--color-ivory);
-  border: 2px solid rgba(250, 247, 242, 0.25);
+  border: 2px solid rgba(242, 207, 141, 0.4);
   flex-shrink: 0;
 }
 
@@ -2025,7 +2284,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 @media (hover: hover) and (pointer: fine) {
   .footer-links a:hover {
-    color: var(--color-ivory);
+    color: var(--color-gold-light);
   }
 }
 
@@ -2042,7 +2301,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.45rem;
   padding: 0.45rem 0.88rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(250, 247, 242, 0.22);
+  border: 1px solid rgba(242, 207, 141, 0.22);
   background-color: rgba(250, 247, 242, 0.06);
   font-size: 0.84rem;
   font-weight: 500;
@@ -2067,7 +2326,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 @media (hover: hover) and (pointer: fine) {
   .social-pill:hover {
-    border-color: var(--color-coral);
+    border-color: var(--color-gold-light);
     background-color: rgba(250, 247, 242, 0.12);
     color: var(--color-ivory);
     transform: translateY(-1px);
@@ -2080,7 +2339,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.5rem;
   padding: 0.45rem 0.9rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(250, 247, 242, 0.22);
+  border: 1px solid rgba(242, 207, 141, 0.22);
   background-color: rgba(250, 247, 242, 0.06);
   font-size: 0.82rem;
   font-weight: 500;
@@ -2099,7 +2358,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 
 @media (hover: hover) and (pointer: fine) {
   .motion-toggle-btn:hover {
-    border-color: var(--color-coral);
+    border-color: var(--color-gold-light);
     color: var(--color-ivory);
   }
 }
@@ -2108,7 +2367,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: var(--color-coral);
+  background-color: var(--color-gold-light);
   flex-shrink: 0;
 }
 
@@ -2140,10 +2399,10 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.55rem;
   padding: 0.75rem 1.2rem;
   border-radius: var(--radius-pill);
-  background-color: var(--color-twilight);
+  background-color: var(--color-pine);
   color: var(--color-ivory);
-  border: 1px solid rgba(250, 247, 242, 0.2);
-  box-shadow: 0 16px 34px -10px rgba(26, 34, 56, 0.45);
+  border: 1px solid rgba(242, 207, 141, 0.32);
+  box-shadow: 0 16px 34px -10px rgba(11, 25, 20, 0.5);
   font-size: 0.88rem;
   font-weight: 600;
   white-space: nowrap;
@@ -2208,10 +2467,10 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   gap: 0.65rem;
   padding: 0.78rem 1.15rem;
   border-radius: var(--radius-md);
-  background-color: var(--color-twilight);
+  background-color: var(--color-pine);
   color: var(--color-ivory);
-  border: 1px solid rgba(250, 247, 242, 0.15);
-  box-shadow: 0 18px 38px -12px rgba(26, 34, 56, 0.42);
+  border: 1px solid rgba(242, 207, 141, 0.24);
+  box-shadow: 0 18px 38px -12px rgba(11, 25, 20, 0.45);
   font-size: 0.9rem;
   font-weight: 500;
   opacity: 0;
@@ -2235,7 +2494,7 @@ html[data-motion='reduced'] .gifts-ribbon-track {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-coral);
+  background-color: var(--color-gold-light);
   flex-shrink: 0;
 }
 
@@ -2311,6 +2570,10 @@ html[data-motion='reduced'] .gifts-ribbon-track {
 @media (max-width: 480px) {
   .header-logo-img {
     height: 38px;
+  }
+
+  .hero-garland svg {
+    height: 52px;
   }
 
   .timeline-mobile-rail {

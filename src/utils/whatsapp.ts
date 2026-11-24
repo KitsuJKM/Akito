@@ -55,7 +55,7 @@ export function formatDateSpanish(isoDate: string): string {
  */
 export function buildWhatsAppMessage(data: QuoteFormData): string {
   const lines: string[] = [
-    'Hola Akito, quiero cotizar un regalo a distancia:',
+    'Hola Akito, quiero cotizar un regalo de Navidad a distancia:',
     '',
     `• Qué quiero enviar: ${data.whatToSend.trim() || 'Por definir juntos'}`,
   ];

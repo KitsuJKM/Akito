@@ -7,7 +7,18 @@
   --color-twilight-soft: #26314F;
   --color-crimson: #C81E2B;
   --color-crimson-deep: #B81D24;
+  --color-crimson-bright: #E23B48;
   --color-coral: #E88D67;
+
+  /* Paleta estacional · Edición Navidad (pino nocturno y oro viejo accesible) */
+  --color-pine: #11241E;
+  --color-pine-soft: #1A332B;
+  --color-pine-deep: #0B1914;
+  --color-gold: #D8A85B;
+  --color-gold-light: #F2CF8D;
+  --color-gold-deep: #8C5E1A;
+  --color-gold-tint: rgba(216, 168, 91, 0.14);
+  --color-gold-glow: rgba(216, 168, 91, 0.24);
 
   /* Tintas y superficies derivadas */
   --color-ink: #1A2238;
@@ -36,11 +47,11 @@
 
   /* Sombras editoriales */
   --shadow-paper:
-    0 2px 6px rgba(26, 34, 56, 0.05),
-    0 16px 36px -14px rgba(26, 34, 56, 0.12);
+    0 2px 6px rgba(17, 36, 30, 0.05),
+    0 16px 36px -14px rgba(17, 36, 30, 0.13);
   --shadow-card-hover:
-    0 6px 14px rgba(26, 34, 56, 0.06),
-    0 24px 46px -16px rgba(26, 34, 56, 0.16);
+    0 6px 14px rgba(17, 36, 30, 0.07),
+    0 24px 46px -16px rgba(17, 36, 30, 0.17);
   --shadow-crimson:
     0 10px 26px -10px rgba(200, 30, 43, 0.44);
 

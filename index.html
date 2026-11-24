@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akito · Regalos a distancia — Conectando historias sin importar los kilómetros</title>
+    <title>Akito · Edición Navidad — Regalos a distancia que cruzan todos los kilómetros</title>
     <meta
       name="description"
-      content="Akito gestiona regalos entre países con tiendas locales en destino. Una sola conversación, cotización clara y seguimiento hasta la entrega."
+      content="Edición Navidad de Akito: gestionamos regalos navideños entre países con tiendas locales en destino. Una sola conversación, cotización clara y seguimiento hasta Nochebuena."
     />
-    <meta property="og:title" content="Akito · Regalos a distancia" />
+    <meta property="og:title" content="Akito · Edición Navidad — Regalos a distancia" />
     <meta
       property="og:description"
-      content="Conectando historias sin importar los kilómetros. Gestionamos tu idea con tiendas locales en el país de destino."
+      content="Conectando historias esta Navidad sin importar los kilómetros. Gestionamos tu idea con tiendas locales en el país de destino."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://somosakito.pages.dev/" />
@@ -21,16 +21,16 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Akito · Regalos a distancia — Conectando historias sin importar los kilómetros."
+      content="Akito · Edición Navidad — Regalos a distancia — Conectando historias sin importar los kilómetros."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Akito · Regalos a distancia" />
+    <meta name="twitter:title" content="Akito · Edición Navidad — Regalos a distancia" />
     <meta
       name="twitter:description"
-      content="Regalos entre países preparados con tiendas locales en destino. Una sola conversación y seguimiento hasta la entrega."
+      content="Regalos navideños entre países preparados con tiendas locales en destino. Una sola conversación y seguimiento hasta la entrega."
     />
     <meta name="twitter:image" content="https://somosakito.pages.dev/brand/og-akito.png" />
-    <meta name="theme-color" content="#FAF7F2" />
+    <meta name="theme-color" content="#122620" />
     <link rel="icon" type="image/png" href="/brand/logo-perfil.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,7 +44,7 @@
     <!-- ================================================================
          HEADER FLOTANTE ADAPTATIVO + HILO DE PROGRESO GLOBAL
          ================================================================ -->
-    <header class="site-header" id="site-header">
+    <header class="site-header is-dark" id="site-header">
       <div class="container header-inner">
         <a
           href="#inicio"
@@ -64,7 +64,7 @@
         <nav class="header-nav" aria-label="Navegación principal">
           <a href="#que-hacemos" class="header-nav__link" data-scroll-to="#que-hacemos">Qué hacemos</a>
           <a href="#como-funciona" class="header-nav__link" data-scroll-to="#como-funciona">Cómo funciona</a>
-          <a href="#que-enviar" class="header-nav__link" data-scroll-to="#que-enviar">Qué enviar</a>
+          <a href="#que-enviar" class="header-nav__link" data-scroll-to="#que-enviar">Colección Navidad</a>
           <a href="#nosotros" class="header-nav__link" data-scroll-to="#nosotros">El hilo rojo</a>
           <a href="#preguntas" class="header-nav__link" data-scroll-to="#preguntas">Preguntas</a>
         </nav>
@@ -79,9 +79,52 @@
 
     <main>
       <!-- ==============================================================
-           SECCIÓN 1 · HERO NARRATIVO + POSTAL INTERACTIVA DEL HILO ROJO
+           SECCIÓN 1 · HERO NAVIDEÑO EN PINO NOCTURNO + POSTAL DE NOCHEBUENA
            ============================================================== -->
-      <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <section class="hero" id="inicio" data-header-theme="dark" aria-labelledby="hero-title">
+        <canvas class="hero-snow-canvas" id="hero-snow-canvas" aria-hidden="true"></canvas>
+
+        <!-- Guirnalda botánica minimalista superior -->
+        <div class="hero-garland" aria-hidden="true">
+          <svg viewBox="0 0 1440 74" preserveAspectRatio="none" fill="none">
+            <path
+              d="M -20 12 Q 360 44 720 14 T 1460 14"
+              stroke="rgba(242, 207, 141, 0.34)"
+              stroke-width="1.4"
+            />
+            <path
+              d="M -20 18 Q 360 8 720 26 T 1460 18"
+              stroke="rgba(226, 59, 72, 0.45)"
+              stroke-width="1.2"
+              stroke-dasharray="4 6"
+            />
+            <!-- Ramitas de pino y bayas sutiles -->
+            <g stroke="rgba(242, 207, 141, 0.48)" stroke-width="1.35" stroke-linecap="round">
+              <path d="M 110 21 l -10 10 M 110 21 l 0 13 M 110 21 l 10 9" />
+              <path d="M 320 29 l -9 10 M 320 29 l 0 12 M 320 29 l 9 9" />
+              <path d="M 540 23 l -8 9 M 540 23 l 0 11 M 540 23 l 8 8" />
+              <path d="M 880 12 l -8 9 M 880 12 l 0 12 M 880 12 l 9 8" />
+              <path d="M 1120 18 l -9 10 M 1120 18 l 0 12 M 1120 18 l 9 9" />
+              <path d="M 1320 20 l -10 10 M 1320 20 l 0 13 M 1320 20 l 10 9" />
+            </g>
+            <!-- Bayas carmesí y estrellas de 4 puntas doradas -->
+            <g fill="#E23B48">
+              <circle cx="110" cy="21" r="2.8" />
+              <circle cx="320" cy="29" r="2.8" />
+              <circle cx="540" cy="23" r="2.6" />
+              <circle cx="880" cy="12" r="2.6" />
+              <circle cx="1120" cy="18" r="2.8" />
+              <circle cx="1320" cy="20" r="2.8" />
+            </g>
+            <g fill="#F2CF8D">
+              <path d="M 215 16 l 1.6 4.4 l 4.4 1.6 l -4.4 1.6 l -1.6 4.4 l -1.6 -4.4 l -4.4 -1.6 l 4.4 -1.6 z" />
+              <path d="M 720 15 l 1.8 4.8 l 4.8 1.8 l -4.8 1.8 l -1.8 4.8 l -1.8 -4.8 l -4.8 -1.8 l 4.8 -1.8 z" />
+              <path d="M 1005 11 l 1.4 3.8 l 3.8 1.4 l -3.8 1.4 l -1.4 3.8 l -1.4 -3.8 l -3.8 -1.4 l 3.8 -1.4 z" />
+              <path d="M 1225 14 l 1.6 4.2 l 4.2 1.6 l -4.2 1.6 l -1.6 4.2 l -1.6 -4.2 l -4.2 -1.6 l 4.2 -1.6 z" />
+            </g>
+          </svg>
+        </div>
+
         <div class="container hero-grid">
           <div class="hero-content" id="hero-content">
             <div class="hero-tag-wrap" data-hero-anim="tag">
@@ -89,30 +132,48 @@
                 <span class="brand-tag__dot" aria-hidden="true"></span>
                 REGALOS A DISTANCIA
               </span>
+              <span class="season-pill">
+                <i data-lucide="snowflake" aria-hidden="true"></i>
+                <span>Edición Navidad</span>
+              </span>
             </div>
 
             <h1 class="hero-title" id="hero-title">
-              <span class="hero-title-line" data-hero-anim="line">Conectando historias</span>
+              <span class="hero-title-line" data-hero-anim="line">Nochebuena en sus manos,</span>
               <span class="hero-title-line" data-hero-anim="line">
                 sin importar <em class="hero-title-em">los kilómetros.</em>
               </span>
             </h1>
 
             <p class="hero-subtitle" data-hero-anim="copy">
-              No vendemos un catálogo rígido ni enviamos cajas impersonales por correo internacional:
-              escuchamos tu idea, la cotizamos con claridad y la hacemos realidad con una
+              No enviamos cajas impersonales que se pierden en aduanas de diciembre: escuchamos tu
+              idea navideña, la cotizamos con claridad y la preparamos con una
               <strong>tienda local en el país de destino</strong>.
             </p>
 
             <div class="hero-actions" data-hero-anim="cta">
               <a href="#cotizar" class="btn btn--primary" data-scroll-to="#cotizar">
-                Cotizar mi regalo
+                Cotizar regalo navideño
                 <i data-lucide="arrow-right" aria-hidden="true"></i>
               </a>
-              <a href="#como-funciona" class="btn btn--secondary" data-scroll-to="#como-funciona">
-                Cómo funciona
+              <a href="#que-enviar" class="btn btn--secondary" data-scroll-to="#que-enviar">
+                Explorar ideas de Navidad
               </a>
             </div>
+
+            <a
+              href="#cotizar"
+              class="christmas-countdown"
+              id="christmas-countdown"
+              data-scroll-to="#cotizar"
+              data-hero-anim="meta"
+            >
+              <span class="christmas-countdown__dot" aria-hidden="true"></span>
+              <span id="christmas-countdown-text">
+                Temporada de Navidad · Reserva tu tienda local con anticipación
+              </span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
 
             <ul class="hero-footnotes" data-hero-anim="meta">
               <li class="hero-footnote-item">
@@ -121,7 +182,7 @@
               </li>
               <li class="hero-footnote-item">
                 <i data-lucide="map-pin" aria-hidden="true"></i>
-                <span>Tiendas locales y detalles hechos a mano</span>
+                <span>Tiendas locales en su ciudad</span>
               </li>
               <li class="hero-footnote-item">
                 <i data-lucide="shield-check" aria-hidden="true"></i>
@@ -131,139 +192,153 @@
           </div>
 
           <div class="hero-postcard-wrap" id="hero-postcard-wrap">
-          <aside
-            class="hero-postcard"
-            id="hero-postcard"
-            data-hero-anim="card"
-            aria-label="Ejemplo interactivo de conexión entre países"
-          >
-            <div class="hero-postcard__top">
-              <div class="hero-postcard__seal">
-                <img
-                  src="/brand/logo-perfil.png"
-                  alt="Sello circular Akito"
-                  width="38"
-                  height="38"
-                />
-                <div class="hero-postcard__seal-text">
-                  <span class="hero-postcard__seal-title">Postal del hilo rojo</span>
-                  <span class="hero-postcard__seal-sub">Gestión entre dos países</span>
+            <aside
+              class="hero-postcard"
+              id="hero-postcard"
+              data-hero-anim="card"
+              aria-label="Ejemplo interactivo de conexión navideña entre países"
+            >
+              <div class="hero-postcard__top">
+                <div class="hero-postcard__seal">
+                  <img
+                    src="/brand/logo-perfil.png"
+                    alt="Sello circular Akito"
+                    width="38"
+                    height="38"
+                  />
+                  <div class="hero-postcard__seal-text">
+                    <span class="hero-postcard__seal-title">Postal de Nochebuena</span>
+                    <span class="hero-postcard__seal-sub">Edición Navidad · Dos países</span>
+                  </div>
+                </div>
+                <span class="hero-postcard__stamp">
+                  <i data-lucide="star" aria-hidden="true"></i>
+                  <span>Navidad</span>
+                </span>
+              </div>
+
+              <div class="hero-route-stage">
+                <div class="hero-route-cities">
+                  <div class="hero-city-node">
+                    <span class="hero-city-role">Quien envía</span>
+                    <span class="hero-city-name" id="hero-origin-city">Bogotá</span>
+                    <span class="hero-city-country" id="hero-origin-country">Colombia</span>
+                  </div>
+
+                  <div class="hero-city-node hero-city-node--end">
+                    <span class="hero-city-role">Quien recibe</span>
+                    <span class="hero-city-name" id="hero-dest-city">Madrid</span>
+                    <span class="hero-city-country" id="hero-dest-country">España</span>
+                  </div>
+                </div>
+
+                <div class="hero-thread-svg-wrap" aria-hidden="true">
+                  <svg class="hero-map-svg" viewBox="0 0 420 196" fill="none">
+                    <rect width="420" height="196" rx="14" fill="#13252A" />
+                    <g stroke="rgba(242, 207, 141, 0.08)" stroke-width="1">
+                      <line x1="0" y1="49" x2="420" y2="49" />
+                      <line x1="0" y1="98" x2="420" y2="98" />
+                      <line x1="0" y1="147" x2="420" y2="147" />
+                      <line x1="105" y1="0" x2="105" y2="196" />
+                      <line x1="210" y1="0" x2="210" y2="196" />
+                      <line x1="315" y1="0" x2="315" y2="196" />
+                    </g>
+                    <g fill="#223C36" stroke="#3A5E54" stroke-width="1" stroke-linejoin="round">
+                      <!-- Norteamérica y Centroamérica -->
+                      <path d="M 0 0 L 189 0 L 189 13 L 173 21 L 151 24 L 126 38 L 111 52 L 110 55 L 103 52 L 101 49 L 79 49 L 57 54 L 57 60 L 88 61 L 85 72 L 98 80 L 112 81 L 117 82 L 106 81 L 92 78 L 76 72 L 48 68 L 19 58 L 0 41 Z" />
+                      <!-- Caribe -->
+                      <path d="M 98 59 Q 114 58 128 63 Q 112 65 98 59 Z" />
+                      <path d="M 133 64 Q 145 63 155 66 Q 143 68 133 64 Z" />
+                      <!-- Sudamérica -->
+                      <path d="M 117 82 L 125 77 L 151 78 L 180 83 L 205 93 L 252 104 L 241 114 L 227 130 L 218 132 L 196 147 L 181 150 L 158 161 L 148 178 L 136 180 L 129 175 L 129 160 L 136 146 L 140 123 L 119 113 L 107 101 L 110 97 L 117 88 Z" />
+                      <!-- España, Portugal y Europa occidental -->
+                      <path d="M 370 0 L 420 0 L 420 22 L 395 26 L 372 28 L 369 30 L 361 33 L 345 38 L 334 37 L 333 34 L 333 27 L 353 27 L 358 27 L 350 19 L 362 12 Z" />
+                      <path d="M 344 10 Q 355 6 366 15 Q 354 18 344 10 Z" />
+                      <!-- Costa noroeste de África -->
+                      <path d="M 344 38 L 362 37 L 385 39 L 420 35 L 420 92 L 369 85 L 321 82 L 307 71 L 309 61 L 338 42 Z" />
+                    </g>
+
+                    <!-- Estrellas sutiles de noche invernal -->
+                    <g fill="#F2CF8D">
+                      <circle class="hero-map-star" cx="236" cy="22" r="1.4" opacity="0.72" />
+                      <circle class="hero-map-star hero-map-star--delay-1" cx="274" cy="39" r="1.1" opacity="0.58" />
+                      <circle class="hero-map-star hero-map-star--delay-2" cx="204" cy="54" r="1.5" opacity="0.65" />
+                      <circle class="hero-map-star" cx="294" cy="18" r="1.2" opacity="0.6" />
+                      <circle class="hero-map-star hero-map-star--delay-1" cx="262" cy="86" r="1.3" opacity="0.55" />
+                      <circle class="hero-map-star hero-map-star--delay-2" cx="46" cy="118" r="1.4" opacity="0.65" />
+                      <circle class="hero-map-star" cx="82" cy="154" r="1.1" opacity="0.52" />
+                      <circle class="hero-map-star hero-map-star--delay-1" cx="288" cy="144" r="1.5" opacity="0.68" />
+                      <circle class="hero-map-star hero-map-star--delay-2" cx="352" cy="122" r="1.2" opacity="0.55" />
+                      <circle class="hero-map-star" cx="388" cy="166" r="1.4" opacity="0.62" />
+                    </g>
+
+                    <!-- Trazo del hilo rojo sobre el mapa nocturno -->
+                    <path
+                      id="hero-thread-glow"
+                      d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
+                      stroke="rgba(226, 59, 72, 0.34)"
+                      stroke-width="10"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      id="hero-thread-guide"
+                      d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
+                      stroke="rgba(242, 207, 141, 0.28)"
+                      stroke-width="1.5"
+                      stroke-dasharray="4 4"
+                    />
+                    <path
+                      id="hero-thread-path"
+                      d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
+                      stroke="#E23B48"
+                      stroke-width="2.9"
+                      stroke-linecap="round"
+                    />
+
+                    <!-- Pines y etiquetas dinámicas de origen y destino -->
+                    <circle id="hero-origin-pulse" cx="129" cy="87" r="9.5" fill="rgba(242, 207, 141, 0.22)" />
+                    <circle id="hero-origin-pin" cx="129" cy="87" r="4.5" fill="#E23B48" stroke="#F2CF8D" stroke-width="1.5" />
+                    <circle id="hero-dest-pulse" cx="351" cy="31" r="9.5" fill="rgba(242, 207, 141, 0.22)" />
+                    <circle id="hero-dest-pin" cx="351" cy="31" r="4.5" fill="#E23B48" stroke="#F2CF8D" stroke-width="1.5" />
+                    <circle id="hero-thread-bead" cx="351" cy="31" r="5.5" fill="#F2CF8D" stroke="#C81E2B" stroke-width="1.6" />
+
+                    <text
+                      id="hero-map-origin-label"
+                      class="hero-map-label"
+                      x="119"
+                      y="101"
+                      text-anchor="end"
+                    >
+                      Bogotá
+                    </text>
+                    <text
+                      id="hero-map-dest-label"
+                      class="hero-map-label"
+                      x="361"
+                      y="23"
+                      text-anchor="start"
+                    >
+                      Madrid
+                    </text>
+                  </svg>
+                </div>
+
+                <div class="hero-route-card" id="hero-route-card">
+                  <p class="hero-route-card__label">Idea gestionada en destino</p>
+                  <p class="hero-route-card__idea" id="hero-route-idea">
+                    Corona navideña artesanal, flores de invierno y nota escrita a mano
+                  </p>
+                  <p class="hero-route-card__status">
+                    <span class="hero-route-card__status-dot" aria-hidden="true"></span>
+                    <span id="hero-route-status">Floristería local coordinada en Salamanca, Madrid</span>
+                  </p>
+                </div>
+
+                <div class="hero-route-switcher" id="hero-route-switcher" role="group" aria-label="Explorar rutas de ejemplo">
+                  <!-- Hidratado desde src/config/akito.ts -->
                 </div>
               </div>
-              <span class="hero-postcard__stamp">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                <span>A medida</span>
-              </span>
-            </div>
-
-            <div class="hero-route-stage">
-              <div class="hero-route-cities">
-                <div class="hero-city-node">
-                  <span class="hero-city-role">Quien envía</span>
-                  <span class="hero-city-name" id="hero-origin-city">Bogotá</span>
-                  <span class="hero-city-country" id="hero-origin-country">Colombia</span>
-                </div>
-
-                <div class="hero-city-node hero-city-node--end">
-                  <span class="hero-city-role">Quien recibe</span>
-                  <span class="hero-city-name" id="hero-dest-city">Madrid</span>
-                  <span class="hero-city-country" id="hero-dest-country">España</span>
-                </div>
-              </div>
-
-              <div class="hero-thread-svg-wrap" aria-hidden="true">
-                <svg class="hero-map-svg" viewBox="0 0 420 196" fill="none">
-                  <rect width="420" height="196" rx="14" fill="#F6F1E8" />
-                  <g stroke="rgba(26, 34, 56, 0.055)" stroke-width="1">
-                    <line x1="0" y1="49" x2="420" y2="49" />
-                    <line x1="0" y1="98" x2="420" y2="98" />
-                    <line x1="0" y1="147" x2="420" y2="147" />
-                    <line x1="105" y1="0" x2="105" y2="196" />
-                    <line x1="210" y1="0" x2="210" y2="196" />
-                    <line x1="315" y1="0" x2="315" y2="196" />
-                  </g>
-                  <g fill="#E9DFCF" stroke="#D1C2AA" stroke-width="1" stroke-linejoin="round">
-                    <!-- Norteamérica y Centroamérica -->
-                    <path d="M 0 0 L 189 0 L 189 13 L 173 21 L 151 24 L 126 38 L 111 52 L 110 55 L 103 52 L 101 49 L 79 49 L 57 54 L 57 60 L 88 61 L 85 72 L 98 80 L 112 81 L 117 82 L 106 81 L 92 78 L 76 72 L 48 68 L 19 58 L 0 41 Z" />
-                    <!-- Caribe -->
-                    <path d="M 98 59 Q 114 58 128 63 Q 112 65 98 59 Z" />
-                    <path d="M 133 64 Q 145 63 155 66 Q 143 68 133 64 Z" />
-                    <!-- Sudamérica -->
-                    <path d="M 117 82 L 125 77 L 151 78 L 180 83 L 205 93 L 252 104 L 241 114 L 227 130 L 218 132 L 196 147 L 181 150 L 158 161 L 148 178 L 136 180 L 129 175 L 129 160 L 136 146 L 140 123 L 119 113 L 107 101 L 110 97 L 117 88 Z" />
-                    <!-- España, Portugal y Europa occidental -->
-                    <path d="M 370 0 L 420 0 L 420 22 L 395 26 L 372 28 L 369 30 L 361 33 L 345 38 L 334 37 L 333 34 L 333 27 L 353 27 L 358 27 L 350 19 L 362 12 Z" />
-                    <path d="M 344 10 Q 355 6 366 15 Q 354 18 344 10 Z" />
-                    <!-- Costa noroeste de África -->
-                    <path d="M 344 38 L 362 37 L 385 39 L 420 35 L 420 92 L 369 85 L 321 82 L 307 71 L 309 61 L 338 42 Z" />
-                  </g>
-
-                  <!-- Trazo del hilo rojo sobre el mapa -->
-                  <path
-                    id="hero-thread-glow"
-                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
-                    stroke="rgba(200, 30, 43, 0.18)"
-                    stroke-width="9"
-                    stroke-linecap="round"
-                  />
-                  <path
-                    id="hero-thread-guide"
-                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
-                    stroke="rgba(26, 34, 56, 0.16)"
-                    stroke-width="1.5"
-                    stroke-dasharray="4 4"
-                  />
-                  <path
-                    id="hero-thread-path"
-                    d="M 129 87 C 184 30, 232 92, 274 58 C 304 34, 326 24, 351 31"
-                    stroke="#C81E2B"
-                    stroke-width="2.8"
-                    stroke-linecap="round"
-                  />
-
-                  <!-- Pines y etiquetas dinámicas de origen y destino -->
-                  <circle id="hero-origin-pulse" cx="129" cy="87" r="9" fill="rgba(200, 30, 43, 0.16)" />
-                  <circle id="hero-origin-pin" cx="129" cy="87" r="4.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
-                  <circle id="hero-dest-pulse" cx="351" cy="31" r="9" fill="rgba(200, 30, 43, 0.16)" />
-                  <circle id="hero-dest-pin" cx="351" cy="31" r="4.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
-                  <circle id="hero-thread-bead" cx="351" cy="31" r="5.5" fill="#C81E2B" stroke="#FAF7F2" stroke-width="1.5" />
-
-                  <text
-                    id="hero-map-origin-label"
-                    class="hero-map-label"
-                    x="119"
-                    y="101"
-                    text-anchor="end"
-                  >
-                    Bogotá
-                  </text>
-                  <text
-                    id="hero-map-dest-label"
-                    class="hero-map-label"
-                    x="361"
-                    y="23"
-                    text-anchor="start"
-                  >
-                    Madrid
-                  </text>
-                </svg>
-              </div>
-
-              <div class="hero-route-card" id="hero-route-card">
-                <p class="hero-route-card__label">Idea gestionada en destino</p>
-                <p class="hero-route-card__idea" id="hero-route-idea">
-                  Ramo de flores y nota escrita a mano
-                </p>
-                <p class="hero-route-card__status">
-                  <span class="hero-route-card__status-dot" aria-hidden="true"></span>
-                  <span id="hero-route-status">Tienda local coordinada en Salamanca, Madrid</span>
-                </p>
-              </div>
-
-              <div class="hero-route-switcher" id="hero-route-switcher" role="group" aria-label="Explorar rutas de ejemplo">
-                <!-- Hidratado desde src/config/akito.ts -->
-              </div>
-            </div>
-          </aside>
+            </aside>
           </div>
         </div>
 
@@ -276,18 +351,18 @@
       </section>
 
       <!-- ==============================================================
-           SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (AZUL CREPUSCULAR)
+           SECCIÓN 2 · EL PROBLEMA Y QUÉ HACEMOS (MARFIL CÁLIDO EDITORIAL)
            ============================================================== -->
       <section class="section-twilight" id="que-hacemos" aria-labelledby="twilight-title">
         <div class="container twilight-grid">
           <div class="twilight-sticky" id="twilight-pin-col">
-            <h2 class="section-title section-title--on-dark" id="twilight-title">
-              Regalar a otro país no debería ser un salto al vacío.
+            <h2 class="section-title" id="twilight-title">
+              Enviar un regalo de Navidad al exterior no debería ser un salto al vacío.
             </h2>
 
             <div class="manifesto-box" id="manifesto-box">
               <p>
-                No vendemos un catálogo rígido:
+                En diciembre las agendas se llenan rápido. No vendemos un catálogo rígido:
                 <strong>gestionamos tu idea con una tienda local en destino, de principio a fin.</strong>
               </p>
             </div>
@@ -319,11 +394,11 @@
           <div class="process-header">
             <div>
               <h2 class="section-title" id="process-title">
-                Así tejemos cada regalo, de tu idea hasta sus manos.
+                Así tejemos tu regalo de Navidad, de tu idea hasta sus manos.
               </h2>
               <p class="section-lead">
                 Siete momentos claros para que sepas exactamente qué pasa en cada etapa antes,
-                durante y después de la entrega.
+                durante y después de la entrega en diciembre.
               </p>
             </div>
 
@@ -402,55 +477,56 @@
       </section>
 
       <!-- ==============================================================
-           SECCIÓN 4 · QUÉ SE PUEDE ENVIAR (CINTA DE SCROLL + BENTO)
+           SECCIÓN 4 · COLECCIÓN DE NAVIDAD (PINO NOCTURNO + ORO + MARQUEE)
            ============================================================== -->
-      <section class="section-gifts" id="que-enviar" aria-labelledby="gifts-title">
+      <section class="section-gifts" id="que-enviar" data-header-theme="dark" aria-labelledby="gifts-title">
         <div class="container">
-          <h2 class="section-title" id="gifts-title">
-            Gestionamos tu idea según la disponibilidad de las tiendas locales en la ciudad de destino.
+          <h2 class="section-title section-title--on-dark" id="gifts-title">
+            Detalles navideños creados por tiendas locales en su ciudad.
           </h2>
-          <p class="section-lead">
-            Explora el tipo de detalle que imaginas o tócalo para llevarlo directo a tu cotización.
+          <p class="section-lead section-lead--on-dark">
+            Explora ideas para Nochebuena, Navidad o Año Nuevo y tócalas para llevarlas directo a
+            tu cotización.
           </p>
         </div>
 
         <div class="gifts-ribbon" aria-hidden="true">
           <div class="gifts-ribbon-track" id="gifts-scroll-ribbon">
             <div class="gifts-ribbon__group">
-              <span>Flores frescas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Tortas</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Desayunos en destino</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Joyería</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Cajas personalizadas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Peluches y flores</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Flores eternas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Amigurumis</em>
-              <span class="gifts-ribbon__dot">•</span>
+              <span>Cestas navideñas</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Coronas de pino</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Panettone y tortas</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Desayunos de Nochebuena</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Flores de invierno</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Velas artesanales</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Joyería</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Amigurumis navideños</em>
+              <span class="gifts-ribbon__dot">✦</span>
             </div>
             <div class="gifts-ribbon__group">
-              <span>Flores frescas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Tortas</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Desayunos en destino</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Joyería</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Cajas personalizadas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Peluches y flores</em>
-              <span class="gifts-ribbon__dot">•</span>
-              <span>Flores eternas</span>
-              <span class="gifts-ribbon__dot">•</span>
-              <em>Amigurumis</em>
-              <span class="gifts-ribbon__dot">•</span>
+              <span>Cestas navideñas</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Coronas de pino</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Panettone y tortas</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Desayunos de Nochebuena</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Flores de invierno</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Velas artesanales</em>
+              <span class="gifts-ribbon__dot">✦</span>
+              <span>Joyería</span>
+              <span class="gifts-ribbon__dot">✦</span>
+              <em>Amigurumis navideños</em>
+              <span class="gifts-ribbon__dot">✦</span>
             </div>
           </div>
         </div>
@@ -462,11 +538,11 @@
 
           <div class="gifts-reassurance">
             <p>
-              <strong>¿Tienes otra idea en mente?</strong> Cuéntanos qué te gustaría regalar,
-              incluso si es algo muy personalizado. Te ayudamos a darle forma y buscamos opciones
-              disponibles en la ciudad de destino antes de preparar tu cotización.
+              <strong>¿Imaginas otro regalo para esta Navidad?</strong> Cuéntanos qué te gustaría
+              enviar, incluso si es una tradición familiar muy puntual. Te ayudamos a darle forma y
+              validamos opciones disponibles en su ciudad antes de cotizar.
             </p>
-            <a href="#cotizar" class="btn btn--secondary btn--sm" data-scroll-to="#cotizar">
+            <a href="#cotizar" class="btn btn--ghost-light btn--sm" data-scroll-to="#cotizar">
               Cuéntanos tu idea
               <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
@@ -481,7 +557,7 @@
         <div class="container">
           <div class="audience-block">
             <h2 class="section-title" id="story-title">
-              Porque estar lejos no significa estar ausente.
+              Porque pasar Navidad lejos no significa estar ausente.
             </h2>
 
             <div class="audience-tabs" id="audience-tabs" role="tablist" aria-label="Historias según quién envía">
@@ -514,7 +590,7 @@
                 />
                 <div class="origin-seal-caption">
                   Akai (rojo) + Ito (hilo)
-                  <span>Filosofía del Musubi · Vínculos entrelazados</span>
+                  <span>Filosofía del Musubi · Vínculos que iluminan diciembre</span>
                 </div>
               </div>
 
@@ -541,13 +617,13 @@
 
               <p class="origin-copy">
                 <strong>Akito</strong> recoge la imagen del <strong>hilo rojo del destino</strong> y
-                del <em>Musubi</em>: los lazos que siguen unidos aunque haya océanos, fronteras y
-                husos horarios de por medio.
+                del <em>Musubi</em>: los lazos que permanecen entrelazados en Nochebuena aunque haya
+                océanos, fronteras y husos horarios distintos.
               </p>
 
               <p class="origin-copy">
-                Ese hilo es la metáfora viva del servicio: una persona en un país, otra en otro, y
-                Akito sosteniendo el trazo entre ambas para que el gesto llegue a buen puerto.
+                Ese hilo es la metáfora viva del servicio: tú en un país, quien quieres en otro, y
+                Akito sosteniendo el trazo entre ambos para que el gesto llegue a su mesa.
               </p>
             </div>
 
@@ -589,10 +665,10 @@
         <div class="container faq-layout">
           <div class="faq-intro">
             <h2 class="section-title" id="faq-title">
-              Preguntas frecuentes antes de escribirnos.
+              Preguntas frecuentes para tus envíos de Navidad.
             </h2>
             <p class="section-lead">
-              Lo esencial sobre tiempos, cobertura, pagos y seguimiento en destino.
+              Lo esencial sobre tiempos de diciembre, cobertura, pagos y seguimiento en destino.
             </p>
           </div>
 
@@ -609,11 +685,11 @@
         <div class="container">
           <div class="quote-intro">
             <h2 class="section-title" id="quote-title">
-              Cuéntanos qué quieres enviar y seguimos directo en WhatsApp.
+              Arma tu regalo de Navidad y seguimos directo en WhatsApp.
             </h2>
             <p class="section-lead">
-              Completa los datos básicos de tu regalo. Armaremos el mensaje listo para que continúes
-              la cotización con Akito sin tener que repetir la historia.
+              Completa los datos básicos de tu detalle navideño. Prepararemos el mensaje listo para
+              cotizar con Akito sin tener que repetir la historia.
             </p>
           </div>
 
@@ -637,8 +713,8 @@
               </div>
 
               <div>
-                <span class="chips-label">Inspiración rápida (opcional):</span>
-                <div class="gift-chips" id="gift-chips" role="group" aria-label="Sugerencias de regalo">
+                <span class="chips-label">Inspiración navideña rápida (opcional):</span>
+                <div class="gift-chips" id="gift-chips" role="group" aria-label="Sugerencias de regalo navideño">
                   <!-- Hidratado desde src/config/akito.ts -->
                 </div>
               </div>
@@ -653,7 +729,7 @@
                     name="whatToSend"
                     type="text"
                     class="field-control"
-                    placeholder="Ej. Ramo de girasoles con nota escrita, desayuno sorpresa, caja de café..."
+                    placeholder="Ej. Cesta de Nochebuena, corona de pino con nota escrita, desayuno navideño..."
                     required
                     aria-describedby="err-whatToSend"
                   />
@@ -720,6 +796,9 @@
                     required
                     aria-describedby="err-when"
                   />
+                  <div class="date-quick-picks" id="date-quick-picks" role="group" aria-label="Fechas navideñas rápidas">
+                    <!-- Hidratado desde src/config/akito.ts -->
+                  </div>
                   <label class="field-check">
                     <input type="checkbox" id="isFlexibleDate" name="isFlexibleDate" />
                     <span>Fecha flexible o por definir</span>
@@ -786,7 +865,7 @@
                     id="moreDetails"
                     name="moreDetails"
                     class="field-control field-textarea"
-                    placeholder="Para quién es, ocasión, dedicatoria que te gustaría incluir, gustos o colores..."
+                    placeholder="Para quién es, dedicatoria navideña que te gustaría incluir, aromas, gustos o colores..."
                   ></textarea>
                 </div>
               </div>
@@ -804,8 +883,8 @@
                   Continuar cotización en WhatsApp
                 </button>
                 <p class="form-honest-note">
-                  Se abrirá WhatsApp con tu mensaje redactado. La disponibilidad y el valor final
-                  se confirman contigo durante la conversación.
+                  Se abrirá WhatsApp con tu mensaje redactado. La disponibilidad de diciembre y el
+                  valor final se confirman contigo durante la conversación.
                 </p>
               </div>
             </form>
@@ -814,7 +893,7 @@
               <div class="preview-card__head">
                 <h3 class="preview-card__title">
                   <i data-lucide="message-circle" aria-hidden="true"></i>
-                  Tu mensaje para WhatsApp
+                  Tu mensaje navideño para WhatsApp
                 </h3>
                 <span class="preview-card__live">
                   <span class="preview-card__live-dot" aria-hidden="true"></span>
@@ -854,7 +933,7 @@
             </div>
             <div>
               <p class="footer-brand__name">Akito · Regalos a distancia</p>
-              <p class="footer-brand__tagline">Conectando historias sin importar los kilómetros.</p>
+              <p class="footer-brand__tagline">Edición Navidad · Conectando historias sin importar los kilómetros.</p>
             </div>
           </div>
 
@@ -862,7 +941,7 @@
             <nav class="footer-links" aria-label="Enlaces del pie de página">
               <a href="#que-hacemos" data-scroll-to="#que-hacemos">Qué hacemos</a>
               <a href="#como-funciona" data-scroll-to="#como-funciona">Cómo funciona</a>
-              <a href="#que-enviar" data-scroll-to="#que-enviar">Qué enviar</a>
+              <a href="#que-enviar" data-scroll-to="#que-enviar">Colección Navidad</a>
               <a href="#nosotros" data-scroll-to="#nosotros">El hilo rojo</a>
               <a href="#preguntas" data-scroll-to="#preguntas">Preguntas</a>
               <a href="#cotizar" data-scroll-to="#cotizar">Cotizar</a>

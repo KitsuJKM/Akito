@@ -1,6 +1,7 @@
 import {
   AUDIENCE_STORIES,
   BUDGET_RANGES,
+  CHRISTMAS_QUICK_DATES,
   DESTINATION_COUNTRIES,
   FAQ_ITEMS,
   FRICTION_PAIRS,
@@ -66,6 +67,7 @@ export function renderPageCollections(): void {
   renderFaqItems();
   renderGiftChips();
   renderBudgetChips();
+  renderChristmasQuickDates();
   renderCountrySuggestions();
 }
 
@@ -337,6 +339,20 @@ function renderGiftChips(): void {
   });
 }
 
+function renderChristmasQuickDates(): void {
+  const wrap = document.getElementById('date-quick-picks');
+  if (!wrap) return;
+
+  wrap.replaceChildren();
+  CHRISTMAS_QUICK_DATES.forEach((opt) => {
+    const btn = createEl('button', 'date-quick-pill', opt.label);
+    btn.type = 'button';
+    btn.dataset.quickDate = opt.iso;
+    btn.setAttribute('aria-pressed', 'false');
+    wrap.appendChild(btn);
+  });
+}
+
 function fillDatalist(id: string, countries: string[]): void {
   const datalist = document.getElementById(id);
   if (!datalist) return;
@@ -358,6 +374,7 @@ export function initInteractions(
   getScrollTo: () => ScrollToCallback,
   onMotionModeChange: (mode: MotionMode) => void,
 ): void {
+  initChristmasCountdown();
   initHeroRouteSwitcher();
   initAudienceTabBar();
   initFaqAccordion();
@@ -365,6 +382,26 @@ export function initInteractions(
   initSocialLinks();
   initQuoteFormAndBridge(getScrollTo);
   initMotionToggle(onMotionModeChange);
+}
+
+function initChristmasCountdown(): void {
+  const el = document.getElementById('christmas-countdown-text');
+  if (!el) return;
+
+  const now = new Date();
+  const todayLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const eveLocal = new Date(2026, 11, 24);
+  const diffDays = Math.round((eveLocal.getTime() - todayLocal.getTime()) / 86_400_000);
+
+  if (diffDays > 1) {
+    el.textContent = `Faltan ${diffDays} días para Nochebuena · Reserva tu tienda local a tiempo`;
+  } else if (diffDays === 1) {
+    el.textContent = 'Mañana es Nochebuena · Consulta disponibilidad en destino';
+  } else if (diffDays === 0) {
+    el.textContent = 'Hoy es Nochebuena · Consulta entregas de última hora o Año Nuevo';
+  } else {
+    el.textContent = 'Temporada de fin de año · Detalles locales para Navidad y Año Nuevo';
+  }
 }
 
 function initFaqAccordion(): void {
@@ -789,6 +826,15 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
       chip.classList.toggle('is-selected', matched);
       chip.setAttribute('aria-pressed', matched ? 'true' : 'false');
     });
+
+    document
+      .querySelectorAll<HTMLButtonElement>('#date-quick-picks .date-quick-pill')
+      .forEach((pill) => {
+        const quickIso = pill.dataset.quickDate ?? '';
+        const matched = !flexibleEl.checked && quickIso !== '' && whenEl.value === quickIso;
+        pill.classList.toggle('is-selected', matched);
+        pill.setAttribute('aria-pressed', matched ? 'true' : 'false');
+      });
   };
 
   const updatePreviewAndProgress = (shouldPersist = true) => {
@@ -892,6 +938,23 @@ function initQuoteFormAndBridge(getScrollTo: () => ScrollToCallback): void {
       const value = chip.dataset.budgetValue;
       selectedBudget = selectedBudget === value ? '' : value;
       updatePreviewAndProgress();
+    });
+  }
+
+  const quickDatesEl = document.getElementById('date-quick-picks');
+  if (quickDatesEl) {
+    quickDatesEl.addEventListener('click', (event) => {
+      const pill = (event.target as HTMLElement).closest<HTMLButtonElement>('.date-quick-pill');
+      const iso = pill?.dataset.quickDate;
+      if (!pill || !iso) return;
+
+      flexibleEl.checked = false;
+      whenEl.disabled = false;
+      whenEl.required = true;
+      whenEl.value = iso;
+      setFieldError(whenEl, 'err-when', '');
+      updatePreviewAndProgress();
+      showToast(`Fecha: ${pill.textContent?.trim() ?? iso}`, 'info');
     });
   }
 

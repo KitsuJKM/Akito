@@ -271,3 +271,8 @@ html[data-motion='reduced'] .gifts-ribbon-track,
 html[data-motion='reduced'] .origin-seal-img {
   transform: none !important;
 }
+
+html[data-motion='reduced'] .hero-map-star,
+html[data-motion='reduced'] .christmas-countdown__dot {
+  animation: none !important;
+}

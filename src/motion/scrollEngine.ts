@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import type { MotionMode, ScrollToCallback } from '../ui/interactions';
+import { createFestiveSnow } from './festiveSnow';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +61,20 @@ function syncFloatingWhatsAppButton(
   const passedHero = heroRect.bottom < window.innerHeight * 0.45;
   const beforeQuote = quoteRect.top > window.innerHeight * 0.78;
   floatingBtn.classList.toggle('is-visible', passedHero && beforeQuote);
+}
+
+function syncHeaderTheme(header: HTMLElement | null): void {
+  if (!header) return;
+  const probeY = (header.getBoundingClientRect().height || 76) * 0.7;
+  const darkSections = document.querySelectorAll<HTMLElement>('[data-header-theme="dark"]');
+  let isDark = false;
+  darkSections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= probeY && rect.bottom > probeY) {
+      isDark = true;
+    }
+  });
+  header.classList.toggle('is-dark', isDark);
 }
 
 type NormalizedCubicSegment = readonly [
@@ -150,7 +165,6 @@ function createReducedMotionEngine(): ScrollEngineHandle {
   const frictionCards = Array.from(document.querySelectorAll<HTMLElement>('.friction-card'));
   const trackerNodes = Array.from(document.querySelectorAll<HTMLElement>('[data-tracker-node]'));
   const trackerText = document.getElementById('friction-tracker-text');
-  const twilightSection = document.getElementById('que-hacemos');
   const heroSection = document.getElementById('inicio');
   const quoteSection = document.getElementById('cotizar');
   const floatingWaBtn = document.getElementById('floating-wa-btn');
@@ -160,6 +174,7 @@ function createReducedMotionEngine(): ScrollEngineHandle {
   ) as SVGPathElement | null;
   const orbDesktop = document.getElementById('timeline-travel-orb');
   const orbMobile = document.getElementById('timeline-travel-orb-mobile');
+  const snow = createFestiveSnow('reduced');
 
   const syncReducedThreads = () => {
     syncSvgThreadGeometry(threadDesktop?.ownerSVGElement ?? null, DESKTOP_THREAD_SPEC);
@@ -182,11 +197,7 @@ function createReducedMotionEngine(): ScrollEngineHandle {
 
     if (header) {
       header.classList.toggle('is-scrolled', scrollY > 20);
-      if (twilightSection) {
-        const rect = twilightSection.getBoundingClientRect();
-        const headerBottom = header.getBoundingClientRect().height || 76;
-        header.classList.toggle('is-dark', rect.top <= headerBottom && rect.bottom > headerBottom);
-      }
+      syncHeaderTheme(header);
     }
 
     if (frictionCards.length > 0) {
@@ -233,6 +244,7 @@ function createReducedMotionEngine(): ScrollEngineHandle {
   return {
     scrollTo,
     destroy: () => {
+      snow.destroy();
       window.removeEventListener('scroll', syncOnScroll);
       window.removeEventListener('resize', handleResize);
       detachLinks();
@@ -257,6 +269,7 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
   const heroSection = document.getElementById('inicio');
   const quoteSection = document.getElementById('cotizar');
   const floatingWaBtn = document.getElementById('floating-wa-btn');
+  const snow = createFestiveSnow(mode);
 
   const lenis = new Lenis({
     duration: 0.95,
@@ -270,6 +283,7 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
     syncFloatingWhatsAppButton(floatingWaBtn, heroSection, quoteSection);
     if (header) {
       header.classList.toggle('is-scrolled', scroll > 20);
+      syncHeaderTheme(header);
     }
   });
 
@@ -411,36 +425,21 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
       },
     });
 
-    // 2. SECCIÓN 2 · Header oscuro adaptativo + Manifiesto + Fricciones ligeras (sticky CSS nativo)
-    if (header) {
-      ScrollTrigger.create({
-        trigger: '#que-hacemos',
-        start: 'top 80px',
-        end: 'bottom 80px',
-        onEnter: () => header.classList.add('is-dark'),
-        onLeave: () => header.classList.remove('is-dark'),
-        onEnterBack: () => header.classList.add('is-dark'),
-        onLeaveBack: () => header.classList.remove('is-dark'),
-      });
-    }
-
+    // 2. SECCIÓN 2 · Manifiesto + Fricciones ligeras (sticky CSS nativo)
     const mm = gsap.matchMedia();
 
-    gsap.fromTo(
-      '#manifesto-box',
-      { clipPath: 'inset(0 100% 0 0)' },
-      {
-        clipPath: 'inset(0 0% 0 0)',
-        duration: 0.72,
-        ease: 'power3.inOut',
-        clearProps: 'clipPath',
-        scrollTrigger: {
-          trigger: '#manifesto-box',
-          start: 'top 88%',
-          once: true,
-        },
+    gsap.from('#manifesto-box', {
+      y: 12,
+      opacity: 0,
+      duration: 0.45,
+      ease: 'power3.out',
+      clearProps: 'transform,opacity',
+      scrollTrigger: {
+        trigger: '#manifesto-box',
+        start: 'top 96%',
+        once: true,
       },
-    );
+    });
 
     frictionCards.forEach((card, idx) => {
       gsap.fromTo(
@@ -743,39 +742,32 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
       });
     });
 
-    // 7. SECCIÓN 7 · Llegada dividida de postal y vista previa WhatsApp
-    gsap.fromTo(
-      '.quote-form-card',
-      { y: 36, scale: 0.97, opacity: 0.25 },
-      {
-        y: 0,
-        scale: 1,
-        opacity: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.quote-shell',
-          start: 'top 92%',
-          end: 'top 56%',
-          scrub: 0.5,
-        },
+    // 7. SECCIÓN 7 · Entrada limpia del formulario y vista previa de WhatsApp
+    gsap.from('.quote-form-card', {
+      y: 22,
+      opacity: 0.85,
+      duration: 0.5,
+      ease: 'power3.out',
+      clearProps: 'transform,opacity',
+      scrollTrigger: {
+        trigger: '.quote-form-card',
+        start: 'top 94%',
+        once: true,
       },
-    );
+    });
 
-    gsap.fromTo(
-      '.preview-card',
-      { y: 58, opacity: 0.25 },
-      {
-        y: 0,
-        opacity: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.quote-shell',
-          start: 'top 94%',
-          end: 'top 56%',
-          scrub: 0.6,
-        },
+    gsap.from('.preview-card', {
+      y: 26,
+      opacity: 0.85,
+      duration: 0.52,
+      ease: 'power3.out',
+      clearProps: 'transform,opacity',
+      scrollTrigger: {
+        trigger: '.preview-card',
+        start: 'top 94%',
+        once: true,
       },
-    );
+    });
   });
 
   if (document.fonts?.ready) {
@@ -784,12 +776,20 @@ export function createScrollEngine(mode: MotionMode): ScrollEngineHandle {
     });
   }
 
+  const handleResize = () => {
+    syncHeaderTheme(header);
+  };
+  window.addEventListener('resize', handleResize, { passive: true });
+
   updateGlobalProgressBar(progressBar);
   syncFloatingWhatsAppButton(floatingWaBtn, heroSection, quoteSection);
+  syncHeaderTheme(header);
 
   return {
     scrollTo,
     destroy: () => {
+      snow.destroy();
+      window.removeEventListener('resize', handleResize);
       ctx.revert();
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
